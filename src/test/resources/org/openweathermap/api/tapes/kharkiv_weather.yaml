@@ -1,0 +1,51 @@
+!tape
+name: kharkiv weather
+interactions:
+- recorded: 2016-03-22T13:22:11.792Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/weather?lang=ua&units=metric&id=706483&appid=e727e62532fa3bedf05392e295969719
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Length: '413'
+      Content-Type: application/json; charset=utf-8
+      Date: Tue, 22 Mar 2016 13:22:10 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/weather?id=706483&lang=ua&units=metric
+    body: '{"coord":{"lon":36.25,"lat":50},"weather":[{"id":803,"main":"Clouds","description":"хмарно","icon":"04d"}],"base":"cmc stations","main":{"temp":8,"pressure":1006,"humidity":52,"temp_min":8,"temp_max":8},"wind":{"speed":5,"deg":230},"clouds":{"all":75},"dt":1458649800,"sys":{"type":1,"id":7355,"message":0.0029,"country":"UA","sunrise":1458617504,"sunset":1458661943},"id":706483,"name":"Kharkiv","cod":200}'
+- recorded: 2016-03-22T14:02:10.772Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/weather?lang=ua&units=metric&id=706483&appid=b1b15e88fa797225412429c1c50c122a
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Length: '428'
+      Content-Type: application/json; charset=utf-8
+      Date: Tue, 22 Mar 2016 14:02:10 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/weather?id=706483&lang=ua&units=metric
+    body: '{"coord":{"lon":36.25,"lat":50},"weather":[{"id":803,"main":"Clouds","description":"хмарно","icon":"04d"}],"base":"stations","main":{"temp":7,"pressure":1006,"humidity":94,"temp_min":7,"temp_max":7},"visibility":10000,"wind":{"speed":4,"deg":200},"clouds":{"all":75},"dt":1458653400,"sys":{"type":1,"id":7355,"message":0.0433,"country":"UA","sunrise":1458617500,"sunset":1458661946},"id":706483,"name":"Kharkiv","cod":200}'

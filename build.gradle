@@ -1,0 +1,31 @@
+
+version "1.0-SNAPSHOT"
+
+apply plugin: "groovy"
+apply plugin: "java"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenLocal()
+}
+dependencies {
+    compile "com.google.code.gson:gson:2.6.2"
+    compile "org.apache.httpcomponents:httpclient:4.5.2"
+    testCompile "org.codehaus.groovy:groovy-all:2.4.6"
+    testCompile "junit:junit:4.12"
+    testCompile("org.spockframework:spock-core:1.0-groovy-2.4") {
+        exclude module: "junit"
+        exclude module: "groovy-all"
+    }
+    testCompile "cglib:cglib-nodep:3.2.0"
+    testCompile "org.objenesis:objenesis:2.2"
+    testCompile "software.betamax:betamax-junit:2.0.0-SNAPSHOT"
+
+}
