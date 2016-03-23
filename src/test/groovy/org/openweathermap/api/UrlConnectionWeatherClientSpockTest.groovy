@@ -1,13 +1,10 @@
 package org.openweathermap.api
 
 import org.openweathermap.api.query.Language
-import org.openweathermap.api.query.QueryBuilder
 import org.openweathermap.api.query.UnitFormat
+import org.openweathermap.api.query.builder.QueryBuilderPicker
 import spock.lang.Specification
 
-/**
- * Created by iuriis on 23.03.2016.
- */
 class UrlConnectionWeatherClientSpockTest extends Specification {
     public static final String API_KEY = "apiKey"
     public static
@@ -27,7 +24,8 @@ class UrlConnectionWeatherClientSpockTest extends Specification {
     def "get Kharkiv weather data"() {
         given:
         def kharkivCityId = "706483"
-        def query = QueryBuilder.byCityId(kharkivCityId).language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byCityId(kharkivCityId)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         def url = new URL("foo", "bar", 99, "/foobar", urlStreamHandler);
         when:
         def result = client.getWeatherData(query)
@@ -41,7 +39,8 @@ class UrlConnectionWeatherClientSpockTest extends Specification {
     def "get Kharkiv weather info"() {
         given:
         def kharkivCityId = "706483"
-        def query = QueryBuilder.byCityId(kharkivCityId).language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byCityId(kharkivCityId)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         def url = new URL("foo", "bar", 99, "/foobar", urlStreamHandler);
         when:
         def result = client.getWeatherInfo(query)

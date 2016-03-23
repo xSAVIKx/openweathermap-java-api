@@ -4,10 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDateTime;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
-public class SystemParameters {
+public class SystemParameters extends AbstractModel {
     @SerializedName("type")
     private String type;
     @SerializedName("id")

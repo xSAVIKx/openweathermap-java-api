@@ -2,10 +2,7 @@ package org.openweathermap.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
-public class Snow {
+public class Snow extends AbstractModel {
 
 
     /**

@@ -1,9 +1,10 @@
 package org.openweathermap.api
 
 import org.junit.Rule
+import org.openweathermap.api.model.Coordinate
 import org.openweathermap.api.query.Language
-import org.openweathermap.api.query.QueryBuilder
 import org.openweathermap.api.query.UnitFormat
+import org.openweathermap.api.query.builder.QueryBuilderPicker
 import software.betamax.Configuration
 import software.betamax.ProxyConfiguration
 import software.betamax.TapeMode
@@ -11,9 +12,6 @@ import software.betamax.junit.Betamax
 import software.betamax.junit.RecorderRule
 import spock.lang.Specification
 
-/**
- * Created by iuriis on 22.03.2016.
- */
 class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     private static final String API_KEY = "e727e62532fa3bedf05392e295969719"
 
@@ -29,7 +27,8 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def kharkivCityId = "706483"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilder.byCityId(kharkivCityId).language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byCityId(kharkivCityId)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherData(query)
         then:
@@ -42,11 +41,28 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def kharkivCityId = "706483"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilder.byCityId(kharkivCityId).language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byCityId(kharkivCityId)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherInfo(query)
         then:
         result != null
         result.getCityId() == kharkivCityId
+    }
+
+    def "get Kharkiv weather info by coordinates"() {
+        given:
+        def longitude = "36.25"
+        def latitude = "50"
+        def kharkivCoordinate = new Coordinate(longitude, latitude)
+
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byGeographicCoordinates(kharkivCoordinate)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getWeatherInfo(query)
+        then:
+        result != null
+        result.getCoordinate() == kharkivCoordinate
     }
 }

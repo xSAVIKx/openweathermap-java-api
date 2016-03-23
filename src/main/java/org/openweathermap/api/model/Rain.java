@@ -2,10 +2,7 @@ package org.openweathermap.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
-public class Rain {
+public class Rain extends AbstractModel {
     /**
      * Rain volume for the last 3 hours
      */

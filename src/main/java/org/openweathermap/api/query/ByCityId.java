@@ -1,8 +1,5 @@
 package org.openweathermap.api.query;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
 public class ByCityId extends AbstractCurrentWeatherQuery {
 
     private final String cityId;
@@ -14,5 +11,9 @@ public class ByCityId extends AbstractCurrentWeatherQuery {
     @Override
     protected String getRequestPart() {
         return "id=" + cityId;
+    }
+
+    public String getCityId() {
+        return cityId;
     }
 }

@@ -5,10 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
-public class WeatherInfo {
+public class WeatherInfo extends AbstractModel {
     @SerializedName("coord")
     private Coordinate coordinate;
     private List<Weather> weather;

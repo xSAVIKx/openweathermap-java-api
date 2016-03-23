@@ -2,10 +2,7 @@ package org.openweathermap.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
-public class Coordinate {
+public class Coordinate extends AbstractModel {
     /**
      * City geo location, longitude
      */
@@ -17,6 +14,15 @@ public class Coordinate {
      */
     @SerializedName("lat")
     private String latitude;
+
+    public Coordinate() {
+        //
+    }
+
+    public Coordinate(String longitude, String latitude) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
 
     public String getLongitude() {
         return longitude;
