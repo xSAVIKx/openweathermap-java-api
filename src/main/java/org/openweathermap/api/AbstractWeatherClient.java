@@ -2,19 +2,12 @@ package org.openweathermap.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
 import org.openweathermap.api.model.*;
 import org.openweathermap.api.query.ResponseFormat;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
+
 public abstract class AbstractWeatherClient implements WeatherClient {
     private final Gson gson = new GsonBuilder()
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer())

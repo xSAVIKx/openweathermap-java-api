@@ -10,9 +10,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
 public class UrlConnectionWeatherClient extends AbstractWeatherClient {
     private final String apiKey;
 
@@ -45,7 +42,7 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
     String readResponse(URLConnection urlConnection) throws IOException {
         StringBuilder response = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
-            String line = null;
+            String line;
             while ((line = br.readLine()) != null) {
                 response.append(line);
             }

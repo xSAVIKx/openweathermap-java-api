@@ -50,6 +50,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result.getCityId() == kharkivCityId
     }
 
+    @Betamax(tape = "kharkiv weather", mode = TapeMode.READ_WRITE)
     def "get Kharkiv weather info by coordinates"() {
         given:
         def longitude = "36.25"
@@ -64,5 +65,20 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.getCoordinate() == kharkivCoordinate
+    }
+
+    @Betamax(tape = "kharkiv weather", mode = TapeMode.READ_WRITE)
+    def "get Kharkiv weather info by city name"() {
+        given:
+        def cityName = "Kharkiv"
+        def countryCode = "ua"
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byCityName(cityName).countryCode(countryCode)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getWeatherInfo(query)
+        then:
+        result != null
+        result.getCityName() == cityName
     }
 }

@@ -28,5 +28,9 @@ public class QueryBuilderPicker {
         public ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
             return new ByGeographicCoordinatesBuilder(coordinate);
         }
+
+        public ByCityNameBuilder byCityName(String cityName) {
+            return new ByCityNameBuilder(cityName);
+        }
     }
 }
