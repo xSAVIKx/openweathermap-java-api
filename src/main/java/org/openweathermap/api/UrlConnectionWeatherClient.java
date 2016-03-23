@@ -35,18 +35,22 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
             URL url = getUrl(query);
             URLConnection urlConnection = url.openConnection();
             urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
-            StringBuilder response = new StringBuilder();
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
-                String line = null;
-                while ((line = br.readLine()) != null) {
-                    response.append(line);
-                }
-            }
-            return response.toString();
+            return readResponse(urlConnection);
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    String readResponse(URLConnection urlConnection) throws IOException {
+        StringBuilder response = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                response.append(line);
+            }
+        }
+        return response.toString();
     }
 
     /**
@@ -55,7 +59,7 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
      * @param query the query
      * @return the url
      */
-    private URL getUrl(String query) {
+    URL getUrl(String query) {
         try {
             return new URL(query);
         } catch (MalformedURLException e) {

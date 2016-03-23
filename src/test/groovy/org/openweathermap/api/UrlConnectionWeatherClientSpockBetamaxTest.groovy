@@ -15,7 +15,7 @@ import spock.lang.Specification
  * Created by iuriis on 22.03.2016.
  */
 class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
-    private static final String API_KEY = "b1b15e88fa797225412429c1c50c122a"
+    private static final String API_KEY = "e727e62532fa3bedf05392e295969719"
 
     private static final String TAPES_STORAGE = "src/test/resources/org/openweathermap/api/tapes";
 
@@ -34,6 +34,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def result = client.getWeatherData(query)
         then:
         result != null
+        assert result.contains(kharkivCityId)
     }
 
     @Betamax(tape = "kharkiv weather", mode = TapeMode.READ_WRITE)
@@ -46,5 +47,6 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def result = client.getWeatherInfo(query)
         then:
         result != null
+        result.getCityId() == kharkivCityId
     }
 }

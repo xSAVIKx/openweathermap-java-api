@@ -13,7 +13,9 @@ public class WeatherInfo {
     private Coordinate coordinate;
     private List<Weather> weather;
     private String base;
+    @SerializedName("name")
     private String cityName;
+    @SerializedName("id")
     private String cityId;
     private String cod;
     private String visibility;
