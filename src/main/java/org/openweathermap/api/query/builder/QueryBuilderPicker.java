@@ -32,5 +32,9 @@ public class QueryBuilderPicker {
         public ByCityNameBuilder byCityName(String cityName) {
             return new ByCityNameBuilder(cityName);
         }
+
+        public ByZipCodeBuilder byZipCode(String zipCode, String countryCode) {
+            return new ByZipCodeBuilder(zipCode, countryCode);
+        }
     }
 }

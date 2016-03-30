@@ -1,8 +1,11 @@
 package org.openweathermap.api.query;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class ByCityName extends AbstractCurrentWeatherQuery {
-
     private final String cityName;
     private String countryCode;
 
@@ -16,17 +19,5 @@ public class ByCityName extends AbstractCurrentWeatherQuery {
             return "q=" + cityName + "," + countryCode;
         }
         return "q=" + cityName;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
     }
 }

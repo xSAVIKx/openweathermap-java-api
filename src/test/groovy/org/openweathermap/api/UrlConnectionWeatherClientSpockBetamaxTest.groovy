@@ -81,4 +81,19 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result != null
         result.getCityName() == cityName
     }
+
+    @Betamax(tape = "kharkiv weather", mode = TapeMode.READ_WRITE)
+    def "get Kharkiv weather info by zip code"() {
+        given:
+        def zipCode = "94040"
+        def countryCode = "us"
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().currentWeatherQuery().byZipCode(zipCode, countryCode)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getWeatherInfo(query)
+        then:
+        result != null
+        result.getCityName() == "Mountain View"
+    }
 }

@@ -1,10 +1,12 @@
 package org.openweathermap.api.model;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
-public class SystemParameters extends AbstractModel {
+@Data
+public class SystemParameters {
     @SerializedName("type")
     private String type;
     @SerializedName("id")
@@ -17,53 +19,4 @@ public class SystemParameters extends AbstractModel {
     private LocalDateTime sunrise;
     @SerializedName("sunset")
     private LocalDateTime sunset;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public LocalDateTime getSunrise() {
-        return sunrise;
-    }
-
-    public void setSunrise(LocalDateTime sunrise) {
-        this.sunrise = sunrise;
-    }
-
-    public LocalDateTime getSunset() {
-        return sunset;
-    }
-
-    public void setSunset(LocalDateTime sunset) {
-        this.sunset = sunset;
-    }
-
-    public String getType() {
-
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 }

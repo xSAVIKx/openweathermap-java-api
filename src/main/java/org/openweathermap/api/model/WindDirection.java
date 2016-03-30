@@ -1,13 +1,8 @@
 package org.openweathermap.api.model;
 
-public class WindDirection extends AbstractModel {
+import lombok.Data;
+
+@Data
+public class WindDirection {
     private int degree;
-
-    public int getDegree() {
-        return degree;
-    }
-
-    public void setDegree(int degree) {
-        this.degree = degree;
-    }
 }

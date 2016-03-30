@@ -1,8 +1,5 @@
 package org.openweathermap.api.query;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
 public enum UnitFormat {
     STANDARD("standard"),
     IMPERIAL("imperial"),

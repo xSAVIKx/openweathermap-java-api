@@ -39,7 +39,7 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
         }
     }
 
-    String readResponse(URLConnection urlConnection) throws IOException {
+    private String readResponse(URLConnection urlConnection) throws IOException {
         StringBuilder response = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
             String line;
@@ -56,7 +56,7 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
      * @param query the query
      * @return the url
      */
-    URL getUrl(String query) {
+    private URL getUrl(String query) {
         try {
             return new URL(query);
         } catch (MalformedURLException e) {

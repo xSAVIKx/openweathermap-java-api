@@ -1,8 +1,5 @@
 package org.openweathermap.api.query;
 
-/**
- * Created by iuriis on 22.03.2016.
- */
 public interface Query {
     String BASE_URL = "http://api.openweathermap.org";
 

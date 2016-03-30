@@ -1,5 +1,10 @@
 package org.openweathermap.api.query;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class ByCityId extends AbstractCurrentWeatherQuery {
 
     private final String cityId;
@@ -11,9 +16,5 @@ public class ByCityId extends AbstractCurrentWeatherQuery {
     @Override
     protected String getRequestPart() {
         return "id=" + cityId;
-    }
-
-    public String getCityId() {
-        return cityId;
     }
 }
