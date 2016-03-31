@@ -6,7 +6,7 @@ import org.openweathermap.api.model.Coordinate;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByGeographicCoordinates extends AbstractCurrentWeatherQuery {
+public class ByGeographicCoordinates extends AbstractCurrentWeatherOneLocationQuery {
     private final Coordinate coordinate;
 
     public ByGeographicCoordinates(Coordinate coordinate) {

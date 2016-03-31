@@ -1,0 +1,31 @@
+!tape
+name: by rectangle zone
+interactions:
+- recorded: 2016-03-31T11:47:59.999Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/box/city?units=metric&bbox=12,32,15,39&cluster=yes&appid=e727e62532fa3bedf05392e295969719
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Cache-Control: no-cache, must-revalidate
+      Connection: keep-alive
+      Content-Length: '407'
+      Content-Type: application/json; charset=utf8
+      Date: Thu, 31 Mar 2016 11:47:59 GMT
+      Pragma: no-cache
+      Server: openresty
+      X-Cache-Key: /data/2.5/box/city?bbox=12,32,15,39&cluster=yes&units=metric
+      X-Powered-By: Fat-Free Framework (http://fatfree.sourceforge.net)
+    body: '{"cod":"200","calctime":0.0006,"cnt":1,"list":[{"id":2210247,"name":"Tripoli","coord":{"lon":13.18746,"lat":32.875191},"main":{"temp":30.25,"temp_min":30.254,"temp_max":30.254,"pressure":1000.39,"sea_level":1031.97,"grnd_level":1000.39,"humidity":18},"dt":1459424125,"wind":{"speed":4.22,"deg":156.001},"clouds":{"all":68},"weather":[{"id":803,"main":"Clouds","description":"broken
+      clouds","icon":"04d"}]}]}'

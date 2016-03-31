@@ -3,7 +3,7 @@ package org.openweathermap.api.query.builder;
 import org.openweathermap.api.model.Coordinate;
 import org.openweathermap.api.query.ByGeographicCoordinates;
 
-public class ByGeographicCoordinatesBuilder extends CurrentWeatherQueryBuilder<ByGeographicCoordinatesBuilder, ByGeographicCoordinates> {
+public class ByGeographicCoordinatesBuilder extends CurrentWeatherOneLocationQueryBuilder<ByGeographicCoordinatesBuilder, ByGeographicCoordinates> {
     private ByGeographicCoordinates query;
 
     public ByGeographicCoordinatesBuilder(Coordinate coordinate) {

@@ -1,7 +1,7 @@
 package org.openweathermap.api.query;
 
 public interface Query {
-    String BASE_URL = "http://api.openweathermap.org";
+    String BASE_URL = "http://api.openweathermap.org/data/2.5";
 
     String QUESTION_MARK = "?";
     String AND = "&";
@@ -15,8 +15,4 @@ public interface Query {
     UnitFormat getUnitFormat();
 
     void setUnitFormat(UnitFormat unitFormat);
-
-    ResponseFormat getResponseFormat();
-
-    void setResponseFormat(ResponseFormat responseFormat);
 }

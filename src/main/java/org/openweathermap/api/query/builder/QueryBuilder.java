@@ -2,7 +2,6 @@ package org.openweathermap.api.query.builder;
 
 import org.openweathermap.api.query.Language;
 import org.openweathermap.api.query.Query;
-import org.openweathermap.api.query.ResponseFormat;
 import org.openweathermap.api.query.UnitFormat;
 
 public abstract class QueryBuilder<T extends QueryBuilder<T, E>, E extends Query> {
@@ -24,8 +23,4 @@ public abstract class QueryBuilder<T extends QueryBuilder<T, E>, E extends Query
         return self();
     }
 
-    public T responseFormat(ResponseFormat responseFormat) {
-        getQuery().setResponseFormat(responseFormat);
-        return self();
-    }
 }

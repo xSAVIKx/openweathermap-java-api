@@ -1,0 +1,28 @@
+!tape
+name: by zip code
+interactions:
+- recorded: 2016-03-31T11:50:59.338Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=e727e62532fa3bedf05392e295969719
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Length: '444'
+      Content-Type: application/json; charset=utf-8
+      Date: Thu, 31 Mar 2016 11:50:59 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/weather?zip=94040,us
+    body: '{"coord":{"lon":-122.08,"lat":37.39},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"cmc stations","main":{"temp":284.16,"pressure":1020,"humidity":87,"temp_min":282.25,"temp_max":286.15},"wind":{"speed":2.6,"deg":310},"clouds":{"all":90},"dt":1459424774,"sys":{"type":3,"id":392,"message":0.0051,"country":"US","sunrise":1459432420,"sunset":1459477866},"id":5375480,"name":"Mountain
+      View","cod":200}'

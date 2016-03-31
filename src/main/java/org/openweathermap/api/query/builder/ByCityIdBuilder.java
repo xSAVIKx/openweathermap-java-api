@@ -2,7 +2,7 @@ package org.openweathermap.api.query.builder;
 
 import org.openweathermap.api.query.ByCityId;
 
-public class ByCityIdBuilder extends CurrentWeatherQueryBuilder<ByCityIdBuilder, ByCityId> {
+public class ByCityIdBuilder extends CurrentWeatherOneLocationQueryBuilder<ByCityIdBuilder, ByCityId> {
     private ByCityId query;
 
     public ByCityIdBuilder(String cityId) {

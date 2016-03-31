@@ -16,11 +16,15 @@ public class QueryBuilderPicker {
         return instance;
     }
 
-    public CurrentWeatherQueryPicker currentWeatherQuery() {
-        return new CurrentWeatherQueryPicker();
+    public CurrentWeatherOneLocationQueryPicker currentWeatherOneLocationQuery() {
+        return new CurrentWeatherOneLocationQueryPicker();
     }
 
-    private class CurrentWeatherQueryPicker {
+    public CurrentWeatherManyLocationsQueryPicker currentWeatherManyLocationsQueryPicker() {
+        return new CurrentWeatherManyLocationsQueryPicker();
+    }
+
+    private class CurrentWeatherOneLocationQueryPicker {
         public ByCityIdBuilder byCityId(String cityId) {
             return new ByCityIdBuilder(cityId);
         }
@@ -35,6 +39,12 @@ public class QueryBuilderPicker {
 
         public ByZipCodeBuilder byZipCode(String zipCode, String countryCode) {
             return new ByZipCodeBuilder(zipCode, countryCode);
+        }
+    }
+
+    private class CurrentWeatherManyLocationsQueryPicker {
+        public ByRectangleZoneBuilder byRectangleZone(Coordinate leftBottom, Coordinate rightTop) {
+            return new ByRectangleZoneBuilder(leftBottom, rightTop);
         }
     }
 }

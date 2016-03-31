@@ -2,14 +2,20 @@
 
 To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here](http://home.openweathermap.org/users/sign_up).
 
-## Features
+# Features
 
-### Current Weather Conditions
+## Current weather queries
 
-- By City ID
-- By City Name, [Country]
-- By Zip,Country
-- By Geographic Coordinates (Longitude and Latitude)
+### Call current weather data for one location
+
+- By city name
+- By city ID
+- By ZIP code
+- By geographic coordinates
+
+### Call current weather data for several cities
+
+- Cities within a rectangle zone
 
 ## Supported Languages
 

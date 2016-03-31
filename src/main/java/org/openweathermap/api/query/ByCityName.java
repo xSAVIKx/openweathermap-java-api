@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByCityName extends AbstractCurrentWeatherQuery {
+public class ByCityName extends AbstractCurrentWeatherOneLocationQuery {
     private final String cityName;
     private String countryCode;
 

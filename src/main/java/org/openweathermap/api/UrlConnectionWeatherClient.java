@@ -1,6 +1,8 @@
 package org.openweathermap.api;
 
 import org.openweathermap.api.model.WeatherInfo;
+import org.openweathermap.api.query.CurrentWeatherManyLocationsQuery;
+import org.openweathermap.api.query.CurrentWeatherOneLocationQuery;
 import org.openweathermap.api.query.Query;
 
 import java.io.BufferedReader;
@@ -9,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 
 public class UrlConnectionWeatherClient extends AbstractWeatherClient {
     private final String apiKey;
@@ -23,8 +26,13 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
     }
 
     @Override
-    public WeatherInfo getWeatherInfo(Query query) {
+    public WeatherInfo getWeatherInfo(CurrentWeatherOneLocationQuery query) {
         return toWeatherInfo(getWeatherData(query), query.getResponseFormat());
+    }
+
+    @Override
+    public List<WeatherInfo> getWeatherInfo(CurrentWeatherManyLocationsQuery query) {
+        return toWeatherInfo(getWeatherData(query));
     }
 
     private String makeRequest(String query) {

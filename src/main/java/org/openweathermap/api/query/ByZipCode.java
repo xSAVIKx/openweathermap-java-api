@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByZipCode extends AbstractCurrentWeatherQuery {
+public class ByZipCode extends AbstractCurrentWeatherOneLocationQuery {
     private final String zipCode;
     private final String countryCode;
 
