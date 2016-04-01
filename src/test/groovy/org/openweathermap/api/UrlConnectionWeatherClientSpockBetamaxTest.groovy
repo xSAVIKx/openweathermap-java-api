@@ -146,4 +146,19 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result != null
         result.size() == expectedCitiesAmount
     }
+
+    @Betamax(tape = "by city ids", mode = TapeMode.READ_WRITE)
+    def "get weather info by cities ID"() {
+        given:
+        def kharkivCityId = "706483"
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().currentWeatherManyLocationsQueryPicker().byCityIds().addCityId(kharkivCityId)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getWeatherInfo(query)
+        then:
+        result != null
+        result.size() == 1
+        result[0].getCityId() == kharkivCityId
+    }
 }

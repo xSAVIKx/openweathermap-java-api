@@ -2,6 +2,8 @@ package org.openweathermap.api.query.builder;
 
 import org.openweathermap.api.model.Coordinate;
 
+import java.util.Collection;
+
 public class QueryBuilderPicker {
     private static QueryBuilderPicker instance;
 
@@ -49,6 +51,14 @@ public class QueryBuilderPicker {
 
         public InCycleBuilder inCycle(Coordinate centerPoint, int expectedNumberOfCities) {
             return new InCycleBuilder(centerPoint, expectedNumberOfCities);
+        }
+
+        public ByCityIdsBuilder byCityIds(Collection<String> cityIds) {
+            return new ByCityIdsBuilder(cityIds);
+        }
+
+        public ByCityIdsBuilder byCityIds() {
+            return new ByCityIdsBuilder();
         }
     }
 }
