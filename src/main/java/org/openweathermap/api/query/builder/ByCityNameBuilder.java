@@ -14,6 +14,11 @@ public class ByCityNameBuilder extends CurrentWeatherOneLocationQueryBuilder<ByC
         return self();
     }
 
+    public ByCityNameBuilder type(ByCityName.Type type) {
+        query.setType(type);
+        return self();
+    }
+
     @Override
     protected ByCityNameBuilder self() {
         return this;

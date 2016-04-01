@@ -2,7 +2,7 @@ package org.openweathermap.api
 
 import org.junit.Rule
 import org.openweathermap.api.model.Coordinate
-import org.openweathermap.api.query.ByRectangleZone
+import org.openweathermap.api.query.ByCityName
 import org.openweathermap.api.query.Cluster
 import org.openweathermap.api.query.Language
 import org.openweathermap.api.query.UnitFormat
@@ -75,7 +75,8 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def cityName = "Kharkiv"
         def countryCode = "ua"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery().byCityName(cityName).countryCode(countryCode)
+        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery()
+                .byCityName(cityName).countryCode(countryCode).type(ByCityName.Type.ACCURATE)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherInfo(query)
@@ -107,7 +108,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeatherManyLocationsQueryPicker().byRectangleZone(leftBottom, rightTop)
-                .cluster(ByRectangleZone.Cluster.YES).unitFormat(UnitFormat.METRIC).build()
+                .cluster(Cluster.YES).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherData(query)
         then:

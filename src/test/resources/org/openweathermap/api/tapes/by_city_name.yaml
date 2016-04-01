@@ -1,10 +1,10 @@
 !tape
 name: by city name
 interactions:
-- recorded: 2016-03-31T11:47:55.044Z
+- recorded: 2016-04-01T09:01:52.736Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/weather?lang=ua&units=metric&q=Kharkiv,ua&appid=e727e62532fa3bedf05392e295969719
+    uri: http://api.openweathermap.org/data/2.5/weather?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=e727e62532fa3bedf05392e295969719
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
@@ -19,9 +19,9 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
-      Content-Length: '408'
+      Content-Length: '416'
       Content-Type: application/json; charset=utf-8
-      Date: Thu, 31 Mar 2016 11:47:54 GMT
+      Date: Fri, 01 Apr 2016 09:01:52 GMT
       Server: openresty
-      X-Cache-Key: /data/2.5/weather?lang=ua&q=kharkiv,ua&units=metric
-    body: '{"coord":{"lon":36.25,"lat":50},"weather":[{"id":520,"main":"Rain","description":"дощ","icon":"09d"}],"base":"cmc stations","main":{"temp":12,"pressure":1017,"humidity":54,"temp_min":12,"temp_max":12},"wind":{"speed":7,"deg":210},"clouds":{"all":75},"dt":1459422000,"sys":{"type":1,"id":7355,"message":0.0028,"country":"UA","sunrise":1459393938,"sunset":1459440388},"id":706483,"name":"Kharkiv","cod":200}'
+      X-Cache-Key: /data/2.5/weather?lang=ua&q=kharkiv,ua&type=accurate&units=metric
+    body: '{"coord":{"lon":36.25,"lat":50},"weather":[{"id":803,"main":"Clouds","description":"хмарно","icon":"04d"}],"base":"cmc stations","main":{"temp":11,"pressure":1012,"humidity":81,"temp_min":11,"temp_max":11},"wind":{"speed":5,"deg":220},"clouds":{"all":75},"dt":1459499400,"sys":{"type":1,"id":7355,"message":0.0044,"country":"UA","sunrise":1459480224,"sunset":1459526871},"id":706483,"name":"Kharkiv","cod":200}'
