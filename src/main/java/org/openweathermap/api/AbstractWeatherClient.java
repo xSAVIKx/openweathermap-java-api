@@ -28,7 +28,7 @@ public abstract class AbstractWeatherClient implements WeatherClient {
     protected List<WeatherInfo> toWeatherInfo(String data) {
         JsonObject jsonObject = jsonParser.parse(data).getAsJsonObject();
         JsonArray list = jsonObject.getAsJsonArray("list");
-        List<WeatherInfo> weatherInfoList = new ArrayList<>(jsonObject.get("cnt").getAsInt());
+        List<WeatherInfo> weatherInfoList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             WeatherInfo weatherInfo = gson.fromJson(list.get(i), WeatherInfo.class);
             weatherInfoList.add(weatherInfo);

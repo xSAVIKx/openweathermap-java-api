@@ -130,4 +130,18 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result[0] != null
         result[0].getCityId() == "2210247"
     }
+
+    @Betamax(tape = "in cycle", mode = TapeMode.READ_WRITE)
+    def "get current weather info for cities in cycle"() {
+        def centerPoint = new Coordinate("55.5", "37.5")
+        def expectedCitiesAmount = 10
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick()
+                .currentWeatherManyLocationsQueryPicker().inCycle(centerPoint, expectedCitiesAmount).build();
+        when:
+        def result = client.getWeatherInfo(query)
+        then:
+        result != null
+        result.size() == expectedCitiesAmount
+    }
 }

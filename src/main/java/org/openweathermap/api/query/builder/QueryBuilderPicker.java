@@ -46,5 +46,9 @@ public class QueryBuilderPicker {
         public ByRectangleZoneBuilder byRectangleZone(Coordinate leftBottom, Coordinate rightTop) {
             return new ByRectangleZoneBuilder(leftBottom, rightTop);
         }
+
+        public InCycleBuilder inCycle(Coordinate centerPoint, int expectedNumberOfCities) {
+            return new InCycleBuilder(centerPoint, expectedNumberOfCities);
+        }
     }
 }
