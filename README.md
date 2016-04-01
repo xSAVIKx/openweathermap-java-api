@@ -16,6 +16,7 @@ To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here](ht
 ### Call current weather data for several cities
 
 - Cities within a rectangle zone
+- Cities in cycle
 
 ## Supported Languages
 

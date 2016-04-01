@@ -2,6 +2,7 @@ package org.openweathermap.api.query.builder;
 
 import org.openweathermap.api.model.Coordinate;
 import org.openweathermap.api.query.ByRectangleZone;
+import org.openweathermap.api.query.Cluster;
 
 public class ByRectangleZoneBuilder extends CurrentWeatherManyLocationsQueryBuilder<ByRectangleZoneBuilder, ByRectangleZone> {
     private ByRectangleZone query;
@@ -10,7 +11,7 @@ public class ByRectangleZoneBuilder extends CurrentWeatherManyLocationsQueryBuil
         query = new ByRectangleZone(leftBottom, rightTop);
     }
 
-    public ByRectangleZoneBuilder cluster(ByRectangleZone.Cluster cluster) {
+    public ByRectangleZoneBuilder cluster(Cluster cluster) {
         query.setCluster(cluster);
         return self();
     }

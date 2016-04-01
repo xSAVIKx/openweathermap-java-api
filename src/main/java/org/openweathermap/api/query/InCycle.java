@@ -1,13 +1,15 @@
 package org.openweathermap.api.query;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.openweathermap.api.model.Coordinate;
 
-/**
- * Created by iuriis on 31.03.2016.
- */
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class InCycle extends AbstractQuery implements CurrentWeatherManyLocationsQuery {
     private Coordinate centerPoint;
     private int expectedNumberOfCities;
+    private Cluster cluster;
 
     public InCycle(Coordinate centerPoint, int expectedNumberOfCities) {
         this.centerPoint = centerPoint;
@@ -21,6 +23,13 @@ public class InCycle extends AbstractQuery implements CurrentWeatherManyLocation
 
     @Override
     protected String getRequestPart() {
-        return String.format("lat=%s&lon=%s&cnt=%d", centerPoint.getLatitude(), centerPoint.getLongitude(), expectedNumberOfCities);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("lat=").append(centerPoint.getLatitude()).append(AND);
+        stringBuilder.append("lon=").append(centerPoint.getLongitude()).append(AND);
+        stringBuilder.append("cnt=").append(expectedNumberOfCities);
+        if (cluster != null) {
+            stringBuilder.append(AND).append("cluster=").append(cluster.getStringRepresentation());
+        }
+        return stringBuilder.toString();
     }
 }

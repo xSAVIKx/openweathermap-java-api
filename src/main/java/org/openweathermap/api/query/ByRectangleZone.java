@@ -25,32 +25,11 @@ public class ByRectangleZone extends AbstractQuery implements CurrentWeatherMany
     @Override
     protected String getRequestPart() {
         StringBuilder stringBuilder = new StringBuilder("bbox=");
-        stringBuilder.append(leftBottom.getLongitude()).append(',').append(leftBottom.getLatitude()).append(',').append(rightTop.getLongitude()).append(',').append(rightTop.getLatitude());
+        stringBuilder.append(leftBottom.getLongitude()).append(',').append(leftBottom.getLatitude()).append(',');
+        stringBuilder.append(rightTop.getLongitude()).append(',').append(rightTop.getLatitude());
         if (cluster != null) {
             stringBuilder.append(AND).append("cluster=").append(cluster.getStringRepresentation());
         }
         return stringBuilder.toString();
-    }
-
-    public enum Cluster {
-        YES("yes"), NO("no");
-        private final String stringRepresentation;
-
-        Cluster(String stringRepresentation) {
-            this.stringRepresentation = stringRepresentation;
-        }
-
-        public static Cluster fromStringRepresentation(String stringRepresentation) {
-            for (Cluster cluster : values()) {
-                if (cluster.stringRepresentation.equals(stringRepresentation)) {
-                    return cluster;
-                }
-            }
-            throw new IllegalArgumentException("No Cluster was found with value:" + stringRepresentation);
-        }
-
-        public String getStringRepresentation() {
-            return stringRepresentation;
-        }
     }
 }

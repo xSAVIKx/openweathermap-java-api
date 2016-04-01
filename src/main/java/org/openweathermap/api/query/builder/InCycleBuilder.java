@@ -1,16 +1,19 @@
 package org.openweathermap.api.query.builder;
 
 import org.openweathermap.api.model.Coordinate;
+import org.openweathermap.api.query.Cluster;
 import org.openweathermap.api.query.InCycle;
 
-/**
- * Created by iuriis on 31.03.2016.
- */
 public class InCycleBuilder extends CurrentWeatherManyLocationsQueryBuilder<InCycleBuilder, InCycle> {
     InCycle query;
 
     public InCycleBuilder(Coordinate centerPoint, int expectedNumberOfCities) {
         query = new InCycle(centerPoint, expectedNumberOfCities);
+    }
+
+    public InCycleBuilder cluster(Cluster cluster) {
+        query.setCluster(cluster);
+        return self();
     }
 
     @Override

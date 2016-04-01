@@ -3,6 +3,7 @@ package org.openweathermap.api
 import org.junit.Rule
 import org.openweathermap.api.model.Coordinate
 import org.openweathermap.api.query.ByRectangleZone
+import org.openweathermap.api.query.Cluster
 import org.openweathermap.api.query.Language
 import org.openweathermap.api.query.UnitFormat
 import org.openweathermap.api.query.builder.QueryBuilderPicker
@@ -121,7 +122,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeatherManyLocationsQueryPicker().byRectangleZone(leftBottom, rightTop)
-                .cluster(ByRectangleZone.Cluster.YES).unitFormat(UnitFormat.METRIC).build()
+                .cluster(Cluster.YES).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherInfo(query)
         then:
@@ -137,7 +138,8 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def expectedCitiesAmount = 10
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
-                .currentWeatherManyLocationsQueryPicker().inCycle(centerPoint, expectedCitiesAmount).build();
+                .currentWeatherManyLocationsQueryPicker().inCycle(centerPoint, expectedCitiesAmount)
+                .cluster(Cluster.YES).build();
         when:
         def result = client.getWeatherInfo(query)
         then:
