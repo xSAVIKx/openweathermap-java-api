@@ -78,5 +78,13 @@ public class QueryBuilderPicker {
         public org.openweathermap.api.query.forecast.ByCityNameBuilder byCityName(String cityName) {
             return new org.openweathermap.api.query.forecast.ByCityNameBuilder(cityName);
         }
+
+        public org.openweathermap.api.query.forecast.ByCityIdBuilder byCityId(String cityId) {
+            return new org.openweathermap.api.query.forecast.ByCityIdBuilder(cityId);
+        }
+
+        public org.openweathermap.api.query.forecast.ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
+            return new org.openweathermap.api.query.forecast.ByGeographicCoordinatesBuilder(coordinate);
+        }
     }
 }

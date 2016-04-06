@@ -1,8 +1,7 @@
 package org.openweathermap.api.query.forecast;
 
-import org.openweathermap.api.query.QueryBuilder;
+import org.openweathermap.api.query.QueryBuilderWithResponseFormat;
 
 
-public abstract class ForecastQueryBuilder<T extends ForecastQueryBuilder<T, E>, E extends ForecastQuery> extends QueryBuilder<T, E> {
-    protected abstract E getQuery();
+public abstract class ForecastQueryBuilder<T extends ForecastQueryBuilder<T, E>, E extends ForecastQuery> extends QueryBuilderWithResponseFormat<T, E> {
 }

@@ -24,6 +24,8 @@ To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here](ht
 ### Call 5 day / 3 hour forecast data
 
 - By city name
+- By city ID
+- By geographic coordinates
 
 ## Supported Languages
 
