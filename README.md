@@ -19,6 +19,12 @@ To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here](ht
 - Cities in cycle
 - Call for several city IDs
 
+## Forecast queries
+
+### Call 5 day / 3 hour forecast data
+
+- By city name
+
 ## Supported Languages
 
 ENGLISH("en"),
