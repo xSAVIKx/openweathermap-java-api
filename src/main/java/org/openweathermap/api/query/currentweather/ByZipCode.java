@@ -1,4 +1,4 @@
-package org.openweathermap.api.query;
+package org.openweathermap.api.query.currentweather;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

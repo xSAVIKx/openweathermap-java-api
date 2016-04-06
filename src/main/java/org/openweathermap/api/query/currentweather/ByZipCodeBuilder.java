@@ -1,6 +1,4 @@
-package org.openweathermap.api.query.builder;
-
-import org.openweathermap.api.query.ByZipCode;
+package org.openweathermap.api.query.currentweather;
 
 public class ByZipCodeBuilder extends CurrentWeatherOneLocationQueryBuilder<ByZipCodeBuilder, ByZipCode> {
     private ByZipCode query;

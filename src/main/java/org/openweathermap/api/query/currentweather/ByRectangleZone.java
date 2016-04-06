@@ -1,8 +1,10 @@
-package org.openweathermap.api.query;
+package org.openweathermap.api.query.currentweather;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.openweathermap.api.model.Coordinate;
+import org.openweathermap.api.query.AbstractQuery;
+import org.openweathermap.api.query.Cluster;
 
 
 @EqualsAndHashCode(callSuper = true)

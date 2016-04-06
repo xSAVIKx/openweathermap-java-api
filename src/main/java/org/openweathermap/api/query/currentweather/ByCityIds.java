@@ -1,8 +1,9 @@
-package org.openweathermap.api.query;
+package org.openweathermap.api.query.currentweather;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.StringUtils;
+import org.openweathermap.api.query.AbstractQuery;
 
 import java.util.ArrayList;
 import java.util.Collection;

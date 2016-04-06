@@ -1,7 +1,6 @@
-package org.openweathermap.api.query.builder;
+package org.openweathermap.api.query.currentweather;
 
 import org.openweathermap.api.model.Coordinate;
-import org.openweathermap.api.query.ByGeographicCoordinates;
 
 public class ByGeographicCoordinatesBuilder extends CurrentWeatherOneLocationQueryBuilder<ByGeographicCoordinatesBuilder, ByGeographicCoordinates> {
     private ByGeographicCoordinates query;

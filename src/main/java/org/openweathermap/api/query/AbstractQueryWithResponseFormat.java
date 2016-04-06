@@ -5,12 +5,8 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public abstract class AbstractCurrentWeatherOneLocationQuery extends AbstractQuery implements CurrentWeatherOneLocationQuery {
+public abstract class AbstractQueryWithResponseFormat extends AbstractQuery {
     private ResponseFormat responseFormat;
-
-    protected String getSearchPath() {
-        return CurrentWeatherOneLocationQuery.SEARCH_PATH;
-    }
 
     @Override
     public String toStringRepresentation(String apiKey) {

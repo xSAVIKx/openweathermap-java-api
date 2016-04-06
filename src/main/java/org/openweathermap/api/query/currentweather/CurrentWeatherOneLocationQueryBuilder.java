@@ -1,6 +1,6 @@
-package org.openweathermap.api.query.builder;
+package org.openweathermap.api.query.currentweather;
 
-import org.openweathermap.api.query.CurrentWeatherOneLocationQuery;
+import org.openweathermap.api.query.QueryBuilder;
 import org.openweathermap.api.query.ResponseFormat;
 
 public abstract class CurrentWeatherOneLocationQueryBuilder<T extends CurrentWeatherOneLocationQueryBuilder<T, E>, E extends CurrentWeatherOneLocationQuery> extends QueryBuilder<T, E> {

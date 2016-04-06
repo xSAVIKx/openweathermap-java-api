@@ -1,6 +1,4 @@
-package org.openweathermap.api.query.builder;
-
-import org.openweathermap.api.query.ByCityId;
+package org.openweathermap.api.query.currentweather;
 
 public class ByCityIdBuilder extends CurrentWeatherOneLocationQueryBuilder<ByCityIdBuilder, ByCityId> {
     private ByCityId query;

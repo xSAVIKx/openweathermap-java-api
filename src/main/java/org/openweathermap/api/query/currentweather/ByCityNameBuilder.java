@@ -1,6 +1,6 @@
-package org.openweathermap.api.query.builder;
+package org.openweathermap.api.query.currentweather;
 
-import org.openweathermap.api.query.ByCityName;
+import org.openweathermap.api.query.Type;
 
 public class ByCityNameBuilder extends CurrentWeatherOneLocationQueryBuilder<ByCityNameBuilder, ByCityName> {
     private ByCityName query;
@@ -14,7 +14,7 @@ public class ByCityNameBuilder extends CurrentWeatherOneLocationQueryBuilder<ByC
         return self();
     }
 
-    public ByCityNameBuilder type(ByCityName.Type type) {
+    public ByCityNameBuilder type(Type type) {
         query.setType(type);
         return self();
     }

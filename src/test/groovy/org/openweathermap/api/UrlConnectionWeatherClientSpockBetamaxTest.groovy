@@ -2,11 +2,7 @@ package org.openweathermap.api
 
 import org.junit.Rule
 import org.openweathermap.api.model.Coordinate
-import org.openweathermap.api.query.ByCityName
-import org.openweathermap.api.query.Cluster
-import org.openweathermap.api.query.Language
-import org.openweathermap.api.query.UnitFormat
-import org.openweathermap.api.query.builder.QueryBuilderPicker
+import org.openweathermap.api.query.*
 import software.betamax.Configuration
 import software.betamax.ProxyConfiguration
 import software.betamax.TapeMode
@@ -76,7 +72,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def countryCode = "ua"
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery()
-                .byCityName(cityName).countryCode(countryCode).type(ByCityName.Type.ACCURATE)
+                .byCityName(cityName).countryCode(countryCode).type(Type.ACCURATE)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherInfo(query)

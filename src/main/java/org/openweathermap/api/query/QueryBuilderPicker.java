@@ -1,6 +1,7 @@
-package org.openweathermap.api.query.builder;
+package org.openweathermap.api.query;
 
 import org.openweathermap.api.model.Coordinate;
+import org.openweathermap.api.query.currentweather.*;
 
 import java.util.Collection;
 

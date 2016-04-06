@@ -1,6 +1,4 @@
-package org.openweathermap.api.query.builder;
-
-import org.openweathermap.api.query.ByCityIds;
+package org.openweathermap.api.query.currentweather;
 
 import java.util.Collection;
 

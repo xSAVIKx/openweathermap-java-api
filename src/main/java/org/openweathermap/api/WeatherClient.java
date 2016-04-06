@@ -1,9 +1,9 @@
 package org.openweathermap.api;
 
 import org.openweathermap.api.model.WeatherInfo;
-import org.openweathermap.api.query.CurrentWeatherManyLocationsQuery;
-import org.openweathermap.api.query.CurrentWeatherOneLocationQuery;
 import org.openweathermap.api.query.Query;
+import org.openweathermap.api.query.currentweather.CurrentWeatherManyLocationsQuery;
+import org.openweathermap.api.query.currentweather.CurrentWeatherOneLocationQuery;
 
 import java.util.List;
 
