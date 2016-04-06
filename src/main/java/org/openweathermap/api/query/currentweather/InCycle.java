@@ -8,7 +8,7 @@ import org.openweathermap.api.query.Cluster;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class InCycle extends AbstractQuery implements CurrentWeatherManyLocationsQuery {
+public class InCycle extends AbstractQuery implements CurrentWeatherMultipleLocationsQuery {
     private Coordinate centerPoint;
     private int expectedNumberOfCities;
     private Cluster cluster;

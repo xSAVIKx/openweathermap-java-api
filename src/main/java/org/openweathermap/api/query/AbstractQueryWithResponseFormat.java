@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public abstract class AbstractQueryWithResponseFormat extends AbstractQuery {
+public abstract class AbstractQueryWithResponseFormat extends AbstractQuery implements QueryWithResponseFormat {
     private ResponseFormat responseFormat;
 
     @Override

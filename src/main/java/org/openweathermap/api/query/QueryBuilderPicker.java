@@ -19,47 +19,64 @@ public class QueryBuilderPicker {
         return instance;
     }
 
-    public CurrentWeatherOneLocationQueryPicker currentWeatherOneLocationQuery() {
-        return new CurrentWeatherOneLocationQueryPicker();
+    public CurrentWeatherPicker currentWeather() {
+        return new CurrentWeatherPicker();
     }
 
-    public CurrentWeatherManyLocationsQueryPicker currentWeatherManyLocationsQueryPicker() {
-        return new CurrentWeatherManyLocationsQueryPicker();
+    public ForecastInformationPicker forecastInformation() {
+        return new ForecastInformationPicker();
     }
 
-    private class CurrentWeatherOneLocationQueryPicker {
-        public ByCityIdBuilder byCityId(String cityId) {
-            return new ByCityIdBuilder(cityId);
+
+    private class CurrentWeatherPicker {
+        public CurrentWeatherOneLocationQueryPicker oneLocation() {
+            return new CurrentWeatherOneLocationQueryPicker();
         }
 
-        public ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
-            return new ByGeographicCoordinatesBuilder(coordinate);
+        public CurrentWeatherMultipleLocationsQueryPicker multipleLocations() {
+            return new CurrentWeatherMultipleLocationsQueryPicker();
         }
 
-        public ByCityNameBuilder byCityName(String cityName) {
-            return new ByCityNameBuilder(cityName);
+        private class CurrentWeatherOneLocationQueryPicker {
+            public ByCityIdBuilder byCityId(String cityId) {
+                return new ByCityIdBuilder(cityId);
+            }
+
+            public ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
+                return new ByGeographicCoordinatesBuilder(coordinate);
+            }
+
+            public ByCityNameBuilder byCityName(String cityName) {
+                return new ByCityNameBuilder(cityName);
+            }
+
+            public ByZipCodeBuilder byZipCode(String zipCode, String countryCode) {
+                return new ByZipCodeBuilder(zipCode, countryCode);
+            }
         }
 
-        public ByZipCodeBuilder byZipCode(String zipCode, String countryCode) {
-            return new ByZipCodeBuilder(zipCode, countryCode);
+        private class CurrentWeatherMultipleLocationsQueryPicker {
+            public ByRectangleZoneBuilder byRectangleZone(Coordinate leftBottom, Coordinate rightTop) {
+                return new ByRectangleZoneBuilder(leftBottom, rightTop);
+            }
+
+            public InCycleBuilder inCycle(Coordinate centerPoint, int expectedNumberOfCities) {
+                return new InCycleBuilder(centerPoint, expectedNumberOfCities);
+            }
+
+            public ByCityIdsBuilder byCityIds(Collection<String> cityIds) {
+                return new ByCityIdsBuilder(cityIds);
+            }
+
+            public ByCityIdsBuilder byCityIds() {
+                return new ByCityIdsBuilder();
+            }
         }
     }
 
-    private class CurrentWeatherManyLocationsQueryPicker {
-        public ByRectangleZoneBuilder byRectangleZone(Coordinate leftBottom, Coordinate rightTop) {
-            return new ByRectangleZoneBuilder(leftBottom, rightTop);
-        }
-
-        public InCycleBuilder inCycle(Coordinate centerPoint, int expectedNumberOfCities) {
-            return new InCycleBuilder(centerPoint, expectedNumberOfCities);
-        }
-
-        public ByCityIdsBuilder byCityIds(Collection<String> cityIds) {
-            return new ByCityIdsBuilder(cityIds);
-        }
-
-        public ByCityIdsBuilder byCityIds() {
-            return new ByCityIdsBuilder();
+    private class ForecastInformationPicker {
+        public org.openweathermap.api.query.forecast.ByCityNameBuilder byCityName(String cityName) {
+            return new org.openweathermap.api.query.forecast.ByCityNameBuilder(cityName);
         }
     }
 }

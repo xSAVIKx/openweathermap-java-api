@@ -25,7 +25,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def kharkivCityId = "706483"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery().byCityId(kharkivCityId)
+        def query = QueryBuilderPicker.pick().currentWeather().oneLocation().byCityId(kharkivCityId)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherData(query)
@@ -37,15 +37,15 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
     def "get Kharkiv weather info"() {
         given:
-        def kharkivCityId = "706483"
+        def kharkivCityId = 706483
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery().byCityId(kharkivCityId)
+        def query = QueryBuilderPicker.pick().currentWeather().oneLocation().byCityId(String.valueOf(kharkivCityId))
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
-        result.getCityId() == kharkivCityId
+        result.cityId == kharkivCityId
     }
 
     @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
@@ -56,13 +56,13 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def kharkivCoordinate = new Coordinate(longitude, latitude)
 
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery().byGeographicCoordinates(kharkivCoordinate)
+        def query = QueryBuilderPicker.pick().currentWeather().oneLocation().byGeographicCoordinates(kharkivCoordinate)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
-        result.getCoordinate() == kharkivCoordinate
+        result.coordinate == kharkivCoordinate
     }
 
     @Betamax(tape = "by city name", mode = TapeMode.READ_WRITE)
@@ -71,15 +71,16 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def cityName = "Kharkiv"
         def countryCode = "ua"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery()
+        def query = QueryBuilderPicker.pick().currentWeather().oneLocation()
                 .byCityName(cityName).countryCode(countryCode).type(Type.ACCURATE)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
-        result.getCityName() == cityName
+        result.cityName == cityName
     }
+
 
     @Betamax(tape = "by zip code", mode = TapeMode.READ_WRITE)
     def "get Kharkiv weather info by zip code"() {
@@ -87,13 +88,13 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def zipCode = "94040"
         def countryCode = "us"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherOneLocationQuery().byZipCode(zipCode, countryCode)
+        def query = QueryBuilderPicker.pick().currentWeather().oneLocation().byZipCode(zipCode, countryCode)
                 .build()
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
-        result.getCityName() == "Mountain View"
+        result.cityName == "Mountain View"
     }
 
     @Betamax(tape = "by rectangle zone", mode = TapeMode.READ_WRITE)
@@ -103,7 +104,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def rightTop = new Coordinate("15", "39")
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
-                .currentWeatherManyLocationsQueryPicker().byRectangleZone(leftBottom, rightTop)
+                .currentWeather().multipleLocations().byRectangleZone(leftBottom, rightTop)
                 .cluster(Cluster.YES).unitFormat(UnitFormat.METRIC).build()
         when:
         def result = client.getWeatherData(query)
@@ -118,15 +119,15 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def rightTop = new Coordinate("15", "39")
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
-                .currentWeatherManyLocationsQueryPicker().byRectangleZone(leftBottom, rightTop)
+                .currentWeather().multipleLocations().byRectangleZone(leftBottom, rightTop)
                 .cluster(Cluster.YES).unitFormat(UnitFormat.METRIC).build()
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
         result.size() == 1
         result[0] != null
-        result[0].getCityId() == "2210247"
+        result[0].cityId == 2210247
     }
 
     @Betamax(tape = "in cycle", mode = TapeMode.READ_WRITE)
@@ -135,10 +136,10 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def expectedCitiesAmount = 10
         def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
-                .currentWeatherManyLocationsQueryPicker().inCycle(centerPoint, expectedCitiesAmount)
+                .currentWeather().multipleLocations().inCycle(centerPoint, expectedCitiesAmount)
                 .cluster(Cluster.YES).build();
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
         result.size() == expectedCitiesAmount
@@ -147,15 +148,31 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     @Betamax(tape = "by city ids", mode = TapeMode.READ_WRITE)
     def "get weather info by cities ID"() {
         given:
-        def kharkivCityId = "706483"
+        def kharkivCityId = 706483
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().currentWeatherManyLocationsQueryPicker().byCityIds().addCityId(kharkivCityId)
+        def query = QueryBuilderPicker.pick().currentWeather().multipleLocations().byCityIds().addCityId(String.valueOf(kharkivCityId))
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
-        def result = client.getWeatherInfo(query)
+        def result = client.getCurrentWeather(query)
         then:
         result != null
         result.size() == 1
-        result[0].getCityId() == kharkivCityId
+        result[0].cityId == kharkivCityId
+    }
+
+    @Betamax(tape = "by city name", mode = TapeMode.READ_WRITE)
+    def "get Kharkiv forecast by city name"() {
+        given:
+        def cityName = "Kharkiv"
+        def countryCode = "ua"
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().forecastInformation()
+                .byCityName(cityName).countryCode(countryCode).type(Type.ACCURATE)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getForecastInformation(query)
+        then:
+        result != null
+        result.city.name == cityName
     }
 }

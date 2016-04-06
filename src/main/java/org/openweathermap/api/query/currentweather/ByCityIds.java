@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByCityIds extends AbstractQuery implements CurrentWeatherManyLocationsQuery {
+public class ByCityIds extends AbstractQuery implements CurrentWeatherMultipleLocationsQuery {
     private Collection<String> cityIds;
 
     public ByCityIds(Collection<String> cityIds) {

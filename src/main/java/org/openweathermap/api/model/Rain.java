@@ -9,5 +9,5 @@ public class Rain {
      * Rain volume for the last 3 hours
      */
     @SerializedName("3h")
-    private int threeHours;
+    private double threeHours;
 }

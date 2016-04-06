@@ -9,7 +9,7 @@ import org.openweathermap.api.query.Cluster;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByRectangleZone extends AbstractQuery implements CurrentWeatherManyLocationsQuery {
+public class ByRectangleZone extends AbstractQuery implements CurrentWeatherMultipleLocationsQuery {
     private Coordinate leftBottom;
     private Coordinate rightTop;
     private Cluster cluster;

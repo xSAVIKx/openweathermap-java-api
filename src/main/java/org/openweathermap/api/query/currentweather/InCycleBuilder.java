@@ -3,7 +3,7 @@ package org.openweathermap.api.query.currentweather;
 import org.openweathermap.api.model.Coordinate;
 import org.openweathermap.api.query.Cluster;
 
-public class InCycleBuilder extends CurrentWeatherManyLocationsQueryBuilder<InCycleBuilder, InCycle> {
+public class InCycleBuilder extends CurrentWeatherMultipleLocationsQueryBuilder<InCycleBuilder, InCycle> {
     InCycle query;
 
     public InCycleBuilder(Coordinate centerPoint, int expectedNumberOfCities) {

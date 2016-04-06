@@ -3,7 +3,7 @@ package org.openweathermap.api.query.currentweather;
 import org.openweathermap.api.model.Coordinate;
 import org.openweathermap.api.query.Cluster;
 
-public class ByRectangleZoneBuilder extends CurrentWeatherManyLocationsQueryBuilder<ByRectangleZoneBuilder, ByRectangleZone> {
+public class ByRectangleZoneBuilder extends CurrentWeatherMultipleLocationsQueryBuilder<ByRectangleZoneBuilder, ByRectangleZone> {
     private ByRectangleZone query;
 
     public ByRectangleZoneBuilder(Coordinate leftBottom, Coordinate rightTop) {

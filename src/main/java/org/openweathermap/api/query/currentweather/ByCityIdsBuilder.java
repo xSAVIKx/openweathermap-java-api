@@ -2,7 +2,7 @@ package org.openweathermap.api.query.currentweather;
 
 import java.util.Collection;
 
-public class ByCityIdsBuilder extends CurrentWeatherManyLocationsQueryBuilder<ByCityIdsBuilder, ByCityIds> {
+public class ByCityIdsBuilder extends CurrentWeatherMultipleLocationsQueryBuilder<ByCityIdsBuilder, ByCityIds> {
     private ByCityIds query;
 
     public ByCityIdsBuilder(Collection<String> cityIds) {

@@ -1,9 +1,6 @@
 package org.openweathermap.api;
 
-import org.openweathermap.api.model.WeatherInfo;
 import org.openweathermap.api.query.Query;
-import org.openweathermap.api.query.currentweather.CurrentWeatherManyLocationsQuery;
-import org.openweathermap.api.query.currentweather.CurrentWeatherOneLocationQuery;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +8,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
 
 public class UrlConnectionWeatherClient extends AbstractWeatherClient {
     private final String apiKey;
@@ -20,24 +16,12 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
         this.apiKey = apiKey;
     }
 
-    @Override
-    public String getWeatherData(Query query) {
-        return makeRequest(query.toStringRepresentation(apiKey));
-    }
 
     @Override
-    public WeatherInfo getWeatherInfo(CurrentWeatherOneLocationQuery query) {
-        return toWeatherInfo(getWeatherData(query), query.getResponseFormat());
-    }
-
-    @Override
-    public List<WeatherInfo> getWeatherInfo(CurrentWeatherManyLocationsQuery query) {
-        return toWeatherInfo(getWeatherData(query));
-    }
-
-    private String makeRequest(String query) {
+    protected String makeRequest(Query query) {
+        String queryString = query.toStringRepresentation(apiKey);
         try {
-            URL url = getUrl(query);
+            URL url = getUrl(queryString);
             URLConnection urlConnection = url.openConnection();
             urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
             return readResponse(urlConnection);
@@ -71,4 +55,5 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
             throw new RuntimeException("Malformed query", e);
         }
     }
+
 }
