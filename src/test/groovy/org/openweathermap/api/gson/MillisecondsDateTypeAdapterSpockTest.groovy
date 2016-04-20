@@ -16,7 +16,7 @@ class MillisecondsDateTypeAdapterSpockTest extends Specification {
         when:
         adapter.write(jsonWriter, date)
         then:
-        1 * jsonWriter.value(1465074000000L);
+        1 * jsonWriter.value(1465074000000L)
     }
 
     def "should write null into JsonWriter when date is null"() {
@@ -43,12 +43,12 @@ class MillisecondsDateTypeAdapterSpockTest extends Specification {
     def "should return Date when reading milliseconds from JsonReader"() {
         given:
         def jsonReader = Mock(JsonReader)
-        def expected = new Date(116, 5, 5)
+        def timeInMillis = 1465074000000L
         when:
         def actual = adapter.read(jsonReader)
         then:
         1 * jsonReader.peek() >> JsonToken.NUMBER
-        1 * jsonReader.nextLong() >> 1465074000000L
-        expected == actual
+        1 * jsonReader.nextLong() >> timeInMillis
+        actual.getTime() == timeInMillis
     }
 }
