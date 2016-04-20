@@ -3,7 +3,7 @@ version "1.0-SNAPSHOT"
 apply plugin: "groovy"
 apply plugin: "java"
 
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_7
 
 repositories {
     mavenCentral()
@@ -27,5 +27,4 @@ dependencies {
     testCompile "cglib:cglib-nodep:3.2.0"
     testCompile "org.objenesis:objenesis:2.2"
     testCompile "software.betamax:betamax-junit:2.0.0-SNAPSHOT"
-
 }

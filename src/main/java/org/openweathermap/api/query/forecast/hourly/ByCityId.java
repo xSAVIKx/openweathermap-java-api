@@ -1,11 +1,12 @@
-package org.openweathermap.api.query.forecast;
+package org.openweathermap.api.query.forecast.hourly;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.openweathermap.api.query.forecast.AbstractForecastQuery;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByCityId extends AbstractForecastQuery {
+public class ByCityId extends AbstractForecastQuery implements HourlyForecastQuery {
 
     private final String cityId;
 

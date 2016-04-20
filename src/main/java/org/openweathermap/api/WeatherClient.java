@@ -1,7 +1,7 @@
 package org.openweathermap.api;
 
-import org.openweathermap.api.model.CurrentWeather;
-import org.openweathermap.api.model.ForecastInformation;
+import org.openweathermap.api.model.currentweather.CurrentWeather;
+import org.openweathermap.api.model.forecast.hourly.ForecastInformation;
 import org.openweathermap.api.query.Query;
 import org.openweathermap.api.query.currentweather.CurrentWeatherMultipleLocationsQuery;
 import org.openweathermap.api.query.currentweather.CurrentWeatherOneLocationQuery;

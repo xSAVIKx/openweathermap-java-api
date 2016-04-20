@@ -1,7 +1,11 @@
 package org.openweathermap.api;
 
 import com.google.gson.*;
-import org.openweathermap.api.model.*;
+import org.openweathermap.api.model.WindDirection;
+import org.openweathermap.api.model.WindDirectionDeserializer;
+import org.openweathermap.api.model.WindDirectionSerializer;
+import org.openweathermap.api.model.currentweather.CurrentWeather;
+import org.openweathermap.api.model.forecast.hourly.ForecastInformation;
 import org.openweathermap.api.query.Query;
 import org.openweathermap.api.query.ResponseFormat;
 import org.openweathermap.api.query.currentweather.CurrentWeatherMultipleLocationsQuery;

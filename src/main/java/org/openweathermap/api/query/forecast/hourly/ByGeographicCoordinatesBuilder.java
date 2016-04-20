@@ -1,8 +1,8 @@
-package org.openweathermap.api.query.forecast;
+package org.openweathermap.api.query.forecast.hourly;
 
 import org.openweathermap.api.model.Coordinate;
 
-public class ByGeographicCoordinatesBuilder extends ForecastQueryBuilder<ByGeographicCoordinatesBuilder, ByGeographicCoordinates> {
+public class ByGeographicCoordinatesBuilder extends HourlyForecastQueryBuilder<ByGeographicCoordinatesBuilder, ByGeographicCoordinates> {
     private ByGeographicCoordinates query;
 
     public ByGeographicCoordinatesBuilder(Coordinate coordinate) {

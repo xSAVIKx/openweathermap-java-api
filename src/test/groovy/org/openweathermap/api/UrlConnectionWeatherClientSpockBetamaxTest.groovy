@@ -49,20 +49,6 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result.cityId == kharkivCityId
     }
 
-    @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
-    def "should return forecast by city id"() {
-        given:
-        def kharkivCityId = 706483
-        def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().forecastInformation().byCityId(String.valueOf(kharkivCityId))
-                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
-        when:
-        def result = client.getForecastInformation(query)
-        then:
-        result != null
-        result.city.id == kharkivCityId
-    }
-
     @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
     def "should return current weather by coordinates"() {
         given:
@@ -80,23 +66,6 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result.coordinate == kharkivCoordinate
     }
 
-    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
-    def "should return forecast by coordinates"() {
-        given:
-        def longitude = "36.25"
-        def latitude = "50"
-        def kharkivCoordinate = new Coordinate(longitude, latitude)
-
-        def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().forecastInformation().byGeographicCoordinates(kharkivCoordinate)
-                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
-        when:
-        def result = client.getForecastInformation(query)
-        then:
-        result != null
-        result.city.coordinate == kharkivCoordinate
-    }
-
     @Betamax(tape = "by city name", mode = TapeMode.READ_WRITE)
     def "should return current weather by city name"() {
         given:
@@ -112,7 +81,6 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result != null
         result.cityName == cityName
     }
-
 
     @Betamax(tape = "by zip code", mode = TapeMode.READ_WRITE)
     def "should return current weather by zip code"() {
@@ -178,12 +146,12 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     }
 
     @Betamax(tape = "by city name", mode = TapeMode.READ_WRITE)
-    def "should return forecast by city name"() {
+    def "should return hourly forecast by city name"() {
         given:
         def cityName = "Kharkiv"
         def countryCode = "ua"
         def client = new UrlConnectionWeatherClient(API_KEY)
-        def query = QueryBuilderPicker.pick().forecastInformation()
+        def query = QueryBuilderPicker.pick().forecast().daily()
                 .byCityName(cityName).countryCode(countryCode).type(Type.ACCURATE)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
         when:
@@ -191,5 +159,36 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.city.name == cityName
+    }
+
+    @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
+    def "should return hourly forecast by city id"() {
+        given:
+        def kharkivCityId = 706483
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().forecast().daily().byCityId(String.valueOf(kharkivCityId))
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getForecastInformation(query)
+        then:
+        result != null
+        result.city.id == kharkivCityId
+    }
+
+    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
+    def "should return hourly forecast by coordinates"() {
+        given:
+        def longitude = "36.25"
+        def latitude = "50"
+        def kharkivCoordinate = new Coordinate(longitude, latitude)
+
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().forecast().daily().byGeographicCoordinates(kharkivCoordinate)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getForecastInformation(query)
+        then:
+        result != null
+        result.city.coordinate == kharkivCoordinate
     }
 }

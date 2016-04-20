@@ -1,12 +1,13 @@
-package org.openweathermap.api.query.forecast;
+package org.openweathermap.api.query.forecast.hourly;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.openweathermap.api.model.Coordinate;
+import org.openweathermap.api.query.forecast.AbstractForecastQuery;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByGeographicCoordinates extends AbstractForecastQuery {
+public class ByGeographicCoordinates extends AbstractForecastQuery implements HourlyForecastQuery {
     private final Coordinate coordinate;
 
     public ByGeographicCoordinates(Coordinate coordinate) {

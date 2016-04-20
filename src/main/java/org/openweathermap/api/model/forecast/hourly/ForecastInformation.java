@@ -1,7 +1,8 @@
-package org.openweathermap.api.model;
+package org.openweathermap.api.model.forecast.hourly;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
+import org.openweathermap.api.model.forecast.City;
 
 import java.util.List;
 

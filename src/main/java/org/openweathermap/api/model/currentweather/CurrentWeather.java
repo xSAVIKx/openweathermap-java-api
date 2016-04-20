@@ -1,8 +1,11 @@
-package org.openweathermap.api.model;
+package org.openweathermap.api.model.currentweather;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.openweathermap.api.model.AbstractWeatherInformation;
+import org.openweathermap.api.model.Coordinate;
+import org.openweathermap.api.model.SystemParameters;
 
 @EqualsAndHashCode(callSuper = true)
 @Data

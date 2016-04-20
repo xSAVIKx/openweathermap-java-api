@@ -23,8 +23,8 @@ public class QueryBuilderPicker {
         return new CurrentWeatherPicker();
     }
 
-    public ForecastInformationPicker forecastInformation() {
-        return new ForecastInformationPicker();
+    public ForecastPicker forecast() {
+        return new ForecastPicker();
     }
 
 
@@ -74,17 +74,25 @@ public class QueryBuilderPicker {
         }
     }
 
-    private class ForecastInformationPicker {
-        public org.openweathermap.api.query.forecast.ByCityNameBuilder byCityName(String cityName) {
-            return new org.openweathermap.api.query.forecast.ByCityNameBuilder(cityName);
+    private class ForecastPicker {
+
+        public DailyForecastPicker daily() {
+            return new DailyForecastPicker();
         }
 
-        public org.openweathermap.api.query.forecast.ByCityIdBuilder byCityId(String cityId) {
-            return new org.openweathermap.api.query.forecast.ByCityIdBuilder(cityId);
-        }
 
-        public org.openweathermap.api.query.forecast.ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
-            return new org.openweathermap.api.query.forecast.ByGeographicCoordinatesBuilder(coordinate);
+        private class DailyForecastPicker {
+            public org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder byCityName(String cityName) {
+                return new org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder(cityName);
+            }
+
+            public org.openweathermap.api.query.forecast.hourly.ByCityIdBuilder byCityId(String cityId) {
+                return new org.openweathermap.api.query.forecast.hourly.ByCityIdBuilder(cityId);
+            }
+
+            public org.openweathermap.api.query.forecast.hourly.ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
+                return new org.openweathermap.api.query.forecast.hourly.ByGeographicCoordinatesBuilder(coordinate);
+            }
         }
     }
 }
