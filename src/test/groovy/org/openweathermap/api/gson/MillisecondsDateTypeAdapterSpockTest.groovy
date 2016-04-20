@@ -16,7 +16,8 @@ class MillisecondsDateTypeAdapterSpockTest extends Specification {
         when:
         adapter.write(jsonWriter, date)
         then:
-        1 * jsonWriter.value(1465074000000L)
+        1 * jsonWriter.value(1465074000000)
+
     }
 
     def "should write null into JsonWriter when date is null"() {
