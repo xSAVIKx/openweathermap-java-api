@@ -16,7 +16,7 @@ class MillisecondsDateTypeAdapterSpockTest extends Specification {
         when:
         adapter.write(jsonWriter, date)
         then:
-        1 * jsonWriter.value(1465074000000)
+        1 * jsonWriter.value(_ as Long)
 
     }
 
