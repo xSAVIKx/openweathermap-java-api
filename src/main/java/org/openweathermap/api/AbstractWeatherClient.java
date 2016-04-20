@@ -1,9 +1,9 @@
 package org.openweathermap.api;
 
 import com.google.gson.*;
+import org.openweathermap.api.gson.WindDirectionDeserializer;
+import org.openweathermap.api.gson.WindDirectionSerializer;
 import org.openweathermap.api.model.WindDirection;
-import org.openweathermap.api.model.WindDirectionDeserializer;
-import org.openweathermap.api.model.WindDirectionSerializer;
 import org.openweathermap.api.model.currentweather.CurrentWeather;
 import org.openweathermap.api.model.forecast.hourly.ForecastInformation;
 import org.openweathermap.api.query.Query;

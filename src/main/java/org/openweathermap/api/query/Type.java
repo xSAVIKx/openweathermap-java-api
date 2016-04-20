@@ -14,7 +14,7 @@ public enum Type {
                 return type;
             }
         }
-        throw new IllegalArgumentException("No Cluster was found with value:" + stringRepresentation);
+        throw new IllegalArgumentException("No Type was found with value:" + stringRepresentation);
     }
 
     public String getStringRepresentation() {

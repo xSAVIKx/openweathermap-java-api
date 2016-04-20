@@ -32,7 +32,7 @@ public enum Language {
                 return language;
             }
         }
-        return null;
+        throw new IllegalArgumentException("No Language was found with value:" + stringRepresentation);
     }
 
     public String getStringRepresentation() {

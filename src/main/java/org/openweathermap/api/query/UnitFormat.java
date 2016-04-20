@@ -16,7 +16,7 @@ public enum UnitFormat {
                 return unitFormat;
             }
         }
-        return null;
+        throw new IllegalArgumentException("No UnitFormat was found with value:" + stringRepresentation);
     }
 
     public String getStringRepresentation() {

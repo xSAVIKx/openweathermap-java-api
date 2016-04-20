@@ -16,7 +16,7 @@ public enum ResponseFormat {
                 return responseFormat;
             }
         }
-        return null;
+        throw new IllegalArgumentException("No ResponseFormat was found with value:" + stringRepresentation);
     }
 
     public String getStringRepresentation() {
