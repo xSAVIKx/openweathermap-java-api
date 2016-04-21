@@ -1,2 +1,3 @@
-rootProject.name = 'api'
+rootProject.name = 'java-api'
+include 'examples'
 

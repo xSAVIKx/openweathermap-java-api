@@ -28,7 +28,7 @@ public class QueryBuilderPicker {
     }
 
 
-    private class CurrentWeatherPicker {
+    public static class CurrentWeatherPicker {
         public CurrentWeatherOneLocationQueryPicker oneLocation() {
             return new CurrentWeatherOneLocationQueryPicker();
         }
@@ -37,7 +37,7 @@ public class QueryBuilderPicker {
             return new CurrentWeatherMultipleLocationsQueryPicker();
         }
 
-        private class CurrentWeatherOneLocationQueryPicker {
+        public static class CurrentWeatherOneLocationQueryPicker {
             public ByCityIdBuilder byCityId(String cityId) {
                 return new ByCityIdBuilder(cityId);
             }
@@ -55,7 +55,7 @@ public class QueryBuilderPicker {
             }
         }
 
-        private class CurrentWeatherMultipleLocationsQueryPicker {
+        public static class CurrentWeatherMultipleLocationsQueryPicker {
             public ByRectangleZoneBuilder byRectangleZone(Coordinate leftBottom, Coordinate rightTop) {
                 return new ByRectangleZoneBuilder(leftBottom, rightTop);
             }
@@ -74,7 +74,7 @@ public class QueryBuilderPicker {
         }
     }
 
-    private class ForecastPicker {
+    public static class ForecastPicker {
 
         public HourlyForecastPicker hourly() {
             return new HourlyForecastPicker();
@@ -84,7 +84,7 @@ public class QueryBuilderPicker {
             return new DailyForecastPicker();
         }
 
-        private class HourlyForecastPicker {
+        public static class HourlyForecastPicker {
             public org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder byCityName(String cityName) {
                 return new org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder(cityName);
             }
@@ -99,7 +99,7 @@ public class QueryBuilderPicker {
         }
 
 
-        private class DailyForecastPicker {
+        public static class DailyForecastPicker {
             public org.openweathermap.api.query.forecast.daily.ByCityNameBuilder byCityName(String cityName) {
                 return new org.openweathermap.api.query.forecast.daily.ByCityNameBuilder(cityName);
             }

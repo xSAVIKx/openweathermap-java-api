@@ -16,7 +16,6 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
         this.apiKey = apiKey;
     }
 
-
     @Override
     protected String makeRequest(Query query) {
         String queryString = query.toStringRepresentation(apiKey);

@@ -71,4 +71,4 @@ More information about weather parameters and unit can be found [here](http://op
 
 ## Examples
 
-TDB
+Take a look at [examples module](./examples/README.md)
