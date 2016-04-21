@@ -76,12 +76,15 @@ public class QueryBuilderPicker {
 
     private class ForecastPicker {
 
+        public HourlyForecastPicker hourly() {
+            return new HourlyForecastPicker();
+        }
+
         public DailyForecastPicker daily() {
             return new DailyForecastPicker();
         }
 
-
-        private class DailyForecastPicker {
+        private class HourlyForecastPicker {
             public org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder byCityName(String cityName) {
                 return new org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder(cityName);
             }
@@ -92,6 +95,21 @@ public class QueryBuilderPicker {
 
             public org.openweathermap.api.query.forecast.hourly.ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
                 return new org.openweathermap.api.query.forecast.hourly.ByGeographicCoordinatesBuilder(coordinate);
+            }
+        }
+
+
+        private class DailyForecastPicker {
+            public org.openweathermap.api.query.forecast.daily.ByCityNameBuilder byCityName(String cityName) {
+                return new org.openweathermap.api.query.forecast.daily.ByCityNameBuilder(cityName);
+            }
+
+            public org.openweathermap.api.query.forecast.daily.ByCityIdBuilder byCityId(String cityId) {
+                return new org.openweathermap.api.query.forecast.daily.ByCityIdBuilder(cityId);
+            }
+
+            public org.openweathermap.api.query.forecast.daily.ByGeographicCoordinatesBuilder byGeographicCoordinates(Coordinate coordinate) {
+                return new org.openweathermap.api.query.forecast.daily.ByGeographicCoordinatesBuilder(coordinate);
             }
         }
     }

@@ -151,6 +151,60 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def cityName = "Kharkiv"
         def countryCode = "ua"
         def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().forecast().hourly()
+                .byCityName(cityName).countryCode(countryCode).type(Type.ACCURATE)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getForecastInformation(query)
+        then:
+        result != null
+        result.city.name == cityName
+        result.cnt == 40
+        result.forecasts.size() == 40
+    }
+
+    @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
+    def "should return hourly forecast by city id"() {
+        given:
+        def kharkivCityId = 706483
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().forecast().hourly().byCityId(String.valueOf(kharkivCityId))
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getForecastInformation(query)
+        then:
+        result != null
+        result.city.id == kharkivCityId
+        result.cnt == 40
+        result.forecasts.size() == 40
+    }
+
+    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
+    def "should return hourly forecast by coordinates"() {
+        given:
+        def longitude = "36.25"
+        def latitude = "50"
+        def kharkivCoordinate = new Coordinate(longitude, latitude)
+
+        def client = new UrlConnectionWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick().forecast().hourly().byGeographicCoordinates(kharkivCoordinate)
+                .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
+        when:
+        def result = client.getForecastInformation(query)
+        then:
+        result != null
+        result.city.coordinate == kharkivCoordinate
+        result.cnt == 40
+        result.forecasts.size() == 40
+    }
+
+
+    @Betamax(tape = "by city name", mode = TapeMode.READ_WRITE)
+    def "should return daily forecast by city name"() {
+        given:
+        def cityName = "Kharkiv"
+        def countryCode = "ua"
+        def client = new UrlConnectionWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick().forecast().daily()
                 .byCityName(cityName).countryCode(countryCode).type(Type.ACCURATE)
                 .language(Language.UKRAINIAN).unitFormat(UnitFormat.METRIC).build()
@@ -159,10 +213,12 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.city.name == cityName
+        result.cnt == 7
+        result.forecasts.size() == 7
     }
 
     @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
-    def "should return hourly forecast by city id"() {
+    def "should return daily forecast by city id"() {
         given:
         def kharkivCityId = 706483
         def client = new UrlConnectionWeatherClient(API_KEY)
@@ -173,10 +229,12 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.city.id == kharkivCityId
+        result.cnt == 7
+        result.forecasts.size() == 7
     }
 
     @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
-    def "should return hourly forecast by coordinates"() {
+    def "should return daily forecast by coordinates"() {
         given:
         def longitude = "36.25"
         def latitude = "50"
@@ -190,5 +248,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.city.coordinate == kharkivCoordinate
+        result.cnt == 7
+        result.forecasts.size() == 7
     }
 }

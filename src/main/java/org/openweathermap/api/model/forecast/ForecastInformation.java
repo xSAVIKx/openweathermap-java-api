@@ -1,17 +1,16 @@
-package org.openweathermap.api.model.forecast.hourly;
+package org.openweathermap.api.model.forecast;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import org.openweathermap.api.model.forecast.City;
 
 import java.util.List;
 
 @Data
-public class ForecastInformation {
+public class ForecastInformation<T extends Forecast> {
     private String code;
     private String message;
     private City city;
     private int cnt;
     @SerializedName("list")
-    private List<Forecast> forecasts;
+    private List<T> forecasts;
 }
