@@ -4,3 +4,14 @@ apply from: "$rootDir/gradle/publish.gradle"
 dependencies {
     compile project(":api-core")
 }
+
+publishing {
+    publications {
+        jars(MavenPublication) {
+            pom.withXml {
+                asNode().appendNode('description',
+                        'Java API to access openweathermap.org API examples')
+            }
+        }
+    }
+}

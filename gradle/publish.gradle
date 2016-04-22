@@ -1,5 +1,15 @@
 apply plugin: "maven"
 apply plugin: "signing"
+apply plugin: "maven-publish"
+
+ext {
+    pomFilePath = "${project.projectDir}/tmp/pom.xml"
+    pomFile = file(pomFilePath)
+}
+// add configuration for pom signing
+configurations {
+    pom
+}
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
@@ -11,8 +21,129 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
 }
 
+// sign all artifacts
+task signJars(type: Sign, dependsOn: [jar, javadocJar, sourcesJar]) {
+    sign configurations.archives
+}
+// sign pom
+task signPom(type: Sign) {
+    sign configurations.pom
+}
+
+
 artifacts {
     archives jar
     archives javadocJar
     archives sourcesJar
+    if (pomFile.exists()) {
+        pom pomFile
+    }
+}
+
+// defining which tasks should be called
+if (project.ext.pomFile.exists()) {
+    task preparePublication(dependsOn: [signJars, signPom])
+} else {
+    task preparePublication(dependsOn: signJars)
+}
+// extract signatures and add classifier and extension to them
+def getSignatureFiles = {
+    def allFiles = project.tasks.signJars.signatureFiles.collect { it }
+    def signedSources = allFiles.find { it.name.contains('-sources') }
+    def signedJavadoc = allFiles.find { it.name.contains('-javadoc') }
+    def signedJar = (allFiles - [signedSources, signedJavadoc])[0]
+    return [
+            [archive: signedSources, classifier: 'sources', extension: 'jar.asc'],
+            [archive: signedJavadoc, classifier: 'javadoc', extension: 'jar.asc'],
+            [archive: signedJar, classifier: null, extension: 'jar.asc']
+    ]
+}
+// extract pom signature
+def getPomSignature = {
+    return project.tasks.signPom.signatureFiles.collect { it }[0]
+}
+
+
+publishing {
+    publications {
+        gpgJars(MavenPublication) {
+            getSignatureFiles().each { signature ->
+                artifact(signature.archive) {
+                    classifier = signature.classifier
+                    extension = signature.extension
+                }
+            }
+        }
+        if (project.ext.pomFile.exists()) {
+            gpgPom(MavenPublication) {
+                artifact(getPomSignature()) {
+                    classifier = null
+                    extension = 'pom.asc'
+                }
+            }
+        }
+
+        jars(MavenPublication) {
+            from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+            pom.withXml {
+                asNode().children().last() + {
+                    resolveStrategy = Closure.DELEGATE_FIRST
+                    name 'openweathermap-java-api'
+                    url 'https://github.com/xSAVIKx/openweathermap-java-api'
+                    scm {
+                        url 'https://github.com/xSAVIKx/openweathermap-java-api'
+                        connection 'scm:https://github.com/xSAVIKx/openweathermap-java-api.git'
+                        developerConnection 'scm:git://github.com:xSAVIKx/openweathermap-java-api.git'
+                    }
+                    issueManagement {
+                        system 'GitHub'
+                        url 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
+                    }
+                    ciManagement {
+                        system 'Travis-CI'
+                        url 'https://travis-ci.org/xSAVIKx/openweathermap-java-api'
+                    }
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'https://github.com/xSAVIKx/openweathermap-java-api/blob/master/LICENSE'
+                            distribution 'repo'
+                            comments 'A business-friendly OSS license'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id 'xSAVIKx'
+                            name 'Iurii Sergiichuk'
+                            email 'iurii.sergiichuk@gmail.com'
+                            roles {
+                                role 'developer'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+bintray {
+    user = bintrayUsername
+    key = bintrayApiKey
+    publications = ['jars']
+    pkg {
+        repo = 'openweathermap-java-api'
+        name = 'openweathermap-java-api'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
+        websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
+        issueTrackerUrl = 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
+        githubRepo = 'xSAVIKx/openweathermap-java-api'
+    }
 }

@@ -15,3 +15,15 @@ dependencies {
     testCompile "org.objenesis:objenesis:2.2"
     testCompile "software.betamax:betamax-junit:2.0.0-SNAPSHOT"
 }
+
+
+publishing {
+    publications {
+        jars(MavenPublication) {
+            pom.withXml {
+                asNode().appendNode('description',
+                        'Java API to access openweathermap.org API')
+            }
+        }
+    }
+}
