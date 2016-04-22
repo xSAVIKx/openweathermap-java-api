@@ -134,11 +134,11 @@ publishing {
 }
 
 bintray {
-    user = bintrayUsername
-    key = bintrayApiKey
+    user = project.hasProperty('bintrayUsername') ? project.getProperty('bintrayUsername') : System.getenv('BINTRAY_USER') ?: ''
+    key = project.hasProperty('bintrayApiKey') ? project.getProperty('bintrayApiKey') : System.getenv('BINTRAY_KEY') ?: ''
     publications = ['jars']
     pkg {
-        repo = 'openweathermap-java-api'
+        repo = 'maven'
         name = 'openweathermap-java-api'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
