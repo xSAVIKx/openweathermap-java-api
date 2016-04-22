@@ -1,0 +1,17 @@
+apply from: "$rootDir/gradle/java.gradle"
+apply from: "$rootDir/gradle/publish.gradle"
+
+dependencies {
+    compile "com.google.code.gson:gson:2.6.2"
+    compile "org.apache.commons:commons-lang3:3.4"
+    compile "org.projectlombok:lombok:1.16.8"
+    testCompile "org.codehaus.groovy:groovy-all:2.4.6"
+    testCompile "junit:junit:4.12"
+    testCompile("org.spockframework:spock-core:1.0-groovy-2.4") {
+        exclude module: "junit"
+        exclude module: "groovy-all"
+    }
+    testCompile "cglib:cglib-nodep:3.2.0"
+    testCompile "org.objenesis:objenesis:2.2"
+    testCompile "software.betamax:betamax-junit:2.0.0-SNAPSHOT"
+}

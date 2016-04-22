@@ -1,0 +1,28 @@
+!tape
+name: by zip code
+interactions:
+- recorded: 2016-04-22T08:17:00.878Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/weather?zip=94045,us&appid=API_KEY_VALUE
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Type: application/json; charset=utf-8
+      Date: Fri, 22 Apr 2016 08:17:00 GMT
+      Server: nginx
+      Transfer-Encoding: chunked
+      X-Source: redis
+    body: |
+      {"coord":{"lon":-122.35,"lat":37.45},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"base":"cmc stations","main":{"temp":288.12,"pressure":1011.5,"humidity":82,"temp_min":287.95,"temp_max":288.25},"wind":{"speed":4.11,"deg":190.505},"rain":{"3h":0.57},"clouds":{"all":88},"dt":1461312530,"sys":{"type":3,"id":1442728390,"message":0.0057,"country":"US","sunrise":1461331442,"sunset":1461379917},"id":5392427,"name":"San Mateo County","cod":200}

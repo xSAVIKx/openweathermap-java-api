@@ -1,0 +1,28 @@
+!tape
+name: in cycle
+interactions:
+- recorded: 2016-04-22T08:17:05.775Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/find?lat=37.5&lon=55.5&cnt=10&cluster=yes&appid=API_KEY_VALUE
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Type: application/json; charset=utf-8
+      Date: Fri, 22 Apr 2016 08:17:05 GMT
+      Server: nginx
+      Transfer-Encoding: chunked
+      X-Source: redis
+    body: |
+      {"message":"accurate","cod":"200","count":10,"list":[{"id":129512,"name":"Kalaleh","coord":{"lon":55.491638,"lat":37.380711},"main":{"temp":292.992,"temp_min":292.992,"temp_max":292.992,"pressure":987.38,"sea_level":1031.45,"grnd_level":987.38,"humidity":63},"dt":1461312168,"wind":{"speed":8.06,"deg":253.505},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":132938,"name":"Gonbad-e Qabus","coord":{"lon":55.16721,"lat":37.250038},"main":{"temp":292.992,"temp_min":292.992,"temp_max":292.992,"pressure":987.38,"sea_level":1031.45,"grnd_level":987.38,"humidity":63},"dt":1461312506,"wind":{"speed":8.06,"deg":253.505},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":443792,"name":"Ostān-e Golestān","coord":{"lon":55,"lat":37.25},"main":{"temp":292.992,"temp_min":292.992,"temp_max":292.992,"pressure":987.38,"sea_level":1031.45,"grnd_level":987.38,"humidity":63},"dt":1461312519,"wind":{"speed":8.06,"deg":253.505},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":110831,"name":"Shah Pasand","coord":{"lon":55.173969,"lat":37.087009},"main":{"temp":292.992,"temp_min":292.992,"temp_max":292.992,"pressure":987.38,"sea_level":1031.45,"grnd_level":987.38,"humidity":63},"dt":1461312519,"wind":{"speed":8.06,"deg":253.505},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":39161,"name":"Māmā’ī","coord":{"lon":54.397739,"lat":36.892578},"main":{"temp":291.492,"temp_min":291.492,"temp_max":291.492,"pressure":830.93,"sea_level":1029.5,"grnd_level":830.93,"humidity":42},"dt":1461311669,"wind":{"speed":1.01,"deg":334.005},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":132892,"name":"Gorgan","coord":{"lon":54.43475,"lat":36.838661},"main":{"temp":291.492,"temp_min":291.492,"temp_max":291.492,"pressure":830.93,"sea_level":1029.5,"grnd_level":830.93,"humidity":42},"dt":1461312033,"wind":{"speed":1.01,"deg":334.005},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":66108,"name":"Shāhrūd","coord":{"lon":55.01667,"lat":36.416672},"main":{"temp":293.992,"temp_min":293.992,"temp_max":293.992,"pressure":857.92,"sea_level":1028,"grnd_level":857.92,"humidity":40},"dt":1461312391,"wind":{"speed":2.56,"deg":0.505066},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":135423,"name":"Shahrud","coord":{"lon":54.97628,"lat":36.41819},"main":{"temp":291.492,"temp_min":291.492,"temp_max":291.492,"pressure":830.93,"sea_level":1029.5,"grnd_level":830.93,"humidity":42},"dt":1461311690,"wind":{"speed":1.01,"deg":334.005},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":6201376,"name":"Ostān-e Khorāsān-e Shomālī","coord":{"lon":57,"lat":37.5},"main":{"temp":296.792,"temp_min":296.792,"temp_max":296.792,"pressure":902.99,"sea_level":1025.77,"grnd_level":902.99,"humidity":40},"dt":1461312369,"wind":{"speed":3.46,"deg":276.505},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]},{"id":40847,"name":"Reẕāābād","coord":{"lon":57.31778,"lat":37.499722},"main":{"temp":296.642,"temp_min":296.642,"temp_max":296.642,"pressure":865.62,"sea_level":1025.08,"grnd_level":865.62,"humidity":21},"dt":1461312525,"wind":{"speed":2.76,"deg":272.505},"sys":{"country":""},"clouds":{"all":0},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01d"}]}]}

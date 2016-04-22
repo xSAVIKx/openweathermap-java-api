@@ -1,3 +1,3 @@
-rootProject.name = 'java-api'
-include 'examples'
-
+rootProject.name = 'openweathermap-java-api'
+include 'api-core'
+include 'api-examples'

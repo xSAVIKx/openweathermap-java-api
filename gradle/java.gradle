@@ -1,0 +1,60 @@
+apply plugin: "java"
+apply plugin: "groovy"
+apply plugin: "jacoco"
+ext {
+    sharedManifest = manifest {
+        attributes(
+                "Implementation-Title": "OpenWeatherMap Java API",
+                "Implementation-Version": version,
+                "Build-Time": buildTime
+        )
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+}
+
+test {
+    testLogging.showStandardStreams = true
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+    jacoco {
+        append = false
+        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+        classDumpFile = file("$buildDir/jacoco/classpathdumps")
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
+tasks.withType(JavaCompile.class) {
+    options.deprecation = false
+    options.warnings = false
+    options.encoding = sourceEncoding
+    options.compilerArgs = ["-Xmaxerrs", "20", "-Xmaxwarns", "0", "-Xlint:all"]
+}
+
+javadoc {
+    options.memberLevel = JavadocMemberLevel.PROTECTED
+    classpath = configurations.compile
+}
+//create a single Jar with all dependencies
+task generateOneJar(type: Jar) {
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+tasks.withType(Jar) { // includes War and Ear
+    manifest = project.manifest {
+        from sharedManifest
+    }
+}

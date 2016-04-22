@@ -1,0 +1,28 @@
+!tape
+name: by city ids
+interactions:
+- recorded: 2016-04-22T08:17:08.143Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/group?lang=ua&units=metric&id=706483&appid=API_KEY_VALUE
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Type: application/json; charset=utf8
+      Date: Fri, 22 Apr 2016 08:17:07 GMT
+      Server: nginx
+      Transfer-Encoding: chunked
+      X-Source: redis
+    body: |
+      {"cnt":1,"list":[{"coord":{"lon":36.25,"lat":50},"sys":{"message":0.0332,"country":"UA","sunrise":1461291963,"sunset":1461343238},"weather":[{"id":802,"main":"Clouds","description":"розірвані хмари","icon":"03d"}],"main":{"temp":9.74,"temp_min":9.742,"temp_max":9.742,"pressure":1006.51,"sea_level":1026.83,"grnd_level":1006.51,"humidity":65},"wind":{"speed":8.61,"deg":233.005},"clouds":{"all":36},"dt":1461312423,"id":706483,"name":"Kharkiv"}]}
