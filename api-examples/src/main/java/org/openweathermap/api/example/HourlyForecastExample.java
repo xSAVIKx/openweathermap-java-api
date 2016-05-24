@@ -9,7 +9,7 @@ import org.openweathermap.api.query.QueryBuilderPicker;
 import org.openweathermap.api.query.UnitFormat;
 import org.openweathermap.api.query.forecast.hourly.ByCityName;
 
-public class HourlyForecaseExample {
+public class HourlyForecastExample {
     private static final String API_KEY = "API_KEY_VALUE";
 
     public static void main(String[] args) {
