@@ -5,9 +5,11 @@ import com.google.gson.stream.JsonToken
 import com.google.gson.stream.JsonWriter
 import spock.lang.Specification
 
+import java.util.concurrent.TimeUnit
 
-class MillisecondsDateTypeAdapterSpockTest extends Specification {
-    MillisecondsDateTypeAdapter adapter = new MillisecondsDateTypeAdapter()
+
+class SecondsDateTypeAdapterSpockTest extends Specification {
+    SecondsDateTypeAdapter adapter = new SecondsDateTypeAdapter()
 
     def "should write Date into JsonWriter as long"() {
         given:
@@ -41,15 +43,15 @@ class MillisecondsDateTypeAdapterSpockTest extends Specification {
         actual == null
     }
 
-    def "should return Date when reading milliseconds from JsonReader"() {
+    def "should return Date when reading seconds from JsonReader"() {
         given:
         def jsonReader = Mock(JsonReader)
-        def timeInMillis = 1465074000000L
+        def timeInSeconds = 1465074000L
         when:
         def actual = adapter.read(jsonReader)
         then:
         1 * jsonReader.peek() >> JsonToken.NUMBER
-        1 * jsonReader.nextLong() >> timeInMillis
-        actual.getTime() == timeInMillis
+        1 * jsonReader.nextLong() >> timeInSeconds
+        actual.getTime() == TimeUnit.SECONDS.toMillis(timeInSeconds)
     }
 }

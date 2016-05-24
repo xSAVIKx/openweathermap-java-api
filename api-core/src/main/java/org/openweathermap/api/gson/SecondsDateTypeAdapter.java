@@ -7,15 +7,16 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
-public class MillisecondsDateTypeAdapter extends TypeAdapter<Date> {
+public class SecondsDateTypeAdapter extends TypeAdapter<Date> {
     @Override
     public void write(JsonWriter out, Date value) throws IOException {
         if (value == null) {
             out.nullValue();
             return;
         }
-        out.value(value.getTime());
+        out.value(TimeUnit.MILLISECONDS.toSeconds(value.getTime()));
     }
 
     @Override
@@ -24,7 +25,8 @@ public class MillisecondsDateTypeAdapter extends TypeAdapter<Date> {
             in.nextNull();
             return null;
         }
-        long time = in.nextLong();
-        return new Date(time);
+        long timeInSeconds = in.nextLong();
+        long timeInMillis = TimeUnit.SECONDS.toMillis(timeInSeconds);
+        return new Date(timeInMillis);
     }
 }

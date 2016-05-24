@@ -3,7 +3,7 @@ package org.openweathermap.api.model;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import org.openweathermap.api.gson.MillisecondsDateTypeAdapter;
+import org.openweathermap.api.gson.SecondsDateTypeAdapter;
 
 import java.util.Date;
 
@@ -17,10 +17,10 @@ public class SystemParameters {
     private String message;
     @SerializedName("country")
     private String country;
-    @JsonAdapter(MillisecondsDateTypeAdapter.class)
+    @JsonAdapter(SecondsDateTypeAdapter.class)
     @SerializedName("sunrise")
     private Date sunrise;
-    @JsonAdapter(MillisecondsDateTypeAdapter.class)
+    @JsonAdapter(SecondsDateTypeAdapter.class)
     @SerializedName("sunset")
     private Date sunset;
 }
