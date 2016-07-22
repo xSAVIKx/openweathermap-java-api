@@ -4,7 +4,6 @@ import org.junit.Rule
 import org.openweathermap.api.model.Coordinate
 import org.openweathermap.api.query.*
 import software.betamax.Configuration
-import software.betamax.ProxyConfiguration
 import software.betamax.TapeMode
 import software.betamax.junit.Betamax
 import software.betamax.junit.RecorderRule
@@ -16,7 +15,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     private static final String TAPES_STORAGE = "src/test/resources/org/openweathermap/api/tapes";
 
     File f = new File(TAPES_STORAGE);
-    Configuration configuration = ProxyConfiguration.builder().tapeRoot(f).sslEnabled(true).build();
+    Configuration configuration = Configuration.builder().tapeRoot(f).sslEnabled(true).build();
     @Rule
     RecorderRule recorder = new RecorderRule(configuration);
 

@@ -16,7 +16,7 @@ dependencies {
     }
     testCompile "cglib:cglib-nodep:3.2.0"
     testCompile "org.objenesis:objenesis:2.2"
-    testCompile "software.betamax:betamax-junit:2.0.0-SNAPSHOT"
+    testCompile "software.betamax:betamax-junit:2.0.0"
 }
 
 

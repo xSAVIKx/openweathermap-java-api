@@ -3,4 +3,6 @@ jdk:
   - oraclejdk8
   - oraclejdk7
   - openjdk7
-sudo: false
+script:
+  - sudo keytool -importcert -keystore $JAVA_HOME/jre/lib/security/cacerts -file betamax.pem -storepass changeit -noprompt
+sudo: required
