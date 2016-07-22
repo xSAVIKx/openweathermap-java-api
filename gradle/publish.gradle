@@ -63,7 +63,6 @@ def getPomSignature = {
     return project.tasks.signPom.signatureFiles.collect { it }[0]
 }
 
-
 publishing {
     publications {
         gpgJars(MavenPublication) {
@@ -92,6 +91,11 @@ publishing {
                 classifier "javadoc"
             }
             pom.withXml {
+                asNode().dependencies.'*'.findAll() {
+                    it.scope.text() == 'runtime' && project.configurations.compile.allDependencies.find { dep ->
+                        dep.name == it.artifactId.text()
+                    }
+                }.each { it.scope*.value = 'compile' }
                 asNode().children().last() + {
                     resolveStrategy = Closure.DELEGATE_FIRST
                     name 'openweathermap-java-api'
@@ -145,5 +149,11 @@ bintray {
         websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
         issueTrackerUrl = 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
         githubRepo = 'xSAVIKx/openweathermap-java-api'
+        githubReleaseNotesFile = 'README.md'
+        version {
+            name = project.version
+            released = new Date()
+            vcsTag = project.version
+        }
     }
 }

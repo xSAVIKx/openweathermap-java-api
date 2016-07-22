@@ -10,6 +10,8 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class UrlConnectionWeatherClient extends AbstractWeatherClient {
+    private static final String ACCEPT_CHARSET = "Accept-Charset";
+    private static final String UTF_8 = "UTF-8";
     private final String apiKey;
 
     public UrlConnectionWeatherClient(String apiKey) {
@@ -22,7 +24,7 @@ public class UrlConnectionWeatherClient extends AbstractWeatherClient {
         try {
             URL url = getUrl(queryString);
             URLConnection urlConnection = url.openConnection();
-            urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
+            urlConnection.setRequestProperty(ACCEPT_CHARSET, UTF_8);
             return readResponse(urlConnection);
         } catch (IOException e) {
             e.printStackTrace();
