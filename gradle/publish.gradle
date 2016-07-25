@@ -144,6 +144,7 @@ bintray {
     pkg {
         repo = 'openweathermap-java-api'
         name = "$project.name"
+        desc = "openweathermap.org Java API $project.name module."
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
         websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
