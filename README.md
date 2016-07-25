@@ -1,4 +1,4 @@
-# openweathermap-java-api [![Build Status](https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=master)](https://travis-ci.org/xSAVIKx/openweathermap-java-api) [ ![Download](https://api.bintray.com/packages/xsavikx/maven/openweathermap-java-api/images/download.svg) ](https://bintray.com/xsavikx/maven/openweathermap-java-api/_latestVersion)
+# openweathermap-java-api [![Build Status](https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=master)](https://travis-ci.org/xSAVIKx/openweathermap-java-api) [ ![Download](https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg) ](https://bintray.com/xsavikx/openweathermap-java-api/api-core/_latestVersion)
 
 To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here](http://home.openweathermap.org/users/sign_up).
 

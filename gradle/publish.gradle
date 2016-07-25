@@ -98,7 +98,7 @@ publishing {
                 }.each { it.scope*.value = 'compile' }
                 asNode().children().last() + {
                     resolveStrategy = Closure.DELEGATE_FIRST
-                    name 'openweathermap-java-api'
+                    name "$project.name"
                     url 'https://github.com/xSAVIKx/openweathermap-java-api'
                     scm {
                         url 'https://github.com/xSAVIKx/openweathermap-java-api'
@@ -142,8 +142,8 @@ bintray {
     key = project.hasProperty('bintrayApiKey') ? project.getProperty('bintrayApiKey') : System.getenv('BINTRAY_KEY') ?: ''
     publications = ['jars']
     pkg {
-        repo = 'maven'
-        name = 'openweathermap-java-api'
+        repo = 'openweathermap-java-api'
+        name = "$project.name"
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
         websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
