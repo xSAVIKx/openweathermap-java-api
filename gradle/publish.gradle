@@ -152,6 +152,7 @@ bintray {
         githubReleaseNotesFile = 'README.md'
         version {
             name = project.version
+            desc = "openweathermap.org Java API module $project.name v.$project.version"
             released = new Date()
             vcsTag = project.version
         }
