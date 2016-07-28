@@ -1,10 +1,19 @@
 language: java
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-  - openjdk7
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper
+install:
+  - ./gradlew clean assemble
 script:
   - sudo keytool -importcert -keystore $JAVA_HOME/jre/lib/security/cacerts -file betamax.pem -storepass changeit -noprompt
-sudo: required
+  - jdk_switcher use oraclejdk8
+  - ./gradlew check
+  - jdk_switcher use oraclejdk7
+  - ./gradlew check
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+sudo: required
