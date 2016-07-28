@@ -29,11 +29,12 @@ test {
     }
 }
 
+check.dependsOn jacocoTestReport
+
 jacocoTestReport {
     reports {
-        xml.enabled false
+        xml.enabled true
         csv.enabled false
-        html.destination "${buildDir}/jacocoHtml"
     }
 }
 

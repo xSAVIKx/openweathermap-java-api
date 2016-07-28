@@ -6,3 +6,5 @@ jdk:
 script:
   - sudo keytool -importcert -keystore $JAVA_HOME/jre/lib/security/cacerts -file betamax.pem -storepass changeit -noprompt
 sudo: required
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

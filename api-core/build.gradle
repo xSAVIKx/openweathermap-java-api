@@ -35,3 +35,12 @@ tasks.withType(Jar) { // includes War and Ear
     manifest.getAttributes().put("Specification-Title", "OpenWeatherMap Java API:api-core")
     manifest.getAttributes().put("Implementation-Title", "org.openweathermap.api")
 }
+
+jacocoTestReport {
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['**/model/**'])
+        })
+    }
+}
