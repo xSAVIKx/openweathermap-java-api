@@ -8,8 +8,6 @@ cache:
     - $HOME/.gradle/wrapper
 jdk:
   - oraclejdk8
-  - oraclejdk7
-  - openjdk7
 install:
   - ./gradlew clean assemble
 script:
