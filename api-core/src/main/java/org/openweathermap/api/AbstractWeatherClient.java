@@ -61,7 +61,7 @@ public abstract class AbstractWeatherClient implements WeatherClient {
         String data = getWeatherData(query);
         ResponseFormat responseFormat = query.getResponseFormat();
         if (responseFormat == null || responseFormat == ResponseFormat.JSON) {
-            return gson.fromJson(data, CurrentWeather.class);
+            return gson.fromJson(data, CurrentWeather.TYPE);
         }
         return null;
     }
@@ -72,7 +72,7 @@ public abstract class AbstractWeatherClient implements WeatherClient {
         JsonArray list = jsonObject.getAsJsonArray("list");
         List<CurrentWeather> weatherInfoList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            CurrentWeather weatherInfo = gson.fromJson(list.get(i), CurrentWeather.class);
+            CurrentWeather weatherInfo = gson.fromJson(list.get(i), CurrentWeather.TYPE);
             weatherInfoList.add(weatherInfo);
         }
         return weatherInfoList;
