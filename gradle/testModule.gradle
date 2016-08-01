@@ -1,0 +1,40 @@
+apply plugin: "groovy"
+apply plugin: "jacoco"
+
+dependencies {
+    testCompile commonDependencies.groovy
+    testCompile commonDependencies.spock
+    testCompile commonDependencies.junit
+    testCompile commonDependencies.cglib
+    testCompile commonDependencies.objenesis
+    testCompile commonDependencies.betamax
+}
+
+tasks.withType(GroovyCompile) {
+    compileGroovy.options.encoding = "UTF-8"
+}
+
+jacoco {
+    toolVersion = "0.7.7.201606060606"
+}
+
+test {
+    testLogging.showStandardStreams = true
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
+    jacoco {
+        append = false
+        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+        classDumpFile = file("$buildDir/jacoco/classpathdumps")
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+    }
+}

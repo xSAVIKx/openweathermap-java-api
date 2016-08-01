@@ -19,10 +19,24 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
+      <module name="api-common_main" target="1.7" />
+      <module name="api-common_test" target="1.7" />
       <module name="api-core_main" target="1.7" />
       <module name="api-core_test" target="1.7" />
       <module name="api-examples_main" target="1.7" />
       <module name="api-examples_test" target="1.7" />
+      <module name="api-model_main" target="1.7" />
+      <module name="api-model_test" target="1.7" />
+      <module name="api-query_main" target="1.7" />
+      <module name="api-query_test" target="1.7" />
+      <module name="common_main" target="1.7" />
+      <module name="common_test" target="1.7" />
+      <module name="model_main" target="1.7" />
+      <module name="model_test" target="1.7" />
+      <module name="queries_main" target="1.7" />
+      <module name="queries_test" target="1.7" />
+      <module name="query_main" target="1.7" />
+      <module name="query_test" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

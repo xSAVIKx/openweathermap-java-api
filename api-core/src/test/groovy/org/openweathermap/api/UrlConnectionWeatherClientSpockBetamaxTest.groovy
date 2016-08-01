@@ -1,7 +1,7 @@
 package org.openweathermap.api
 
 import org.junit.Rule
-import org.openweathermap.api.model.Coordinate
+import org.openweathermap.api.common.Coordinate
 import org.openweathermap.api.query.*
 import software.betamax.Configuration
 import software.betamax.TapeMode
@@ -23,7 +23,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     def "should return query data"() {
         given:
         def kharkivCityId = "706483"
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .oneLocation()
@@ -43,7 +43,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     def "should return current weather"() {
         given:
         def kharkivCityId = 706483
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .oneLocation()
@@ -65,7 +65,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def latitude = "50"
         def kharkivCoordinate = new Coordinate(longitude, latitude)
 
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .oneLocation()
@@ -85,7 +85,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def cityName = "Kharkiv"
         def countryCode = "ua"
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .oneLocation()
@@ -107,7 +107,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def zipCode = "94045"
         def countryCode = "us"
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .oneLocation()
@@ -125,7 +125,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def leftBottom = new Coordinate("12", "32")
         def rightTop = new Coordinate("15", "39")
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .multipleLocations()
@@ -146,7 +146,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     def "should return current weather for cities in cycle"() {
         def centerPoint = new Coordinate("55.5", "37.5")
         def expectedCitiesAmount = 10
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .multipleLocations()
@@ -164,7 +164,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     def "should return current weather for cities ID"() {
         given:
         def kharkivCityId = 706483
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .currentWeather()
                 .multipleLocations()
@@ -186,7 +186,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def cityName = "Kharkiv"
         def countryCode = "ua"
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .forecast()
                 .hourly()
@@ -210,7 +210,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     def "should return hourly forecast by city id"() {
         given:
         def kharkivCityId = 706483
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .forecast()
                 .hourly()
@@ -235,7 +235,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def latitude = "50"
         def kharkivCoordinate = new Coordinate(longitude, latitude)
 
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .forecast()
                 .hourly()
@@ -259,7 +259,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         given:
         def cityName = "Kharkiv"
         def countryCode = "ua"
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .forecast()
                 .daily()
@@ -283,7 +283,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     def "should return daily forecast by city id"() {
         given:
         def kharkivCityId = 706483
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .forecast()
                 .daily()
@@ -308,7 +308,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         def latitude = "50"
         def kharkivCoordinate = new Coordinate(longitude, latitude)
 
-        def client = new UrlConnectionWeatherClient(API_KEY)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
         def query = QueryBuilderPicker.pick()
                 .forecast()
                 .daily()
