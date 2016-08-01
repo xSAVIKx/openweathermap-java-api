@@ -18,7 +18,7 @@ class ResponseFormatSpockTest extends Specification {
 
     def "fromStringRepresentation should throw IllegalArgumentException when no value is found"() {
         when:
-        Type.fromStringRepresentation("noSuchValue")
+        ResponseFormat.fromStringRepresentation("noSuchValue")
         then:
         thrown(IllegalArgumentException)
     }

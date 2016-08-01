@@ -4,7 +4,7 @@ import org.openweathermap.api.common.Coordinate
 import org.openweathermap.api.query.currentweather.*
 import spock.lang.Specification
 
-class QueryBuilderPicketSpockTest extends Specification {
+class QueryBuilderPickerSpockTest extends Specification {
     def "should generate only one instance"() {
         given:
         def picker = QueryBuilderPicker.pick()

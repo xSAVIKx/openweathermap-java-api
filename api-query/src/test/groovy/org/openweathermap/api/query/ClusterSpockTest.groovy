@@ -17,7 +17,7 @@ class ClusterSpockTest extends Specification {
 
     def "fromStringRepresentation should throw IllegalArgumentException when no value is found"() {
         when:
-        Type.fromStringRepresentation("noSuchValue")
+        Cluster.fromStringRepresentation("noSuchValue")
         then:
         thrown(IllegalArgumentException)
     }

@@ -18,7 +18,7 @@ class LanguageSpockTest extends Specification {
 
     def "fromStringRepresentation should throw IllegalArgumentException when no value is found"() {
         when:
-        Type.fromStringRepresentation("noSuchValue")
+        Language.fromStringRepresentation("noSuchValue")
         then:
         thrown(IllegalArgumentException)
     }
