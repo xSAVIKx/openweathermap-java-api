@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-627901220/api-core.iml" filepath="$PROJECT_DIR$/.idea/modules/-627901220/api-core.iml" group="api-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-627901220/api-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/-627901220/api-core_main.iml" group="api-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-627901220/api-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/-627901220/api-core_test.iml" group="api-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-examples.iml" filepath="$PROJECT_DIR$/.idea/modules/api-examples.iml" group="api-examples" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-examples_main.iml" filepath="$PROJECT_DIR$/.idea/modules/api-examples_main.iml" group="api-examples" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-examples_test.iml" filepath="$PROJECT_DIR$/.idea/modules/api-examples_test.iml" group="api-examples" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1603453595/openweathermap-java-api.iml" filepath="$PROJECT_DIR$/.idea/modules/-1603453595/openweathermap-java-api.iml" />
+    </modules>
+  </component>
+</project>
