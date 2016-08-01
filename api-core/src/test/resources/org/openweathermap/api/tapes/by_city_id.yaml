@@ -101,3 +101,63 @@ interactions:
       X-Source: back
     body: |
       {"city":{"id":706483,"name":"Kharkiv","coord":{"lon":36.25,"lat":50},"country":"UA","population":0},"cod":"200","message":0.0103,"cnt":5,"list":[{"dt":1461315600,"temp":{"day":8.44,"min":5.15,"max":10.25,"night":5.15,"eve":10.25,"morn":7.09},"pressure":1002.53,"humidity":71,"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10d"}],"speed":9.51,"deg":227,"clouds":32,"rain":6.08},{"dt":1461402000,"temp":{"day":9.35,"min":2.47,"max":11.18,"night":4.8,"eve":11.18,"morn":2.47},"pressure":1003.98,"humidity":92,"weather":[{"id":801,"main":"Clouds","description":"трохи хмарно","icon":"02d"}],"speed":5.02,"deg":259,"clouds":20},{"dt":1461488400,"temp":{"day":13.7,"min":4.91,"max":15.95,"night":12.11,"eve":15.81,"morn":4.91},"pressure":1002.72,"humidity":75,"weather":[{"id":500,"main":"Rain","description":"легка злива","icon":"10d"}],"speed":6.61,"deg":112,"clouds":56,"rain":0.44},{"dt":1461574800,"temp":{"day":14.78,"min":9.6,"max":15.98,"night":12.23,"eve":14.78,"morn":9.6},"pressure":992.59,"humidity":71,"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10d"}],"speed":7.12,"deg":112,"clouds":88,"rain":5.95},{"dt":1461661200,"temp":{"day":16.65,"min":10.78,"max":16.65,"night":10.78,"eve":14.45,"morn":12.9},"pressure":996.4,"humidity":0,"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10d"}],"speed":6.13,"deg":177,"clouds":31,"rain":4.18}]}
+- recorded: 2016-08-01T15:01:44.018Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/weather?id=706483&appid=API_KEY_VALUE&mode=html
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_72
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Type: text/html; charset=utf-8
+      Date: Mon, 01 Aug 2016 15:01:42 GMT
+      Server: openresty
+      Transfer-Encoding: chunked
+      X-Cache-Key: /data/2.5/weather?id=706483&mode=html
+    body: |-
+      <!DOCTYPE html>
+      <html lang="ru">
+      <head>
+        <meta charset="utf-8">
+        <meta name="keywords" content="weather, world, Openstreetmap, weather, layer" />
+        <meta name="description" content="A layer with current weather conditions in cities for world wide" />
+        <meta name="domain" content="openweathermap.org" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+      </head>
+      <body>
+        <div style="font-size: medium; font-weight: bold; margin-bottom: 0px;">Kharkiv</div>
+        <div style="float: left; width: 130px;">
+          <div style="display: block; clear: left;">
+            <div style="float: left;" title="Titel">
+              <img height="45" width="45" style="border: medium none; width: 45px; height: 45px; background: url(&quot;http://openweathermap.org/img/w/03d.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png"/>
+            </div>
+            <div style="float: left;">
+              <div style="display: block; clear: left; font-size: medium; font-weight: bold; padding: 0pt 3pt;" title="Current Temperature">30°C</div>
+              <div style="display: block; width: 85px; overflow: visible;"></div>
+            </div>
+          </div>
+          <div style="display: block; clear: left; font-size: small;">Clouds: 40%</div>
+          <div style="display: block; clear: left; color: gray; font-size: x-small;" >Humidity: 40%</div>
+          <div style="display: block; clear: left; color: gray; font-size: x-small;" >Wind: 2 m/s</div>
+          <div style="display: block; clear: left; color: gray; font-size: x-small;" >Pressure: 1014hpa</div>
+        </div>
+        <div style="display: block; clear: left; color: gray; font-size: x-small;">
+          <a href="http://openweathermap.org/city/706483" target="_blank">More..</a>
+        </div>
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-31601618-9', 'auto');ga('send', 'pageview');</script>
+      </body>
+      </html>

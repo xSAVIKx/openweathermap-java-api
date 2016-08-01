@@ -40,7 +40,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     }
 
     @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
-    def "should return current weather"() {
+    def "should return current weather by city ID"() {
         given:
         def kharkivCityId = 706483
         def client = new UrlConnectionDataWeatherClient(API_KEY)
@@ -56,6 +56,23 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.cityId == kharkivCityId
+    }
+
+    @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
+    def "should return null for current weather by city ID in HTML response format"() {
+        given:
+        def kharkivCityId = 706483
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick()
+                .currentWeather()
+                .oneLocation()
+                .byCityId(String.valueOf(kharkivCityId))
+                .responseFormat(ResponseFormat.HTML)
+                .build()
+        when:
+        def result = client.getCurrentWeather(query)
+        then:
+        result == null
     }
 
     @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
@@ -324,5 +341,22 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         result.city.coordinate == kharkivCoordinate
         result.cnt == 5
         result.forecasts.size() == 5
+    }
+
+    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
+    def "should return null for daily forecast by coordinates with XML format"() {
+        given:
+        def longitude = "36.25"
+        def latitude = "50"
+        def kharkivCoordinate = new Coordinate(longitude, latitude)
+        def client = new UrlConnectionDataWeatherClient(API_KEY)
+        def query = QueryBuilderPicker.pick()
+                .forecast()
+                .daily()
+                .byGeographicCoordinates(kharkivCoordinate)
+                .responseFormat(ResponseFormat.XML)
+                .build()
+        expect:
+        client.getForecastInformation(query) == null
     }
 }
