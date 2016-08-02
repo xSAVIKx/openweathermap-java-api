@@ -1,6 +1,7 @@
 package org.openweathermap.api.query.currentweather
 
 import org.openweathermap.api.common.Coordinate
+import org.openweathermap.api.query.Cluster
 import spock.lang.Specification
 
 class InCycleBuilderSpockTest extends Specification {
@@ -10,6 +11,7 @@ class InCycleBuilderSpockTest extends Specification {
         def expectedNumberOfCities = 10
         def centerPoint = new Coordinate("1", "2")
         def builder = new InCycleBuilder(centerPoint, expectedNumberOfCities)
+        builder.cluster(Cluster.YES)
         when:
         def result = builder.getQuery()
         then:
@@ -17,8 +19,10 @@ class InCycleBuilderSpockTest extends Specification {
         result.centerPoint == centerPoint
         result.language == null
         result.unitFormat == null
-        builder == builder.self()
+        result.cluster == Cluster.YES
         result.getRequestPart() == 'lat=2&lon=1&cnt=10'
+        result.getSearchPath() == '/find'
+        builder == builder.self()
     }
 
 }
