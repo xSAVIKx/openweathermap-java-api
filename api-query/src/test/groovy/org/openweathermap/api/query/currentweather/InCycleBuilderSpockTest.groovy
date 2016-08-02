@@ -20,7 +20,7 @@ class InCycleBuilderSpockTest extends Specification {
         result.language == null
         result.unitFormat == null
         result.cluster == Cluster.YES
-        result.getRequestPart() == 'lat=2&lon=1&cnt=10'
+        result.getRequestPart() == 'lat=2&lon=1&cnt=10&cluster=yes'
         result.getSearchPath() == '/find'
         builder == builder.self()
     }
