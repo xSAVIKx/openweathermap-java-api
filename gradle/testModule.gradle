@@ -1,5 +1,5 @@
-apply plugin: "groovy"
-apply plugin: "jacoco"
+apply plugin: 'groovy'
+apply plugin: 'jacoco'
 
 dependencies {
     testCompile commonDependencies.groovy
@@ -11,17 +11,17 @@ dependencies {
 }
 
 tasks.withType(GroovyCompile) {
-    compileGroovy.options.encoding = "UTF-8"
+    compileGroovy.options.encoding = 'UTF-8'
 }
 
 jacoco {
-    toolVersion = "0.7.9"
+    toolVersion = '0.7.9'
 }
 
 test {
     testLogging.showStandardStreams = true
     testLogging {
-        events "PASSED", "FAILED", "SKIPPED"
+        events 'PASSED', 'FAILED', 'SKIPPED'
     }
     jacoco {
         append = false

@@ -1,6 +1,6 @@
-apply plugin: "maven"
-apply plugin: "signing"
-apply plugin: "maven-publish"
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 ext {
@@ -86,10 +86,10 @@ publishing {
         jars(MavenPublication) {
             from components.java
             artifact sourcesJar {
-                classifier "sources"
+                classifier 'sources'
             }
             artifact javadocJar {
-                classifier "javadoc"
+                classifier 'javadoc'
             }
             pom.withXml {
                 asNode().dependencies.'*'.findAll() {

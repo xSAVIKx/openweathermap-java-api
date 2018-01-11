@@ -16,7 +16,7 @@ publishing {
     }
 }
 tasks.withType(Jar) { // includes War and Ear
-    manifest.getAttributes().put("Name", "org/openweathermap/api/example/")
-    manifest.getAttributes().put("Specification-Title", "OpenWeatherMap Java API:api-examples")
-    manifest.getAttributes().put("Implementation-Title", "org.openweathermap.api.example")
+    manifest.getAttributes().put('Name', 'org/openweathermap/api/example/')
+    manifest.getAttributes().put('Specification-Title', 'OpenWeatherMap Java API:api-examples')
+    manifest.getAttributes().put('Implementation-Title', 'org.openweathermap.api.example')
 }
