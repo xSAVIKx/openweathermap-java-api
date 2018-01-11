@@ -1,6 +1,3 @@
-plugins {
-    id "com.jfrog.bintray" version "1.7"
-}
 apply from: "$rootDir/gradle/java.gradle"
 apply from: "$rootDir/gradle/testModule.gradle"
 apply from: "$rootDir/gradle/publish.gradle"

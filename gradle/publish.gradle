@@ -1,6 +1,7 @@
 apply plugin: "maven"
 apply plugin: "signing"
 apply plugin: "maven-publish"
+apply plugin: 'com.jfrog.bintray'
 
 ext {
     pomFilePath = "${project.projectDir}/tmp/pom.xml"
@@ -47,11 +48,11 @@ if (project.ext.pomFile.exists()) {
     task preparePublication(dependsOn: signJars)
 }
 // extract signatures and add classifier and extension to them
-def getSignatureFiles = {
-    def allFiles = project.tasks.signJars.signatureFiles.collect { it }
-    def signedSources = allFiles.find { it.name.contains('-sources') }
-    def signedJavadoc = allFiles.find { it.name.contains('-javadoc') }
-    def signedJar = (allFiles - [signedSources, signedJavadoc])[0]
+final def getSignatureFiles = {
+    final def allFiles = project.tasks.signJars.signatureFiles.collect { it }
+    final def signedSources = allFiles.find { it.name.contains('-sources') }
+    final def signedJavadoc = allFiles.find { it.name.contains('-javadoc') }
+    final def signedJar = (allFiles - [signedSources, signedJavadoc])[0]
     return [
             [archive: signedSources, classifier: 'sources', extension: 'jar.asc'],
             [archive: signedJavadoc, classifier: 'javadoc', extension: 'jar.asc'],
@@ -59,14 +60,14 @@ def getSignatureFiles = {
     ]
 }
 // extract pom signature
-def getPomSignature = {
+final def getPomSignature = {
     return project.tasks.signPom.signatureFiles.collect { it }[0]
 }
 
 publishing {
     publications {
         gpgJars(MavenPublication) {
-            getSignatureFiles().each { signature ->
+            getSignatureFiles().each { final signature ->
                 artifact(signature.archive) {
                     classifier = signature.classifier
                     extension = signature.extension
@@ -92,12 +93,12 @@ publishing {
             }
             pom.withXml {
                 asNode().dependencies.'*'.findAll() {
-                    it.scope.text() == 'runtime' && project.configurations.compile.allDependencies.find { dep ->
+                    it.scope.text() == 'runtime' && project.configurations.compile.allDependencies.find { final dep ->
                         dep.name == it.artifactId.text()
                     }
                 }.each { it.scope*.value = 'compile' }
                 asNode().children().last() + {
-                    resolveStrategy = Closure.DELEGATE_FIRST
+                    resolveStrategy = DELEGATE_FIRST
                     name "$project.name"
                     url 'https://github.com/xSAVIKx/openweathermap-java-api'
                     scm {
