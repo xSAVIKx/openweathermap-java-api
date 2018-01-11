@@ -9,7 +9,6 @@ cache:
 jdk:
   - oraclejdk8
   - oraclejdk9
-  - openjdk7
 install:
   - ./gradlew clean assemble
 script:
