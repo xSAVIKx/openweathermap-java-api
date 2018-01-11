@@ -13,8 +13,6 @@ jdk:
 install:
   - ./gradlew clean assemble
 script:
-  - sudo keytool -importcert -keystore $JAVA_HOME/jre/lib/security/cacerts -file betamax.pem -storepass changeit -noprompt
   - ./gradlew check
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-sudo: required
