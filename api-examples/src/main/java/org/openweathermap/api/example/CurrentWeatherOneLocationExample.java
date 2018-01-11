@@ -1,8 +1,8 @@
 package org.openweathermap.api.example;
 
 
-import org.openweathermap.api.UrlConnectionWeatherClient;
-import org.openweathermap.api.WeatherClient;
+import org.openweathermap.api.DataWeatherClient;
+import org.openweathermap.api.UrlConnectionDataWeatherClient;
 import org.openweathermap.api.model.currentweather.CurrentWeather;
 import org.openweathermap.api.query.*;
 import org.openweathermap.api.query.currentweather.CurrentWeatherOneLocationQuery;
@@ -11,7 +11,7 @@ public class CurrentWeatherOneLocationExample {
     private static final String API_KEY = "API_KEY_VALUE";
 
     public static void main(String[] args) {
-        WeatherClient client = new UrlConnectionWeatherClient(API_KEY);
+        DataWeatherClient client = new UrlConnectionDataWeatherClient(API_KEY);
         CurrentWeatherOneLocationQuery currentWeatherOneLocationQuery = QueryBuilderPicker.pick()
                 .currentWeather()                   // get current weather
                 .oneLocation()                      // for one location
