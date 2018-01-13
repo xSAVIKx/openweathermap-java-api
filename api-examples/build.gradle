@@ -1,11 +1,10 @@
-plugins {
-    id "com.jfrog.bintray" version "1.7"
-}
 apply from: "$rootDir/gradle/java.gradle"
 apply from: "$rootDir/gradle/publish.gradle"
 
 dependencies {
-    compile 'org.openweathermap.java-api:api-core:1.0'
+    compile 'org.openweathermap.java-api:api-core:1.1'
+    compile 'org.openweathermap.java-api:api-query:1.1'
+    compile 'org.openweathermap.java-api:api-model:1.1'
 }
 
 publishing {
@@ -19,7 +18,7 @@ publishing {
     }
 }
 tasks.withType(Jar) { // includes War and Ear
-    manifest.getAttributes().put("Name", "org/openweathermap/api/example/")
-    manifest.getAttributes().put("Specification-Title", "OpenWeatherMap Java API:api-examples")
-    manifest.getAttributes().put("Implementation-Title", "org.openweathermap.api.example")
+    manifest.getAttributes().put('Name', 'org/openweathermap/api/example/')
+    manifest.getAttributes().put('Specification-Title', 'OpenWeatherMap Java API:api-examples')
+    manifest.getAttributes().put('Implementation-Title', 'org.openweathermap.api.example')
 }

@@ -1,12 +1,12 @@
-apply plugin: "java"
+apply plugin: 'java'
 ext {
     sharedManifest = manifest {
         attributes(
-                "Build-Time": buildTime,
-                "Implementation-Version": version,
-                "Implementation-Vendor": "Iurii Sergiichuk",
-                "Specification-Version": version,
-                "Specification-Vendor": "Iurii Sergiichuk"
+                'Build-Time': buildTime,
+                'Implementation-Version': version,
+                'Implementation-Vendor': 'Yuri Sergiichuk',
+                'Specification-Version': version,
+                'Specification-Vendor': 'Yuri Sergiichuk'
         )
     }
 }
@@ -15,7 +15,7 @@ tasks.withType(JavaCompile.class) {
     options.deprecation = false
     options.warnings = false
     options.encoding = sourceEncoding
-    options.compilerArgs = ["-Xmaxerrs", "20", "-Xmaxwarns", "0", "-Xlint:all"]
+    options.compilerArgs = ['-Xmaxerrs', '20', '-Xmaxwarns', '0', '-Xlint:all']
     sourceCompatibility = project.ext.sourceCompatibility
     targetCompatibility = project.ext.targetCompatibility
 }

@@ -1,7 +1,7 @@
 package org.openweathermap.api.example;
 
-import org.openweathermap.api.UrlConnectionWeatherClient;
-import org.openweathermap.api.WeatherClient;
+import org.openweathermap.api.DataWeatherClient;
+import org.openweathermap.api.UrlConnectionDataWeatherClient;
 import org.openweathermap.api.model.forecast.ForecastInformation;
 import org.openweathermap.api.model.forecast.daily.DailyForecast;
 import org.openweathermap.api.query.Language;
@@ -13,7 +13,7 @@ public class DailyForecastExample {
     private static final String API_KEY = "API_KEY_VALUE";
 
     public static void main(String[] args) {
-        WeatherClient client = new UrlConnectionWeatherClient(API_KEY);
+        DataWeatherClient client = new UrlConnectionDataWeatherClient(API_KEY);
         ByCityName byCityNameForecast = QueryBuilderPicker.pick()
                 .forecast()                                         // get forecast
                 .daily()                                            // it should be dailt
