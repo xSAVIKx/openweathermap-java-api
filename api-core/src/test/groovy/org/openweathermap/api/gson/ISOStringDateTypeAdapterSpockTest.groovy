@@ -16,7 +16,7 @@ class ISOStringDateTypeAdapterSpockTest extends Specification {
         when:
         adapter.write(jsonWriter, date)
         then:
-        1 * jsonWriter.value("2016-06-05 00:00:00");
+        1 * jsonWriter.value("2016-06-05 00:00:00")
     }
 
     def "should write null into JsonWriter when date is null"() {
@@ -26,7 +26,7 @@ class ISOStringDateTypeAdapterSpockTest extends Specification {
         when:
         adapter.write(jsonWriter, date)
         then:
-        1 * jsonWriter.nullValue();
+        1 * jsonWriter.nullValue()
     }
 
     def "should read Date from JsonReader"() {

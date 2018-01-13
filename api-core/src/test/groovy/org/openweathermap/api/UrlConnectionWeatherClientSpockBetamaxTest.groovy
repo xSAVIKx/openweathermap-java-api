@@ -12,12 +12,12 @@ import spock.lang.Specification
 class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
     private static final String API_KEY = "API_KEY_VALUE"
 
-    private static final String TAPES_STORAGE = "src/test/resources/org/openweathermap/api/tapes";
+    private static final String TAPES_STORAGE = "src/test/resources/org/openweathermap/api/tapes"
 
-    File f = new File(TAPES_STORAGE);
-    Configuration configuration = Configuration.builder().tapeRoot(f).sslEnabled(true).build();
+    File f = new File(TAPES_STORAGE)
+    Configuration configuration = Configuration.builder().tapeRoot(f).sslEnabled(true).build()
     @Rule
-    RecorderRule recorder = new RecorderRule(configuration);
+    RecorderRule recorder = new RecorderRule(configuration)
 
     @Betamax(tape = "by city id", mode = TapeMode.READ_WRITE)
     def "should return query data"() {
@@ -169,7 +169,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .multipleLocations()
                 .inCycle(centerPoint, expectedCitiesAmount)
                 .cluster(Cluster.YES)
-                .build();
+                .build()
         when:
         final def result = client.getCurrentWeather(query)
         then:

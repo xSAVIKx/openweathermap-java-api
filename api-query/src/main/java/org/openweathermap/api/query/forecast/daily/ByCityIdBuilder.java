@@ -1,7 +1,7 @@
 package org.openweathermap.api.query.forecast.daily;
 
 public class ByCityIdBuilder extends DailyForecastQueryBuilder<ByCityIdBuilder, ByCityId> {
-    private ByCityId query;
+    private final ByCityId query;
 
     public ByCityIdBuilder(String cityId) {
         query = new ByCityId(cityId);

@@ -29,7 +29,7 @@ class SecondsDateTypeAdapterSpockTest extends Specification {
         when:
         adapter.write(jsonWriter, date)
         then:
-        1 * jsonWriter.nullValue();
+        1 * jsonWriter.nullValue()
     }
 
     def "should return null when reading null from JsonReader"() {

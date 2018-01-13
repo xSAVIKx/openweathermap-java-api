@@ -3,7 +3,7 @@ package org.openweathermap.api.query.currentweather;
 import org.openweathermap.api.query.Type;
 
 public class ByCityNameBuilder extends CurrentWeatherOneLocationQueryBuilder<ByCityNameBuilder, ByCityName> {
-    private ByCityName query;
+    private final ByCityName query;
 
     public ByCityNameBuilder(String cityName) {
         query = new ByCityName(cityName);

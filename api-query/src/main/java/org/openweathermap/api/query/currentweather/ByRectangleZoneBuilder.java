@@ -4,7 +4,7 @@ import org.openweathermap.api.common.Coordinate;
 import org.openweathermap.api.query.Cluster;
 
 public class ByRectangleZoneBuilder extends CurrentWeatherMultipleLocationsQueryBuilder<ByRectangleZoneBuilder, ByRectangleZone> {
-    private ByRectangleZone query;
+    private final ByRectangleZone query;
 
     public ByRectangleZoneBuilder(Coordinate leftBottom, Coordinate rightTop) {
         query = new ByRectangleZone(leftBottom, rightTop);

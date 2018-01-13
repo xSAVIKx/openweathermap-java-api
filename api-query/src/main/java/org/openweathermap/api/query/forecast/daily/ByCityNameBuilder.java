@@ -3,7 +3,7 @@ package org.openweathermap.api.query.forecast.daily;
 import org.openweathermap.api.query.Type;
 
 public class ByCityNameBuilder extends DailyForecastQueryBuilder<ByCityNameBuilder, ByCityName> {
-    private ByCityName query;
+    private final ByCityName query;
 
     public ByCityNameBuilder(String cityName) {
         query = new ByCityName(cityName);

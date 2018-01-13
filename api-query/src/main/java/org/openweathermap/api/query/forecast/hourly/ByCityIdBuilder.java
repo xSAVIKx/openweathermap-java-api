@@ -1,7 +1,7 @@
 package org.openweathermap.api.query.forecast.hourly;
 
 public class ByCityIdBuilder extends HourlyForecastQueryBuilder<ByCityIdBuilder, ByCityId> {
-    private ByCityId query;
+    private final ByCityId query;
 
     public ByCityIdBuilder(String cityId) {
         query = new ByCityId(cityId);
