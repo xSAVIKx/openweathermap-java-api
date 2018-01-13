@@ -6,14 +6,15 @@ import spock.lang.Specification
 class ByCityNameBuilderSpockTest extends Specification {
     def "should create ByCityName query"() {
         given:
-        def cityName = "cityName"
-        def countryCode = "ua"
-        def type = Type.LIKE
-        def builder = new ByCityNameBuilder(cityName)
+        final def apiKey = 'apiKey'
+        final def cityName = 'cityName'
+        final def countryCode = 'ua'
+        final def type = Type.LIKE
+        final def builder = new ByCityNameBuilder(cityName)
         when:
         builder.countryCode(countryCode)
         builder.type(type)
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         result.cityName == cityName
         result.type == type
@@ -22,6 +23,7 @@ class ByCityNameBuilderSpockTest extends Specification {
         result.responseFormat == null
         result.unitFormat == null
         builder == builder.self()
-        result.getRequestPart() == 'q=cityName,ua&type=like'
+        result.getRequestPart() == "q=${cityName},${countryCode}&type=${type.stringRepresentation}"
+        result.toStringRepresentation(apiKey) == "http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName},${countryCode}&type=${type.stringRepresentation}&appid=${apiKey}"
     }
 }
