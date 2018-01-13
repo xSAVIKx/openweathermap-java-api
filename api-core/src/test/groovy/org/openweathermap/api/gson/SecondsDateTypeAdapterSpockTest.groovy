@@ -13,8 +13,8 @@ class SecondsDateTypeAdapterSpockTest extends Specification {
 
     def "should write Date into JsonWriter as long"() {
         given:
-        def jsonWriter = Mock(JsonWriter)
-        def date = new Date(116, 5, 5)
+        final def jsonWriter = Mock(JsonWriter)
+        final def date = new Date(116, 5, 5)
         when:
         adapter.write(jsonWriter, date)
         then:
@@ -24,8 +24,8 @@ class SecondsDateTypeAdapterSpockTest extends Specification {
 
     def "should write null into JsonWriter when date is null"() {
         given:
-        def jsonWriter = Mock(JsonWriter)
-        def date = null
+        final def jsonWriter = Mock(JsonWriter)
+        final def date = null
         when:
         adapter.write(jsonWriter, date)
         then:
@@ -34,9 +34,9 @@ class SecondsDateTypeAdapterSpockTest extends Specification {
 
     def "should return null when reading null from JsonReader"() {
         given:
-        def jsonReader = Mock(JsonReader)
+        final def jsonReader = Mock(JsonReader)
         when:
-        def actual = adapter.read(jsonReader)
+        final def actual = adapter.read(jsonReader)
         then:
         1 * jsonReader.peek() >> JsonToken.NULL
         1 * jsonReader.nextNull()
@@ -45,10 +45,10 @@ class SecondsDateTypeAdapterSpockTest extends Specification {
 
     def "should return Date when reading seconds from JsonReader"() {
         given:
-        def jsonReader = Mock(JsonReader)
-        def timeInSeconds = 1465074000L
+        final def jsonReader = Mock(JsonReader)
+        final def timeInSeconds = 1465074000L
         when:
-        def actual = adapter.read(jsonReader)
+        final def actual = adapter.read(jsonReader)
         then:
         1 * jsonReader.peek() >> JsonToken.NUMBER
         1 * jsonReader.nextLong() >> timeInSeconds

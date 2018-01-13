@@ -7,11 +7,11 @@ class ByZipCodeBuilderSpockTest extends Specification {
 
     def "should create ByZipCode query"() {
         given:
-        def zipCode = "zipCode"
-        def countryCode = "countryCode"
-        def builder = new ByZipCodeBuilder(zipCode, countryCode)
+        final def zipCode = "zipCode"
+        final def countryCode = "countryCode"
+        final def builder = new ByZipCodeBuilder(zipCode, countryCode)
         when:
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         result.countryCode == countryCode
         result.zipCode == zipCode

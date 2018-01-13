@@ -6,7 +6,7 @@ import spock.lang.Specification
 class AbstractDailyForecastQuerySpockTest extends Specification {
     def "should return searchPath"() {
         given:
-        AbstractDailyForecastQuery byCityId = new ByCityId("q")
+        final AbstractDailyForecastQuery byCityId = new ByCityId("q")
         expect:
         byCityId.getSearchPath() == '/forecast/daily'
     }

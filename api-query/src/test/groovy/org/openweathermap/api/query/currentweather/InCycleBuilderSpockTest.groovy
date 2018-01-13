@@ -8,12 +8,12 @@ class InCycleBuilderSpockTest extends Specification {
 
     def "should create InCycle query"() {
         given:
-        def expectedNumberOfCities = 10
-        def centerPoint = new Coordinate("1", "2")
-        def builder = new InCycleBuilder(centerPoint, expectedNumberOfCities)
+        final def expectedNumberOfCities = 10
+        final def centerPoint = new Coordinate("1", "2")
+        final def builder = new InCycleBuilder(centerPoint, expectedNumberOfCities)
         builder.cluster(Cluster.YES)
         when:
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         result.expectedNumberOfCities == expectedNumberOfCities
         result.centerPoint == centerPoint

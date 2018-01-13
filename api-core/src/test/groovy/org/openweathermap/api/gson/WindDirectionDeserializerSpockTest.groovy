@@ -7,12 +7,12 @@ import spock.lang.Specification
 class WindDirectionDeserializerSpockTest extends Specification {
     def "should deserialize WindDirection from JsonElement"() {
         given:
-        def degree = 123
-        def jsonPrimitive = new JsonPrimitive(degree)
-        def jsonElement = Mock(JsonElement)
-        def deserializer = new WindDirectionDeserializer()
+        final def degree = 123
+        final def jsonPrimitive = new JsonPrimitive(degree)
+        final def jsonElement = Mock(JsonElement)
+        final def deserializer = new WindDirectionDeserializer()
         when:
-        def result = deserializer.deserialize(jsonElement, null, null)
+        final def result = deserializer.deserialize(jsonElement, null, null)
         then:
         1 * jsonElement.getAsJsonPrimitive() >> jsonPrimitive
         result != null

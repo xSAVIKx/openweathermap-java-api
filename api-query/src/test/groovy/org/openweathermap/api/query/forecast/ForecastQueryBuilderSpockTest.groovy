@@ -6,7 +6,7 @@ import spock.lang.Specification
 class ForecastQueryBuilderSpockTest extends Specification {
     def "should set count field of query"() {
         given:
-        ForecastQueryBuilder builder = new ByCityIdBuilder('')
+        final ForecastQueryBuilder builder = new ByCityIdBuilder('')
         when:
         builder.count(1)
         then:

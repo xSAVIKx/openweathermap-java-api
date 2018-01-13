@@ -7,11 +7,11 @@ import spock.lang.Specification
 class WindDirectionSerializerSpockTest extends Specification {
     def "should serialize WindDirection into int value"() {
         given:
-        def degree = 123
-        def windDirection = new WindDirection(degree: degree)
-        def serializer = new WindDirectionSerializer()
+        final def degree = 123
+        final def windDirection = new WindDirection(degree: degree)
+        final def serializer = new WindDirectionSerializer()
         when:
-        def result = serializer.serialize(windDirection, null, null)
+        final def result = serializer.serialize(windDirection, null, null)
         then:
         result != null
         result.getAsInt() == degree

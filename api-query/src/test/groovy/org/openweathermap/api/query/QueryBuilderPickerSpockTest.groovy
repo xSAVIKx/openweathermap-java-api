@@ -7,7 +7,7 @@ import spock.lang.Specification
 class QueryBuilderPickerSpockTest extends Specification {
     def "should generate only one instance"() {
         given:
-        def picker = QueryBuilderPicker.pick()
+        final def picker = QueryBuilderPicker.pick()
         expect:
         picker == QueryBuilderPicker.pick()
         picker == QueryBuilderPicker.pick()
@@ -22,7 +22,7 @@ class QueryBuilderPickerSpockTest extends Specification {
 
     def "current weather one location picker should create builders for current weather one location queries"() {
         given:
-        def picker = QueryBuilderPicker.pick().currentWeather().oneLocation()
+        final def picker = QueryBuilderPicker.pick().currentWeather().oneLocation()
         expect:
         assert picker.byCityId(null) instanceof ByCityIdBuilder
         assert picker.byCityName(null) instanceof ByCityNameBuilder
@@ -32,7 +32,7 @@ class QueryBuilderPickerSpockTest extends Specification {
 
     def "current weather multiple location picker should create builders for current weather multiple location queries"() {
         given:
-        def picker = QueryBuilderPicker.pick().currentWeather().multipleLocations()
+        final def picker = QueryBuilderPicker.pick().currentWeather().multipleLocations()
         expect:
         assert picker.byCityIds() instanceof ByCityIdsBuilder
         assert picker.byCityIds([]) instanceof ByCityIdsBuilder
@@ -49,7 +49,7 @@ class QueryBuilderPickerSpockTest extends Specification {
 
     def "daily forecasts picker should create builders for daily forecasts queries"() {
         given:
-        def picker = QueryBuilderPicker.pick().forecast().daily()
+        final def picker = QueryBuilderPicker.pick().forecast().daily()
         expect:
         assert picker.byCityId(null) instanceof org.openweathermap.api.query.forecast.daily.ByCityIdBuilder
         assert picker.byCityName(null) instanceof org.openweathermap.api.query.forecast.daily.ByCityNameBuilder
@@ -58,7 +58,7 @@ class QueryBuilderPickerSpockTest extends Specification {
 
     def "hourly forecasts picker should create builders for daily forecasts queries"() {
         given:
-        def picker = QueryBuilderPicker.pick().forecast().hourly()
+        final def picker = QueryBuilderPicker.pick().forecast().hourly()
         expect:
         assert picker.byCityId(null) instanceof org.openweathermap.api.query.forecast.hourly.ByCityIdBuilder
         assert picker.byCityName(null) instanceof org.openweathermap.api.query.forecast.hourly.ByCityNameBuilder

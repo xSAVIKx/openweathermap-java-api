@@ -9,13 +9,13 @@ class ByCityIdBuilderSpockTest extends Specification {
 
     def "should create ByCityId query"() {
         given:
-        def cityId = "cityId"
-        def builder = new ByCityIdBuilder(cityId)
+        final def cityId = "cityId"
+        final def builder = new ByCityIdBuilder(cityId)
         builder.language(Language.ENGLISH)
         builder.responseFormat(ResponseFormat.HTML)
         builder.unitFormat(UnitFormat.IMPERIAL)
         when:
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         result.cityId == cityId
         result.language == Language.ENGLISH

@@ -5,9 +5,9 @@ import spock.lang.Specification
 class ByCityIdsBuilderSpockTest extends Specification {
     def "should return ByCityIds query with empty city id collection"() {
         given:
-        ByCityIdsBuilder builder = new ByCityIdsBuilder()
+        final ByCityIdsBuilder builder = new ByCityIdsBuilder()
         when:
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         assert result.cityIds.isEmpty()
         result.language == null
@@ -18,11 +18,11 @@ class ByCityIdsBuilderSpockTest extends Specification {
 
     def "should return ByCityIds query"() {
         given:
-        def cityId = "cityId"
-        ByCityIdsBuilder builder = new ByCityIdsBuilder()
+        final def cityId = "cityId"
+        final ByCityIdsBuilder builder = new ByCityIdsBuilder()
         builder.addCityId(cityId)
         when:
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         result.cityIds[0] == cityId
         result.language == null
@@ -32,10 +32,10 @@ class ByCityIdsBuilderSpockTest extends Specification {
 
     def "should return ByCityIds query with given city id collection"() {
         given:
-        def cityIds = ["cityId1", "cityId2"]
-        ByCityIdsBuilder builder = new ByCityIdsBuilder(cityIds)
+        final def cityIds = ["cityId1", "cityId2"]
+        final ByCityIdsBuilder builder = new ByCityIdsBuilder(cityIds)
         when:
-        def result = builder.getQuery()
+        final def result = builder.getQuery()
         then:
         result.cityIds == cityIds
         result.language == null
