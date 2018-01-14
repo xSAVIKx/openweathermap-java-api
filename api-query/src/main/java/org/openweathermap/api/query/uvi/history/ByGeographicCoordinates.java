@@ -8,8 +8,8 @@ import org.openweathermap.api.query.uvi.AbstractByGeographicCoordinates;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ByGeographicCoordinates extends AbstractByGeographicCoordinates implements HistoryUviQuery {
-    private int start;
-    private int end;
+    private long start;
+    private long end;
     private int count;
 
 

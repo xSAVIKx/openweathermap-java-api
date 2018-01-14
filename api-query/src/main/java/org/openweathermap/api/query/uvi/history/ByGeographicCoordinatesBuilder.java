@@ -26,12 +26,12 @@ public class ByGeographicCoordinatesBuilder
         return self();
     }
 
-    public ByGeographicCoordinatesBuilder start(int start) {
+    public ByGeographicCoordinatesBuilder start(long start) {
         getQuery().setStart(start);
         return self();
     }
 
-    public ByGeographicCoordinatesBuilder end(int end) {
+    public ByGeographicCoordinatesBuilder end(long end) {
         getQuery().setEnd(end);
         return self();
     }
