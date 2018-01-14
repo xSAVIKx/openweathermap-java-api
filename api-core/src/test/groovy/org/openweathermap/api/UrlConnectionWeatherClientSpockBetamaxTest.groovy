@@ -3,6 +3,7 @@ package org.openweathermap.api
 import org.junit.Rule
 import org.openweathermap.api.common.Coordinate
 import org.openweathermap.api.query.*
+import org.openweathermap.api.query.uvi.UviQuery
 import software.betamax.Configuration
 import software.betamax.TapeMode
 import software.betamax.junit.Betamax
@@ -10,7 +11,7 @@ import software.betamax.junit.RecorderRule
 import spock.lang.Specification
 
 class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
-    private static final String API_KEY = "API_KEY_VALUE"
+    private static final String API_KEY = "e727e62532fa3bedf05392e295969719"
 
     private static final String TAPES_STORAGE = "src/test/resources/org/openweathermap/api/tapes"
 
@@ -358,5 +359,26 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .build()
         expect:
         client.getForecastInformation(query) == null
+    }
+
+    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
+    def "should return current Uvi value by coordinates"() {
+        given:
+        final def longitude = "36.25"
+        final def latitude = "50"
+        final def kharkivCoordinate = new Coordinate(longitude, latitude)
+        final def client = new UrlConnectionDataWeatherClient(API_KEY)
+        final def query = UviQuery.Current.byGeographicCoordinates(kharkivCoordinate)
+                .language(Language.ENGLISH)
+                .unitFormat(UnitFormat.METRIC)
+                .build()
+        when:
+        final def result = client.getCurrentUvi(query)
+        then:
+        result.longitude == longitude
+        result.latitude == latitude
+        result.isoDate == '2018-01-14T12:00:00Z'
+        result.date == new Date(1515931200000L)
+        result.ultravioletIndex == 0.68d
     }
 }

@@ -100,3 +100,27 @@ interactions:
       Transfer-Encoding: chunked
       X-Cache-Key: /data/2.5/forecast/daily?lat=50&lon=36.25&mode=xml
     body: <weatherdata><location><name>Kharkiv</name><type></type><country>UA</country><timezone></timezone><location altitude="0" latitude="50" longitude="36.25" geobase="geonames" geobaseid="706483"></location></location><credit></credit><meta><lastupdate></lastupdate><calctime>0.0086</calctime><nextupdate></nextupdate></meta><sun rise="2016-08-01T02:05:32" set="2016-08-01T17:16:04"></sun><forecast><time day="2016-08-01"><symbol number="800" name="clear sky" var="01d"></symbol><precipitation></precipitation><windDirection deg="75" code="ENE" name="East-northeast"></windDirection><windSpeed mps="2.01" name="Light breeze"></windSpeed><temperature day="303.15" min="293.98" max="303.15" night="293.98" eve="302.39" morn="303.15"></temperature><pressure unit="hPa" value="1006.69"></pressure><humidity value="77" unit="%"></humidity><clouds value="clear sky" all="0" unit="%"></clouds></time><time day="2016-08-02"><symbol number="800" name="clear sky" var="01d"></symbol><precipitation></precipitation><windDirection deg="151" code="SSE" name="South-southeast"></windDirection><windSpeed mps="2.66" name="Light breeze"></windSpeed><temperature day="302.79" min="292.06" max="303.48" night="294.67" eve="302.72" morn="292.06"></temperature><pressure unit="hPa" value="1004.25"></pressure><humidity value="79" unit="%"></humidity><clouds value="clear sky" all="0" unit="%"></clouds></time><time day="2016-08-03"><symbol number="502" name="heavy intensity rain" var="10d"></symbol><precipitation value="14.35" type="rain"></precipitation><windDirection deg="347" code="NNW" name="North-northwest"></windDirection><windSpeed mps="3.28" name="Light breeze"></windSpeed><temperature day="299.62" min="291.8" max="299.62" night="291.8" eve="293.21" morn="293.28"></temperature><pressure unit="hPa" value="1001.63"></pressure><humidity value="89" unit="%"></humidity><clouds value="scattered clouds" all="44" unit="%"></clouds></time><time day="2016-08-04"><symbol number="800" name="clear sky" var="02d"></symbol><precipitation></precipitation><windDirection deg="359" code="" name=""></windDirection><windSpeed mps="5.01" name="Gentle Breeze"></windSpeed><temperature day="294.81" min="288.45" max="295.82" night="288.45" eve="295.26" morn="290.07"></temperature><pressure unit="hPa" value="1008.16"></pressure><humidity value="88" unit="%"></humidity><clouds value="clear sky" all="8" unit="%"></clouds></time><time day="2016-08-05"><symbol number="800" name="clear sky" var="01d"></symbol><precipitation></precipitation><windDirection deg="47" code="NE" name="NorthEast"></windDirection><windSpeed mps="2.91" name="Light breeze"></windSpeed><temperature day="296.65" min="287.31" max="297.61" night="288.3" eve="296.94" morn="287.31"></temperature><pressure unit="hPa" value="1013.19"></pressure><humidity value="83" unit="%"></humidity><clouds value="clear sky" all="0" unit="%"></clouds></time><time day="2016-08-06"><symbol number="500" name="light rain" var="10d"></symbol><precipitation></precipitation><windDirection deg="132" code="SE" name="SouthEast"></windDirection><windSpeed mps="3.33" name=""></windSpeed><temperature day="303.76" min="293.32" max="303.76" night="293.32" eve="298.16" morn="297.13"></temperature><pressure unit="hPa" value="1009.07"></pressure><humidity value="0" unit="%"></humidity><clouds value="clear sky" all="0" unit="%"></clouds></time><time day="2016-08-07"><symbol number="500" name="light rain" var="10d"></symbol><precipitation value="0.58" type="rain"></precipitation><windDirection deg="306" code="NW" name="Northwest"></windDirection><windSpeed mps="1.81" name="Light breeze"></windSpeed><temperature day="304.68" min="294.23" max="304.68" night="294.23" eve="298.33" morn="300.53"></temperature><pressure unit="hPa" value="1008.72"></pressure><humidity value="0" unit="%"></humidity><clouds value="scattered clouds" all="31" unit="%"></clouds></time></forecast></weatherdata>
+- recorded: 2018-01-14T20:03:00.639Z
+  request:
+    method: GET
+    uri: http://api.openweathermap.org/data/2.5/uvi?lang=en&units=metric&lat=50&lon=36.25&appid=API_KEY_VALUE
+    headers:
+      Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      Accept-Charset: UTF-8
+      Content-Length: '0'
+      Host: api.openweathermap.org
+      Proxy-Connection: keep-alive
+      User-Agent: Java/1.8.0_151
+  response:
+    status: 200
+    headers:
+      Access-Control-Allow-Credentials: 'true'
+      Access-Control-Allow-Methods: GET, POST
+      Access-Control-Allow-Origin: '*'
+      Connection: keep-alive
+      Content-Length: '87'
+      Content-Type: application/json; charset=UTF-8
+      Date: Sun, 14 Jan 2018 20:03:00 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/uvi?lang=en&lat=50&lon=36.25&units=metric
+    body: '{"lat":50,"lon":36.25,"date_iso":"2018-01-14T12:00:00Z","date":1515931200,"value":0.68}'
