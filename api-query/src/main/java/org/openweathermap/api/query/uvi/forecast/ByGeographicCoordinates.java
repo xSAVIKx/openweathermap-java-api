@@ -7,10 +7,8 @@ import org.openweathermap.api.query.uvi.AbstractByGeographicCoordinates;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByGeographicCoordinates extends AbstractByGeographicCoordinates {
-    private static final String FORECAST = "/forecast";
+public class ByGeographicCoordinates extends AbstractByGeographicCoordinates implements ForecastUviQuery {
     private int count;
-
 
     public ByGeographicCoordinates(Coordinate coordinate) {
         super(coordinate);

@@ -7,8 +7,7 @@ import org.openweathermap.api.query.uvi.AbstractByGeographicCoordinates;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class ByGeographicCoordinates extends AbstractByGeographicCoordinates {
-    private static final String HISTORY = "/history";
+public class ByGeographicCoordinates extends AbstractByGeographicCoordinates implements HistoryUviQuery {
     private int start;
     private int end;
     private int count;
