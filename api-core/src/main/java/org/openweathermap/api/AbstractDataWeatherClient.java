@@ -9,6 +9,7 @@ import org.openweathermap.api.model.forecast.Forecast;
 import org.openweathermap.api.model.forecast.ForecastInformation;
 import org.openweathermap.api.model.forecast.daily.DailyForecast;
 import org.openweathermap.api.model.forecast.hourly.HourlyForecast;
+import org.openweathermap.api.model.uvi.Uvi;
 import org.openweathermap.api.query.Query;
 import org.openweathermap.api.query.ResponseFormat;
 import org.openweathermap.api.query.currentweather.CurrentWeatherMultipleLocationsQuery;
@@ -16,6 +17,9 @@ import org.openweathermap.api.query.currentweather.CurrentWeatherOneLocationQuer
 import org.openweathermap.api.query.forecast.ForecastQuery;
 import org.openweathermap.api.query.forecast.daily.DailyForecastQuery;
 import org.openweathermap.api.query.forecast.hourly.HourlyForecastQuery;
+import org.openweathermap.api.query.uvi.current.CurrentUviQuery;
+import org.openweathermap.api.query.uvi.forecast.ForecastUviQuery;
+import org.openweathermap.api.query.uvi.history.HistoryUviQuery;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -85,5 +89,26 @@ public abstract class AbstractDataWeatherClient implements DataWeatherClient {
             return gson.fromJson(data, type);
         }
         return null;
+    }
+
+    @Override
+    public Uvi getCurrentUvi(CurrentUviQuery query) {
+        String data = getWeatherData(query);
+        Uvi result = gson.fromJson(data, Uvi.TYPE);
+        return result;
+    }
+
+    @Override
+    public List<Uvi> getUviForecast(ForecastUviQuery query) {
+        String data = getWeatherData(query);
+        List<Uvi> result = gson.fromJson(data, Uvi.TYPE_LIST);
+        return result;
+    }
+
+    @Override
+    public List<Uvi> getUviHistory(HistoryUviQuery query) {
+        String data = getWeatherData(query);
+        List<Uvi> result = gson.fromJson(data, Uvi.TYPE_LIST);
+        return result;
     }
 }
