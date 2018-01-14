@@ -9,12 +9,14 @@ import org.openweathermap.api.model.AbstractWeatherInformation;
 import org.openweathermap.api.model.SystemParameters;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class CurrentWeather extends AbstractWeatherInformation {
-    public static final Type TYPE = new TypeToken<CurrentWeather>() {
-    }.getType();
+    public static final Type TYPE = TypeToken.get(CurrentWeather.class).getType();
+    public static final Type TYPE_LIST = TypeToken.getParameterized(List.class, TYPE).getType();
+
     @SerializedName("coord")
     private Coordinate coordinate;
     private String base;
