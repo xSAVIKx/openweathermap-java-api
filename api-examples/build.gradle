@@ -2,9 +2,13 @@ apply from: "$rootDir/gradle/java.gradle"
 apply from: "$rootDir/gradle/publish.gradle"
 
 dependencies {
-    compile 'org.openweathermap.java-api:api-core:1.1'
-    compile 'org.openweathermap.java-api:api-query:1.1'
-    compile 'org.openweathermap.java-api:api-model:1.1'
+    compile project(':api-core')
+    compile project(':api-query')
+    compile project(':api-model')
+
+//    compile 'org.openweathermap.java-api:api-core:1.1'
+//    compile 'org.openweathermap.java-api:api-query:1.1'
+//    compile 'org.openweathermap.java-api:api-model:1.1'
 }
 
 publishing {
