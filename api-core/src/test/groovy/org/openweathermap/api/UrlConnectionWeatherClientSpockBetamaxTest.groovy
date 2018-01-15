@@ -3,6 +3,7 @@ package org.openweathermap.api
 import org.junit.Rule
 import org.openweathermap.api.common.Coordinate
 import org.openweathermap.api.query.*
+import org.openweathermap.api.query.uvi.UviQuery
 import software.betamax.Configuration
 import software.betamax.TapeMode
 import software.betamax.junit.Betamax
@@ -358,5 +359,55 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .build()
         expect:
         client.getForecastInformation(query) == null
+    }
+
+    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
+    def "should return current Uvi value by coordinates"() {
+        given:
+        final def longitude = "36.25"
+        final def latitude = "50"
+        final def kharkivCoordinate = new Coordinate(longitude, latitude)
+        final def client = new UrlConnectionDataWeatherClient(API_KEY)
+        final def query = UviQuery.Current.byGeographicCoordinates(kharkivCoordinate)
+                .language(Language.ENGLISH)
+                .unitFormat(UnitFormat.METRIC)
+                .build()
+        when:
+        final def result = client.getCurrentUvi(query)
+        then:
+        result.longitude == longitude
+        result.latitude == latitude
+        result.isoDate == '2018-01-14T12:00:00Z'
+        result.date == new Date(1515931200000L)
+        result.ultravioletIndex == 0.68d
+    }
+
+    @Betamax(tape = "by coordinates", mode = TapeMode.READ_WRITE)
+    def "should return Uvi forecast by coordinates"() {
+        given:
+        final def longitude = "36.25"
+        final def latitude = "50"
+        final def kharkivCoordinate = new Coordinate(longitude, latitude)
+        final def client = new UrlConnectionDataWeatherClient(API_KEY)
+        final def query = UviQuery.Forecast.byGeographicCoordinates(kharkivCoordinate)
+                .language(Language.ENGLISH)
+                .unitFormat(UnitFormat.METRIC)
+                .count(1)
+                .build()
+        when:
+        final def result = client.getUviForecast(query)
+        then:
+        result.size() == 2
+        result[0].longitude == longitude
+        result[0].latitude == latitude
+        result[0].isoDate == '2018-01-15T12:00:00Z'
+        result[0].date == new Date(1516017600000L)
+        result[0].ultravioletIndex == 0.65d
+
+        result[1].longitude == longitude
+        result[1].latitude == latitude
+        result[1].isoDate == '2018-01-16T12:00:00Z'
+        result[1].date == new Date(1516104000000L)
+        result[1].ultravioletIndex == 0.64d
     }
 }

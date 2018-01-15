@@ -27,12 +27,11 @@ public class UrlConnectionDataWeatherClient extends AbstractDataWeatherClient {
             urlConnection.setRequestProperty(ACCEPT_CHARSET, UTF_8);
             return readResponse(urlConnection);
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            throw new WeatherClientRequestException(e);
         }
     }
 
-    private String readResponse(URLConnection urlConnection) throws IOException {
+    private static String readResponse(URLConnection urlConnection) throws IOException {
         StringBuilder response = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
             String line;
@@ -49,7 +48,7 @@ public class UrlConnectionDataWeatherClient extends AbstractDataWeatherClient {
      * @param query the query
      * @return the url
      */
-    private URL getUrl(String query) {
+    private static URL getUrl(String query) {
         try {
             return new URL(query);
         } catch (MalformedURLException e) {
