@@ -1,7 +1,6 @@
 package org.openweathermap.api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import org.openweathermap.api.gson.WindDirectionDeserializer;
 import org.openweathermap.api.gson.WindDirectionSerializer;
 import org.openweathermap.api.model.WindDirection;
@@ -26,10 +25,6 @@ import java.util.List;
 
 
 public abstract class AbstractDataWeatherClient implements DataWeatherClient {
-    private final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(WindDirection.class, new WindDirectionDeserializer())
-            .registerTypeAdapter(WindDirection.class, new WindDirectionSerializer())
-            .create();
 
     @Override
     public ForecastInformation<HourlyForecast> getForecastInformation(HourlyForecastQuery query) {
@@ -57,7 +52,10 @@ public abstract class AbstractDataWeatherClient implements DataWeatherClient {
 
     @Override
     public List<CurrentWeather> getCurrentWeather(CurrentWeatherMultipleLocationsQuery query) {
-        List<CurrentWeather> result = getResult(query, CurrentWeather.TYPE_LIST);
+        String data = getWeatherData(query);
+        JsonObject jsonObject = jsonParser().parse(data).getAsJsonObject();
+        JsonArray list = jsonObject.getAsJsonArray("list");
+        List<CurrentWeather> result = gson().fromJson(list, CurrentWeather.TYPE_LIST);
         return result;
     }
 
@@ -91,7 +89,32 @@ public abstract class AbstractDataWeatherClient implements DataWeatherClient {
 
     private <T> T getResult(Query query, Type type) {
         String data = getWeatherData(query);
-        final T result = gson.fromJson(data, type);
+        final T result = gson().fromJson(data, type);
         return result;
+    }
+
+    protected static Gson gson() {
+        return GsonHolder.INSTANCE.value;
+    }
+
+    protected static JsonParser jsonParser() {
+        return JsonParserHolder.INSTANCE.value;
+    }
+
+    private enum JsonParserHolder {
+        INSTANCE;
+
+        @SuppressWarnings({"NonSerializableFieldInSerializableClass", "ImmutableEnumChecker"})
+        private final JsonParser value = new JsonParser();
+
+    }
+
+    private enum GsonHolder {
+        INSTANCE;
+        @SuppressWarnings({"NonSerializableFieldInSerializableClass", "ImmutableEnumChecker"})
+        private final Gson value = new GsonBuilder()
+                .registerTypeAdapter(WindDirection.class, new WindDirectionDeserializer())
+                .registerTypeAdapter(WindDirection.class, new WindDirectionSerializer())
+                .create();
     }
 }
