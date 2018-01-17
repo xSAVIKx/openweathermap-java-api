@@ -1,7 +1,10 @@
-# openweathermap-java-api [![Build Status](https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=master)](https://travis-ci.org/xSAVIKx/openweathermap-java-api) [ ![Download](https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg) ](https://bintray.com/xsavikx/openweathermap-java-api/api-core/_latestVersion) [![codecov](https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/master/graph/badge.svg)](https://codecov.io/gh/xSAVIKx/openweathermap-java-api)
+openweathermap-java-api [![Build Status][ci-shield]][ci-link] [![Download][bintray-shield]][bintray-link] [![codecov][codecov-shield]][codecov-link]
+=====
+
+To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here][openweathermap-signup].
 
 
-To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here](http://home.openweathermap.org/users/sign_up).
+[openweathermap-signup]: http://home.openweathermap.org/users/sign_up
 
 # Features
 
@@ -64,7 +67,7 @@ CATALAN("ca");
 
 ## Supported Units format
 
-- Standart
+- Standard
 - Metric
 - Imperial
 
@@ -73,3 +76,12 @@ More information about weather parameters and unit can be found [here](http://op
 ## Examples
 
 Take a look at [examples module](./api-examples)
+
+[ci-shield]: https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=master
+[ci-link]: https://travis-ci.org/xSAVIKx/openweathermap-java-api
+
+[bintray-shield]: https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg
+[bintray-link]: https://bintray.com/xsavikx/openweathermap-java-api/api-core/_latestVersion
+
+[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/master/graph/badge.svg
+[codecov-link]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api
