@@ -77,7 +77,7 @@ More information about weather parameters and unit can be found [here](http://op
 
 Take a look at [examples module](./api-examples)
 
-[ci-shield]: https://travis-ci.com/xSAVIKx/openweathermap-java-api.svg?branch=development
+[ci-shield]: https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=development
 [ci-link]: https://travis-ci.org/xSAVIKx/openweathermap-java-api
 
 [bintray-shield]: https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg
