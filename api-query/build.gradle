@@ -3,7 +3,6 @@ apply from: "$rootDir/gradle/testModule.gradle"
 apply from: "$rootDir/gradle/publish.gradle"
 
 dependencies {
-    compile commonDependencies.lombok
     compile commonDependencies.commons_lang
     compile project(':api-common')
 }

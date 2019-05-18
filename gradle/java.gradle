@@ -4,9 +4,9 @@ ext {
         attributes(
                 'Build-Time': buildTime,
                 'Implementation-Version': version,
-                'Implementation-Vendor': 'Yuri Sergiichuk',
+                'Implementation-Vendor': 'Yurii Serhiichuk',
                 'Specification-Version': version,
-                'Specification-Vendor': 'Yuri Sergiichuk'
+                'Specification-Vendor': 'Yurii Serhiichuk'
         )
     }
 }
@@ -26,7 +26,7 @@ javadoc {
 }
 //create a single Jar with all dependencies
 task generateOneJar(type: Jar) {
-    baseName = project.name + '-all'
+    getArchiveBaseName().set("${project.name}-all")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
