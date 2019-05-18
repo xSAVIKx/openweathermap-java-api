@@ -24,7 +24,6 @@ test {
         events 'PASSED', 'FAILED', 'SKIPPED'
     }
     jacoco {
-        append = false
         destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
         classDumpDir = file("$buildDir/jacoco/classpathdumps")
     }
