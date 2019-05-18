@@ -83,5 +83,5 @@ Take a look at [examples module](./api-examples)
 [bintray-shield]: https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg
 [bintray-link]: https://bintray.com/xsavikx/openweathermap-java-api/api-core/_latestVersion
 
-[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/master/graph/badge.svg
+[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api
