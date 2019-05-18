@@ -77,11 +77,11 @@ More information about weather parameters and unit can be found [here](http://op
 
 Take a look at [examples module](./api-examples)
 
-[ci-shield]: https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=master
+[ci-shield]: https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=development
 [ci-link]: https://travis-ci.org/xSAVIKx/openweathermap-java-api
 
 [bintray-shield]: https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg
 [bintray-link]: https://bintray.com/xsavikx/openweathermap-java-api/api-core/_latestVersion
 
-[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/master/graph/badge.svg
+[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api

@@ -5,7 +5,6 @@ apply from: "$rootDir/gradle/publish.gradle"
 dependencies {
     compile commonDependencies.gson
     compile commonDependencies.commons_lang
-    compile commonDependencies.lombok
     compile project(':api-query')
     compile project(':api-common')
     compile project(':api-model')

@@ -2,7 +2,6 @@ apply from: "$rootDir/gradle/java.gradle"
 apply from: "$rootDir/gradle/publish.gradle"
 
 dependencies {
-    compile commonDependencies.lombok
     compile commonDependencies.gson
     compile project(':api-common')
 }

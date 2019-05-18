@@ -15,7 +15,7 @@ tasks.withType(GroovyCompile) {
 }
 
 jacoco {
-    toolVersion = '0.7.9'
+    toolVersion = '0.8.4'
 }
 
 test {
@@ -24,7 +24,6 @@ test {
         events 'PASSED', 'FAILED', 'SKIPPED'
     }
     jacoco {
-        append = false
         destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
         classDumpDir = file("$buildDir/jacoco/classpathdumps")
     }

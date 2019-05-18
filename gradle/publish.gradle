@@ -13,13 +13,13 @@ configurations {
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
     from tasks.javadoc.destinationDir
+    getArchiveClassifier().set('javadoc')
 }
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
-    classifier = 'sources'
+    getArchiveClassifier().set('sources')
 }
 
 // sign all artifacts
@@ -99,7 +99,7 @@ publishing {
                 }.each { it.scope*.value = 'compile' }
                 asNode().children().last() + {
                     resolveStrategy = DELEGATE_FIRST
-                    name "$project.name"
+                    name "${project.name}"
                     url 'https://github.com/xSAVIKx/openweathermap-java-api'
                     scm {
                         url 'https://github.com/xSAVIKx/openweathermap-java-api'
@@ -125,7 +125,7 @@ publishing {
                     developers {
                         developer {
                             id 'xSAVIKx'
-                            name 'Iurii Sergiichuk'
+                            name 'Yurii Serhiichuk'
                             email 'iurii.sergiichuk@gmail.com'
                             roles {
                                 role 'developer'
@@ -144,8 +144,8 @@ bintray {
     publications = ['jars']
     pkg {
         repo = 'openweathermap-java-api'
-        name = "$project.name"
-        desc = "openweathermap.org Java API $project.name module."
+        name = "${project.name}"
+        desc = "openweathermap.org Java API ${project.name} module."
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
         websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
@@ -154,7 +154,7 @@ bintray {
         githubReleaseNotesFile = 'README.md'
         version {
             name = project.version
-            desc = "openweathermap.org Java API module $project.name v.$project.version"
+            desc = "openweathermap.org Java API module ${project.name} v.${project.version}"
             released = new Date()
             vcsTag = project.version
         }
