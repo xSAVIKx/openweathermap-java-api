@@ -5,8 +5,6 @@ dependencies {
 
 appendPomDescription('Java API to access openweathermap.org API models')
 
-tasks.withType(Jar) { // includes War and Ear
-    manifest.getAttributes().put('Name', 'org/openweathermap/api/model/')
-    manifest.getAttributes().put('Specification-Title', 'OpenWeatherMap Java API:models')
-    manifest.getAttributes().put('Implementation-Title', 'org.openweathermap.api.model')
-}
+setJarManifestName('org/openweathermap/api/model/')
+setJarManifestSpecificationTitle('OpenWeatherMap Java API:models')
+setJarManifestImplementationTitle('org.openweathermap.api.model')
