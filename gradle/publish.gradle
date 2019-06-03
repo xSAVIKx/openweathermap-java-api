@@ -4,8 +4,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 ext {
-    pomFilePath = "${project.projectDir}/tmp/pom.xml"
-    pomFile = file(pomFilePath)
+    pomFile = file("${project.projectDir}/tmp/pom.xml")
 }
 // add configuration for pom signing
 configurations {
@@ -13,24 +12,24 @@ configurations {
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
     from tasks.javadoc.destinationDir
+    getArchiveClassifier().set('javadoc')
 }
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
-    classifier = 'sources'
+    getArchiveClassifier().set('sources')
 }
 
 // sign all artifacts
 task signJars(type: Sign, dependsOn: [jar, javadocJar, sourcesJar]) {
     sign configurations.archives
 }
+
 // sign pom
 task signPom(type: Sign) {
     sign configurations.pom
 }
-
 
 artifacts {
     archives jar
@@ -47,6 +46,7 @@ if (project.ext.pomFile.exists()) {
 } else {
     task preparePublication(dependsOn: signJars)
 }
+
 // extract signatures and add classifier and extension to them
 final def getSignatureFiles = {
     final def allFiles = project.tasks.signJars.signatureFiles.collect { it }
@@ -59,6 +59,7 @@ final def getSignatureFiles = {
             [archive: signedJar, classifier: null, extension: 'jar.asc']
     ]
 }
+
 // extract pom signature
 final def getPomSignature = {
     return project.tasks.signPom.signatureFiles.collect { it }[0]
@@ -86,10 +87,10 @@ publishing {
         jars(MavenPublication) {
             from components.java
             artifact sourcesJar {
-                classifier 'sources'
+                getArchiveClassifier().set('sources')
             }
             artifact javadocJar {
-                classifier 'javadoc'
+                getArchiveClassifier().set('javadoc')
             }
             pom.withXml {
                 asNode().dependencies.'*'.findAll() {
@@ -99,7 +100,7 @@ publishing {
                 }.each { it.scope*.value = 'compile' }
                 asNode().children().last() + {
                     resolveStrategy = DELEGATE_FIRST
-                    name "$project.name"
+                    name "${project.name}"
                     url 'https://github.com/xSAVIKx/openweathermap-java-api'
                     scm {
                         url 'https://github.com/xSAVIKx/openweathermap-java-api'
@@ -125,7 +126,7 @@ publishing {
                     developers {
                         developer {
                             id 'xSAVIKx'
-                            name 'Iurii Sergiichuk'
+                            name 'Yurii Serhiichuk'
                             email 'iurii.sergiichuk@gmail.com'
                             roles {
                                 role 'developer'
@@ -144,8 +145,8 @@ bintray {
     publications = ['jars']
     pkg {
         repo = 'openweathermap-java-api'
-        name = "$project.name"
-        desc = "openweathermap.org Java API $project.name module."
+        name = "${project.name}"
+        desc = "openweathermap.org Java API ${project.name} module."
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
         websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
@@ -154,9 +155,26 @@ bintray {
         githubReleaseNotesFile = 'README.md'
         version {
             name = project.version
-            desc = "openweathermap.org Java API module $project.name v.$project.version"
+            desc = "openweathermap.org Java API module ${project.name} v.${project.version}"
             released = new Date()
             vcsTag = project.version
         }
     }
 }
+
+/**
+ * Appends given {@code description} text to the POM {@code description} node.
+ */
+def appendPomDescription(description) {
+    project.publishing {
+        publications {
+            jars(MavenPublication) {
+                pom.withXml {
+                    asNode().appendNode('description', description)
+                }
+            }
+        }
+    }
+}
+
+ext.appendPomDescription = this.&appendPomDescription

@@ -1,12 +1,13 @@
 apply plugin: 'java'
+
 ext {
     sharedManifest = manifest {
         attributes(
                 'Build-Time': buildTime,
                 'Implementation-Version': version,
-                'Implementation-Vendor': 'Yuri Sergiichuk',
+                'Implementation-Vendor': 'Yurii Serhiichuk',
                 'Specification-Version': version,
-                'Specification-Vendor': 'Yuri Sergiichuk'
+                'Specification-Vendor': 'Yurii Serhiichuk'
         )
     }
 }
@@ -24,9 +25,10 @@ javadoc {
     options.memberLevel = JavadocMemberLevel.PROTECTED
     classpath = configurations.compile
 }
+
 //create a single Jar with all dependencies
 task generateOneJar(type: Jar) {
-    baseName = project.name + '-all'
+    getArchiveBaseName().set("${project.name}-all")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -36,3 +38,36 @@ tasks.withType(Jar) { // includes War and Ear
         from sharedManifest
     }
 }
+
+/**
+ * Sets {@code value} of the JAR manifest file attribute with specified {@code name}.
+ */
+def setJarManifestAttribute(name, value) {
+    tasks.withType(Jar) { // includes War and Ear
+        manifest.getAttributes().put(name, value)
+    }
+}
+
+/**
+ * Sets {@code Name} manifest attribute {@code value}.
+ */
+def setJarManifestName(value) {
+    setJarManifestAttribute('Name', value)
+}
+
+/**
+ * Sets {@code Specification-Title} manifest attribute {@code value}.
+ */
+def setJarManifestSpecificationTitle(value) {
+    setJarManifestAttribute('Specification-Title', value)
+}
+/**
+ * Sets {@code Implementation-Title} manifest attribute {@code value}.
+ */
+def setJarManifestImplementationTitle(value) {
+    setJarManifestAttribute('Implementation-Title', value)
+}
+
+ext.setJarManifestImplementationTitle = this.&setJarManifestImplementationTitle
+ext.setJarManifestSpecificationTitle = this.&setJarManifestSpecificationTitle
+ext.setJarManifestName = this.&setJarManifestName

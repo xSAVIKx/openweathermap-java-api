@@ -1,25 +1,10 @@
-apply from: "$rootDir/gradle/java.gradle"
-apply from: "$rootDir/gradle/testModule.gradle"
-apply from: "$rootDir/gradle/publish.gradle"
-
 dependencies {
-    compile commonDependencies.lombok
-    compile commonDependencies.commons_lang
+    compile deps.common
     compile project(':api-common')
 }
 
-publishing {
-    publications {
-        jars(MavenPublication) {
-            pom.withXml {
-                asNode().appendNode('description',
-                        'Java API to access openweathermap.org API queries')
-            }
-        }
-    }
-}
-tasks.withType(Jar) { // includes War and Ear
-    manifest.getAttributes().put('Name', 'org/openweathermap/api/query/')
-    manifest.getAttributes().put('Specification-Title', 'OpenWeatherMap Java API:queries')
-    manifest.getAttributes().put('Implementation-Title', 'org.openweathermap.api.query')
-}
+appendPomDescription('Java API to access openweathermap.org API queries')
+
+setJarManifestName('org/openweathermap/api/query/')
+setJarManifestImplementationTitle('org.openweathermap.api.query')
+setJarManifestSpecificationTitle('OpenWeatherMap Java API:queries')
