@@ -15,7 +15,7 @@ allprojects {
     apply from: scripts.dependencies
 
     group = 'org.openweathermap.java-api'
-    version '1.2.3-SNAPSHOT'
+    version '1.2.3'
 
     ext {
         sourceCompatibility = JavaVersion.VERSION_1_7
