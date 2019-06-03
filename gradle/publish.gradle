@@ -4,8 +4,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
 ext {
-    pomFilePath = "${project.projectDir}/tmp/pom.xml"
-    pomFile = file(pomFilePath)
+    pomFile = file("${project.projectDir}/tmp/pom.xml")
 }
 // add configuration for pom signing
 configurations {
@@ -26,11 +25,11 @@ task sourcesJar(type: Jar) {
 task signJars(type: Sign, dependsOn: [jar, javadocJar, sourcesJar]) {
     sign configurations.archives
 }
+
 // sign pom
 task signPom(type: Sign) {
     sign configurations.pom
 }
-
 
 artifacts {
     archives jar
@@ -47,6 +46,7 @@ if (project.ext.pomFile.exists()) {
 } else {
     task preparePublication(dependsOn: signJars)
 }
+
 // extract signatures and add classifier and extension to them
 final def getSignatureFiles = {
     final def allFiles = project.tasks.signJars.signatureFiles.collect { it }
@@ -59,6 +59,7 @@ final def getSignatureFiles = {
             [archive: signedJar, classifier: null, extension: 'jar.asc']
     ]
 }
+
 // extract pom signature
 final def getPomSignature = {
     return project.tasks.signPom.signatureFiles.collect { it }[0]
@@ -86,10 +87,10 @@ publishing {
         jars(MavenPublication) {
             from components.java
             artifact sourcesJar {
-                classifier 'sources'
+                getArchiveClassifier().set('sources')
             }
             artifact javadocJar {
-                classifier 'javadoc'
+                getArchiveClassifier().set('javadoc')
             }
             pom.withXml {
                 asNode().dependencies.'*'.findAll() {
@@ -160,3 +161,20 @@ bintray {
         }
     }
 }
+
+/**
+ * Appends given {@code description} text to the POM {@code description} node.
+ */
+def appendPomDescription(description) {
+    project.publishing {
+        publications {
+            jars(MavenPublication) {
+                pom.withXml {
+                    asNode().appendNode('description', description)
+                }
+            }
+        }
+    }
+}
+
+ext.appendPomDescription = this.&appendPomDescription

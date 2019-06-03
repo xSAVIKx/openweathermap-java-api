@@ -2,12 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'jacoco'
 
 dependencies {
-    testCompile commonDependencies.groovy
-    testCompile commonDependencies.spock
-    testCompile commonDependencies.junit
-    testCompile commonDependencies.cglib
-    testCompile commonDependencies.objenesis
-    testCompile commonDependencies.betamax
+    testCompile deps.test
 }
 
 tasks.withType(GroovyCompile) {

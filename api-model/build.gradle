@@ -1,23 +1,10 @@
-apply from: "$rootDir/gradle/java.gradle"
-apply from: "$rootDir/gradle/publish.gradle"
-
 dependencies {
-    compile commonDependencies.gson
+    compile deps.gson
     compile project(':api-common')
 }
 
-publishing {
-    publications {
-        jars(MavenPublication) {
-            pom.withXml {
-                asNode().appendNode('description',
-                        'Java API to access openweathermap.org API models')
-            }
-        }
-    }
-}
-tasks.withType(Jar) { // includes War and Ear
-    manifest.getAttributes().put('Name', 'org/openweathermap/api/model/')
-    manifest.getAttributes().put('Specification-Title', 'OpenWeatherMap Java API:models')
-    manifest.getAttributes().put('Implementation-Title', 'org.openweathermap.api.model')
-}
+appendPomDescription('Java API to access openweathermap.org API models')
+
+setJarManifestName('org/openweathermap/api/model/')
+setJarManifestSpecificationTitle('OpenWeatherMap Java API:models')
+setJarManifestImplementationTitle('org.openweathermap.api.model')
