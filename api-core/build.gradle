@@ -1,9 +1,10 @@
 dependencies {
-    compile commonDependencies.gson
-    compile commonDependencies.commons_lang
     compile project(':api-query')
     compile project(':api-common')
     compile project(':api-model')
+    
+    compile deps.gson
+    compile deps.common
 }
 
 

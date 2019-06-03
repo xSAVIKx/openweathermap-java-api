@@ -1,5 +1,5 @@
 dependencies {
-    compile commonDependencies.commons_lang
+    compile deps.common
     compile project(':api-common')
 }
 
