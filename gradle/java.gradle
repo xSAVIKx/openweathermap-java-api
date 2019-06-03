@@ -1,4 +1,5 @@
 apply plugin: 'java'
+
 ext {
     sharedManifest = manifest {
         attributes(
@@ -24,6 +25,7 @@ javadoc {
     options.memberLevel = JavadocMemberLevel.PROTECTED
     classpath = configurations.compile
 }
+
 //create a single Jar with all dependencies
 task generateOneJar(type: Jar) {
     getArchiveBaseName().set("${project.name}-all")

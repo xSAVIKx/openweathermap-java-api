@@ -1,7 +1,7 @@
 /**
  * Test-only dependencies.
  */
-def test = [
+final def test = [
         cglib    : dependencies.create('cglib:cglib-nodep:3.2.12'),
         groovy   : dependencies.create('org.codehaus.groovy:groovy-all:2.5.7'),
         junit    : dependencies.create('junit:junit:4.12'),
@@ -16,14 +16,14 @@ def test = [
 /**
  * Common dependencies applied to every module.
  */
-def common = [
+final def common = [
         commons_lang: dependencies.create('org.apache.commons:commons-lang3:3.9')
 ]
 
 /**
  * A map of all application dependencies split by groups if needed.
  */
-def deps = [
+final def deps = [
         test        : test,
         common      : common,
         gson        : dependencies.create('com.google.code.gson:gson:2.8.5'),
