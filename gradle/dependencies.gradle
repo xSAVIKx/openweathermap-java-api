@@ -1,5 +1,5 @@
 /**
- * Test-only dependencies.
+ * A set of test-only dependencies.
  */
 final def test = [
         dependencies.create('cglib:cglib-nodep:3.2.12'),
@@ -14,7 +14,7 @@ final def test = [
 ]
 
 /**
- * Common dependencies applied to every module.
+ * A set of common dependencies.
  */
 final def common = [
         dependencies.create('org.apache.commons:commons-lang3:3.9')
@@ -26,5 +26,5 @@ final def common = [
 ext.deps = [
         test  : test,
         common: common,
-        gson  : dependencies.create('com.google.code.gson:gson:2.8.5'),
+        gson  : dependencies.create('com.google.code.gson:gson:2.8.5')
 ]

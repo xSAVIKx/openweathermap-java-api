@@ -3,6 +3,7 @@ final def scripts = [
         java        : "$rootDir/gradle/java.gradle",
         publish     : "$rootDir/gradle/publish.gradle",
         test        : "$rootDir/gradle/test.gradle",
+        repositories: "$rootDir/gradle/repositories.gradle",
 ]
 
 ext.scripts = scripts
