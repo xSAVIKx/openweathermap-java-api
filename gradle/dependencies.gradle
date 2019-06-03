@@ -1,0 +1,43 @@
+/**
+ * Test-only dependencies.
+ */
+def test = [
+        cglib    : dependencies.create('cglib:cglib-nodep:3.2.12'),
+        groovy   : dependencies.create('org.codehaus.groovy:groovy-all:2.5.7'),
+        junit    : dependencies.create('junit:junit:4.12'),
+        spock    : dependencies.create('org.spockframework:spock-core:1.3-groovy-2.5', {
+            exclude module: 'groovy-all'
+            exclude module: 'junit'
+        }),
+        objenesis: dependencies.create('org.objenesis:objenesis:3.0.1'),
+        betamax  : dependencies.create('software.betamax:betamax-junit:2.0.1')
+]
+
+/**
+ * Common dependencies applied to every module.
+ */
+def common = [
+        commons_lang: dependencies.create('org.apache.commons:commons-lang3:3.9')
+]
+
+/**
+ * A map of all application dependencies split by groups if needed.
+ */
+def deps = [
+        test        : test,
+        common      : common,
+        gson        : dependencies.create('com.google.code.gson:gson:2.8.5'),
+        cglib       : dependencies.create('cglib:cglib-nodep:3.2.12'),
+        groovy      : dependencies.create('org.codehaus.groovy:groovy-all:2.5.7'),
+        junit       : dependencies.create('junit:junit:4.12'),
+        spock       : dependencies.create('org.spockframework:spock-core:1.3-groovy-2.5', {
+            exclude module: 'groovy-all'
+            exclude module: 'junit'
+        }),
+        commons_lang: dependencies.create('org.apache.commons:commons-lang3:3.9'),
+        lombok      : dependencies.create('org.projectlombok:lombok:1.18.8'),
+        objenesis   : dependencies.create('org.objenesis:objenesis:3.0.1'),
+        betamax     : dependencies.create('software.betamax:betamax-junit:2.0.1')
+]
+
+ext.commonDependencies = deps

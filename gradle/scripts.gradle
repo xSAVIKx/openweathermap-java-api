@@ -1,0 +1,8 @@
+final def scripts = [
+        dependencies: "$rootDir/gradle/dependencies.gradle",
+        java        : "$rootDir/gradle/java.gradle",
+        publish     : "$rootDir/gradle/publish.gradle",
+        test        : "$rootDir/gradle/testModule.gradle",
+]
+
+ext.scripts = scripts
