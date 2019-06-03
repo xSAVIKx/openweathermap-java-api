@@ -87,10 +87,10 @@ publishing {
         jars(MavenPublication) {
             from components.java
             artifact sourcesJar {
-                classifier 'sources'
+                getArchiveClassifier().set('sources')
             }
             artifact javadocJar {
-                classifier 'javadoc'
+                getArchiveClassifier().set('javadoc')
             }
             pom.withXml {
                 asNode().dependencies.'*'.findAll() {
