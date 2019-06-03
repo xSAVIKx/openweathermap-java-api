@@ -1,7 +1,11 @@
 dependencies {
-    compile 'org.openweathermap.java-api:api-core:1.2.3'
-    compile 'org.openweathermap.java-api:api-query:1.2.3'
-    compile 'org.openweathermap.java-api:api-model:1.2.3'
+    compile project(':api-core')
+    compile project(':api-query')
+    compile project(':api-model')
+
+//    compile 'org.openweathermap.java-api:api-core:1.2.3'
+//    compile 'org.openweathermap.java-api:api-query:1.2.3'
+//    compile 'org.openweathermap.java-api:api-model:1.2.3'
 }
 
 appendPomDescription('Java API to access openweathermap.org API examples')
