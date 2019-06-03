@@ -3,16 +3,7 @@ dependencies {
     compile project(':api-common')
 }
 
-publishing {
-    publications {
-        jars(MavenPublication) {
-            pom.withXml {
-                asNode().appendNode('description',
-                        'Java API to access openweathermap.org API models')
-            }
-        }
-    }
-}
+appendPomDescription('Java API to access openweathermap.org API models')
 
 tasks.withType(Jar) { // includes War and Ear
     manifest.getAttributes().put('Name', 'org/openweathermap/api/model/')

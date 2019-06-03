@@ -2,16 +2,7 @@ dependencies {
     compile deps.gson
 }
 
-publishing {
-    publications {
-        jars(MavenPublication) {
-            pom.withXml {
-                asNode().appendNode('description',
-                        'Java API to access openweathermap.org API common elements')
-            }
-        }
-    }
-}
+appendPomDescription('Java API to access openweathermap.org API common elements')
 
 tasks.withType(Jar) { // includes War and Ear
     manifest.getAttributes().put('Name', 'org/openweathermap/api/common/')
