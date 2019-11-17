@@ -3,6 +3,7 @@
 * text=auto
 
 *.bat           text eol=crlf
+*.sh            text eol=lf
 
 #
 # The above will handle all files NOT found below
