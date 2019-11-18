@@ -2,8 +2,8 @@
  * A set of test-only dependencies.
  */
 final def test = [
-        dependencies.create('cglib:cglib-nodep:3.2.12'),
-        dependencies.create('org.codehaus.groovy:groovy-all:2.5.7'),
+        dependencies.create('cglib:cglib-nodep:3.3.0'),
+        dependencies.create('org.codehaus.groovy:groovy-all:2.5.8'),
         dependencies.create('junit:junit:4.12'),
         dependencies.create('org.spockframework:spock-core:1.3-groovy-2.5', {
             exclude module: 'groovy-all'
@@ -26,5 +26,5 @@ final def common = [
 ext.deps = [
         test  : test,
         common: common,
-        gson  : dependencies.create('com.google.code.gson:gson:2.8.5')
+        gson  : dependencies.create('com.google.code.gson:gson:2.8.6')
 ]
