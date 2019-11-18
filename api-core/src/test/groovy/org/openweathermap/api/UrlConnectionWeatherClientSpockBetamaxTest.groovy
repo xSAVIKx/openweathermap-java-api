@@ -220,6 +220,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         then:
         result != null
         result.city.name == cityName
+        result.city.timezone == 7200
         result.cnt == 10
         result.forecasts.size() == 10
     }

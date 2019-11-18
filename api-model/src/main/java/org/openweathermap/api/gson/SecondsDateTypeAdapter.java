@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class SecondsDateTypeAdapter extends TypeAdapter<Date> {
+
     @Override
     public void write(JsonWriter out, Date value) throws IOException {
         if (value == null) {
