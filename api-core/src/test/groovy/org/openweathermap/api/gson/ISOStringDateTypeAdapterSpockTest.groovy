@@ -6,13 +6,16 @@ import com.google.gson.stream.JsonToken
 import com.google.gson.stream.JsonWriter
 import spock.lang.Specification
 
+import static org.openweathermap.api.gson.ISOStringDateTypeAdapter.DATE_FORMAT
+
 class ISOStringDateTypeAdapterSpockTest extends Specification {
+
     ISOStringDateTypeAdapter adapter = new ISOStringDateTypeAdapter()
 
     def "should write Date into JsonWriter"() {
         given:
         final def jsonWriter = Mock(JsonWriter)
-        final def date = new Date(116, 5, 5)
+        final def date = DATE_FORMAT.get().parse("2016-06-05 00:00:00")
         when:
         adapter.write(jsonWriter, date)
         then:
@@ -32,7 +35,7 @@ class ISOStringDateTypeAdapterSpockTest extends Specification {
     def "should read Date from JsonReader"() {
         given:
         final def jsonReader = Mock(JsonReader)
-        final def expected = new Date(116, 5, 5)
+        final def expected = DATE_FORMAT.get().parse("2016-06-05 00:00:00")
         final def stringValue = "2016-06-05 00:00:00"
         when:
         final def actual = adapter.read(jsonReader)
@@ -58,7 +61,7 @@ class ISOStringDateTypeAdapterSpockTest extends Specification {
         final def jsonReader = Mock(JsonReader)
         final def stringValue = "non-parsable-date"
         when:
-        actual = adapter.read(jsonReader)
+        adapter.read(jsonReader)
         then:
         1 * jsonReader.peek() >> JsonToken.STRING
         1 * jsonReader.nextString() >> stringValue

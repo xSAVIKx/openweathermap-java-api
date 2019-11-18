@@ -10,10 +10,22 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
-public class ISOStringDateTypeAdapter extends TypeAdapter<Date> {
+public final class ISOStringDateTypeAdapter extends TypeAdapter<Date> {
+
     private static final String ISO_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    private final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat(ISO_DATE_FORMAT);
+
+
+    /* visible for tests */ static final ThreadLocal<SimpleDateFormat> DATE_FORMAT =
+            new ThreadLocal<SimpleDateFormat>() {
+                @Override
+                protected SimpleDateFormat initialValue() {
+                    SimpleDateFormat result = new SimpleDateFormat(ISO_DATE_FORMAT);
+                    result.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    return result;
+                }
+            };
 
     @Override
     public void write(JsonWriter out, Date value) throws IOException {
@@ -21,7 +33,7 @@ public class ISOStringDateTypeAdapter extends TypeAdapter<Date> {
             out.nullValue();
             return;
         }
-        String dateFormatAsString = SIMPLE_DATE_FORMAT.format(value);
+        String dateFormatAsString = DATE_FORMAT.get().format(value);
         out.value(dateFormatAsString);
     }
 
@@ -33,7 +45,7 @@ public class ISOStringDateTypeAdapter extends TypeAdapter<Date> {
         }
         String json = in.nextString();
         try {
-            return SIMPLE_DATE_FORMAT.parse(json);
+            return DATE_FORMAT.get().parse(json);
         } catch (ParseException e) {
             throw new JsonSyntaxException(json, e);
         }
