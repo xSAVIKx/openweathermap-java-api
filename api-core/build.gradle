@@ -1,10 +1,10 @@
 dependencies {
-    compile project(':api-query')
-    compile project(':api-common')
-    compile project(':api-model')
+    api project(':api-query')
+    api project(':api-common')
+    api project(':api-model')
 
-    compile deps.gson
-    compile deps.common
+    api deps.gson
+    implementation deps.common
 }
 
 appendPomDescription('Java API to access openweathermap.org API')
