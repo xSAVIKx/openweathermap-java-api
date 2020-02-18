@@ -10,8 +10,15 @@ import java.util.List;
 
 @Data
 public class AbstractWeatherResponse {
+
     @JsonAdapter(SecondsDateTypeAdapter.class)
     @SerializedName("dt")
     private Date dateTime;
+
     private List<Weather> weather;
+
+    /**
+     * Shift in seconds from UTC.
+     */
+    private long timezone;
 }
