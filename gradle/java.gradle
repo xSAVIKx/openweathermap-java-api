@@ -23,7 +23,6 @@ tasks.withType(JavaCompile.class) {
 
 javadoc {
     options.memberLevel = JavadocMemberLevel.PROTECTED
-    classpath = configurations.compile
 }
 
 //create a single Jar with all dependencies
