@@ -16,14 +16,14 @@
  */
 
 dependencies {
-//    implementation project(':api-core')
-//    implementation project(':api-query')
-//    implementation project(':api-model')
+    implementation project(':api-core')
+    implementation project(':api-query')
+    implementation project(':api-model')
     implementation deps.gson
 
-    implementation 'org.openweathermap.java-api:api-core:1.4.0'
-    implementation 'org.openweathermap.java-api:api-query:1.4.0'
-    implementation 'org.openweathermap.java-api:api-model:1.4.0'
+//    implementation 'org.openweathermap.java-api:api-core:1.4.0'
+//    implementation 'org.openweathermap.java-api:api-query:1.4.0'
+//    implementation 'org.openweathermap.java-api:api-model:1.4.0'
 }
 
 appendPomDescription('Java API to access openweathermap.org API examples')
