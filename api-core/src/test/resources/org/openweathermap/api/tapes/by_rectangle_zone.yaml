@@ -1,17 +1,17 @@
 !tape
 name: by rectangle zone
 interactions:
-- recorded: 2016-04-22T08:17:03.374Z
+- recorded: 2021-06-20T12:11:53.987Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/box/city?units=metric&bbox=12,32,15,39&cluster=yes&appid=API_KEY_VALUE
+    uri: http://api.openweathermap.org/data/2.5/box/city?units=metric&bbox=12,32,15,39&cluster=yes&appid=API_KEY
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
       Content-Length: '0'
       Host: api.openweathermap.org
       Proxy-Connection: keep-alive
-      User-Agent: Java/1.8.0_72
+      User-Agent: Java/1.8.0_262
   response:
     status: 200
     headers:
@@ -19,10 +19,10 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
-      Content-Type: application/json; charset=utf8
-      Date: Fri, 22 Apr 2016 08:17:03 GMT
-      Server: nginx
-      Transfer-Encoding: chunked
-      X-Source: redis
-    body: |
-      {"cod":"200","calctime":0.0029,"cnt":1,"list":[{"id":2210247,"name":"Tripoli","coord":{"lon":13.18746,"lat":32.875191},"main":{"temp":17.59,"temp_min":17.593,"temp_max":17.593,"pressure":1030.19,"sea_level":1031.31,"grnd_level":1030.19,"humidity":100},"dt":1461309393,"wind":{"speed":8.71,"deg":109.501},"clouds":{"all":36},"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}]}]}
+      Content-Length: '449'
+      Content-Type: application/json; charset=utf-8
+      Date: Sun, 20 Jun 2021 12:11:53 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/box/city?bbox=12,32,15,39&cluster=yes&units=metric
+    body: '{"cod":200,"calctime":0.003774277,"cnt":1,"list":[{"id":2210247,"dt":1624190959,"name":"Tripoli","coord":{"Lon":13.1875,"Lat":32.8752},"main":{"temp":32.47,"feels_like":32.59,"temp_min":32.47,"temp_max":32.47,"pressure":1014,"sea_level":1014,"grnd_level":1011,"humidity":38},"visibility":10000,"wind":{"speed":4.66,"deg":36},"rain":null,"snow":null,"clouds":{"today":0},"weather":[{"id":800,"main":"Clear","description":"clear
+      sky","icon":"01d"}]}]}'

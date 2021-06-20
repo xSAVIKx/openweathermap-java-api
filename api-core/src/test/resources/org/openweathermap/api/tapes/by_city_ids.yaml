@@ -1,17 +1,17 @@
 !tape
 name: by city ids
 interactions:
-- recorded: 2016-04-22T08:17:08.143Z
+- recorded: 2021-06-20T12:11:58.757Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/group?lang=ua&units=metric&id=706483&appid=API_KEY_VALUE
+    uri: http://api.openweathermap.org/data/2.5/group?lang=ua&units=metric&id=706483&appid=API_KEY
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
       Content-Length: '0'
       Host: api.openweathermap.org
       Proxy-Connection: keep-alive
-      User-Agent: Java/1.8.0_72
+      User-Agent: Java/1.8.0_262
   response:
     status: 200
     headers:
@@ -19,10 +19,9 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
-      Content-Type: application/json; charset=utf8
-      Date: Fri, 22 Apr 2016 08:17:07 GMT
-      Server: nginx
-      Transfer-Encoding: chunked
-      X-Source: redis
-    body: |
-      {"cnt":1,"list":[{"coord":{"lon":36.25,"lat":50},"sys":{"message":0.0332,"country":"UA","sunrise":1461291963,"sunset":1461343238},"weather":[{"id":802,"main":"Clouds","description":"розірвані хмари","icon":"03d"}],"main":{"temp":9.74,"temp_min":9.742,"temp_max":9.742,"pressure":1006.51,"sea_level":1026.83,"grnd_level":1006.51,"humidity":65},"wind":{"speed":8.61,"deg":233.005},"clouds":{"all":36},"dt":1461312423,"id":706483,"name":"Kharkiv"}]}
+      Content-Length: '431'
+      Content-Type: application/json; charset=utf-8
+      Date: Sun, 20 Jun 2021 12:11:58 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/group?id=706483&lang=ua&units=metric
+    body: '{"cnt":1,"list":[{"coord":{"lon":36.25,"lat":50},"sys":{"country":"UA","timezone":10800,"sunrise":1624152330,"sunset":1624211256},"weather":[{"id":500,"main":"Rain","description":"легкий дощ","icon":"10d"}],"main":{"temp":26.32,"feels_like":26.32,"temp_min":26,"temp_max":26.67,"pressure":1017,"humidity":44},"visibility":10000,"wind":{"speed":7,"deg":80},"clouds":{"all":0},"dt":1624190947,"id":706483,"name":"Kharkiv"}]}'
