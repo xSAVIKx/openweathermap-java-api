@@ -53,7 +53,7 @@ public abstract class AbstractDataWeatherClient implements DataWeatherClient {
     @Override
     public List<CurrentWeather> getCurrentWeather(CurrentWeatherMultipleLocationsQuery query) {
         String data = getWeatherData(query);
-        JsonObject jsonObject = jsonParser().parse(data).getAsJsonObject();
+        JsonObject jsonObject = JsonParser.parseString(data).getAsJsonObject();
         JsonArray list = jsonObject.getAsJsonArray("list");
         List<CurrentWeather> result = gson().fromJson(list, CurrentWeather.TYPE_LIST);
         return result;
@@ -95,18 +95,6 @@ public abstract class AbstractDataWeatherClient implements DataWeatherClient {
 
     protected static Gson gson() {
         return GsonHolder.INSTANCE.value;
-    }
-
-    protected static JsonParser jsonParser() {
-        return JsonParserHolder.INSTANCE.value;
-    }
-
-    private enum JsonParserHolder {
-        INSTANCE;
-
-        @SuppressWarnings({"NonSerializableFieldInSerializableClass", "ImmutableEnumChecker"})
-        private final JsonParser value = new JsonParser();
-
     }
 
     private enum GsonHolder {

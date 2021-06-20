@@ -1,7 +1,9 @@
-openweathermap-java-api [![Build Status][ci-shield]][ci-link] [![Download][bintray-shield]][bintray-link] [![codecov][codecov-shield]][codecov-link]
+openweathermap-java-api
+[![Build Status][ci-badge]][ci-link]
+[![codecov][codecov-badge]][codecov-link]
 =====
 
-To use the OpenweatherMap API, you need to obtain an API key.  Sign up [here][openweathermap-signup].
+To use the OpenweatherMap API, you need to obtain an API key. Sign up [here][openweathermap-signup].
 
 
 [openweathermap-signup]: http://home.openweathermap.org/users/sign_up
@@ -71,17 +73,17 @@ CATALAN("ca");
 - Metric
 - Imperial
 
-More information about weather parameters and unit can be found [here](http://openweathermap.org/weather-data).
+More information about weather parameters and unit can be
+found [here](http://openweathermap.org/weather-data).
 
 ## Examples
 
 Take a look at [examples module](./api-examples)
 
-[ci-shield]: https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=development
-[ci-link]: https://travis-ci.org/xSAVIKx/openweathermap-java-api
+[ci-badge]: https://github.com/xSAVIKx/openweathermap-java-api/actions/workflows/ci.yaml/badge.svg
 
-[bintray-shield]: https://api.bintray.com/packages/xsavikx/openweathermap-java-api/api-core/images/download.svg
-[bintray-link]: https://bintray.com/xsavikx/openweathermap-java-api/api-core/_latestVersion
+[ci-link]: https://github.com/xSAVIKx/openweathermap-java-api/actions/workflows/ci.yaml
 
-[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
+[codecov-badge]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
+
 [codecov-link]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api
