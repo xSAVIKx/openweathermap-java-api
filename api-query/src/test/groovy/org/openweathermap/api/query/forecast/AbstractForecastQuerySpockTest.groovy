@@ -16,6 +16,6 @@ class AbstractForecastQuerySpockTest extends Specification {
         given:
         final AbstractForecastQuery query = new ByCityId('')
         expect:
-        query.toStringRepresentation('apiKey') == 'http://api.openweathermap.org/data/2.5/forecast?id=&appid=apiKey'
+        query.toStringRepresentation('apiKey') == 'https://api.openweathermap.org/data/2.5/forecast?id=&appid=apiKey'
     }
 }
