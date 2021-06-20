@@ -1,7 +1,8 @@
 dependencies {
-    compile project(':api-core')
-    compile project(':api-query')
-    compile project(':api-model')
+    implementation project(':api-core')
+    implementation project(':api-query')
+    implementation project(':api-model')
+    implementation deps.gson
 
 //    compile 'org.openweathermap.java-api:api-core:1.2.3'
 //    compile 'org.openweathermap.java-api:api-query:1.2.3'

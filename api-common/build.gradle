@@ -1,5 +1,5 @@
 dependencies {
-    compile deps.gson
+    api deps.gson
 }
 
 appendPomDescription('Java API to access openweathermap.org API common elements')
