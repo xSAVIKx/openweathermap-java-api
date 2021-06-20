@@ -82,6 +82,16 @@ final def getPomSignature = {
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/xSAVIKx/openweathermap-java-api")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.password") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
     publications {
         gpgJars(MavenPublication) {
             getSignatureFiles().each { final signature ->
@@ -154,29 +164,6 @@ publishing {
         }
     }
 }
-//
-//bintray {
-//    user = project.hasProperty('bintrayUsername') ? project.getProperty('bintrayUsername') : System.getenv('BINTRAY_USER') ?: ''
-//    key = project.hasProperty('bintrayApiKey') ? project.getProperty('bintrayApiKey') : System.getenv('BINTRAY_KEY') ?: ''
-//    publications = ['jars']
-//    pkg {
-//        repo = 'openweathermap-java-api'
-//        name = "${project.name}"
-//        desc = "openweathermap.org Java API ${project.name} module."
-//        licenses = ['Apache-2.0']
-//        vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
-//        websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
-//        issueTrackerUrl = 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
-//        githubRepo = 'xSAVIKx/openweathermap-java-api'
-//        githubReleaseNotesFile = 'README.md'
-//        version {
-//            name = project.version
-//            desc = "openweathermap.org Java API module ${project.name} v.${project.version}"
-//            released = new Date()
-//            vcsTag = project.version
-//        }
-//    }
-//}
 
 /**
  * Appends given {@code description} text to the POM {@code description} node.
