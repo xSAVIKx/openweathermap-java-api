@@ -15,14 +15,23 @@
  *
  */
 
-package org.openweathermap.api.query;
+package org.openweathermap.api.query
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import spock.lang.Specification
 
-@Data
-@EqualsAndHashCode(callSuper = true)
-public final class TheQuery extends AbstractQuery {
-    private String searchPath;
-    private String requestPart;
+class QueryBuilderSpockTest extends Specification {
+
+    def "should expose public APIs"() {
+        when:
+        def query = new TheQueryBuilder()
+                .baseUrl("some-url")
+                .language(Language.CATALAN)
+                .unitFormat(UnitFormat.IMPERIAL)
+                .self()
+                .build()
+        then:
+        query.baseUrl == "some-url"
+        query.language == Language.CATALAN
+        query.unitFormat == UnitFormat.IMPERIAL
+    }
 }

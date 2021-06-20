@@ -17,12 +17,21 @@
 
 package org.openweathermap.api.query;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+public final class TheQueryBuilder extends QueryBuilder<TheQueryBuilder, TheQuery> {
+    private final TheQuery query;
 
-@Data
-@EqualsAndHashCode(callSuper = true)
-public final class TheQuery extends AbstractQuery {
-    private String searchPath;
-    private String requestPart;
+    public TheQueryBuilder() {
+        super();
+        this.query = new TheQuery();
+    }
+
+    @Override
+    protected TheQueryBuilder self() {
+        return this;
+    }
+
+    @Override
+    protected TheQuery getQuery() {
+        return query;
+    }
 }
