@@ -80,9 +80,9 @@ found [here](http://openweathermap.org/weather-data).
 
 Take a look at [examples module](./api-examples)
 
-[ci-badge]: https://github.com/xSAVIKx/openweathermap-java-api/workflows/CI/badge.svg?branch=development
+[ci-badge]: https://github.com/xSAVIKx/openweathermap-java-api/actions/workflows/ci.yaml/badge.svg
 
-[ci-link]: https://github.com/xSAVIKx/openweathermap-java-api/actions
+[ci-link]: https://github.com/xSAVIKx/openweathermap-java-api/actions/workflows/ci.yaml
 
 [codecov-badge]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
 
