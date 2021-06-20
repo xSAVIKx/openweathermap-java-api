@@ -19,4 +19,14 @@ public abstract class QueryBuilder<T extends QueryBuilder<T, E>, E extends Query
         return self();
     }
 
+    /**
+     * Sets the base URL of the query to the specified {@code baseURL}.
+     *
+     * @param baseUrl the base URL the query uses to connect to the API
+     * @return this builder
+     */
+    public T baseUrl(String baseUrl) {
+        getQuery().setBaseUrl(baseUrl);
+        return self();
+    }
 }
