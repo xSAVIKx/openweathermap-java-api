@@ -3,7 +3,6 @@ buildscript { final buildScript ->
     apply from: "$rootDir/gradle/repositories.gradle", to: buildScript
 
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath 'io.freefair.gradle:lombok-plugin:5.3.3.3'
     }
 }

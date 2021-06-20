@@ -1,7 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
 
 ext {
     pomFile = file("${project.projectDir}/tmp/pom.xml")
@@ -138,29 +137,29 @@ publishing {
         }
     }
 }
-
-bintray {
-    user = project.hasProperty('bintrayUsername') ? project.getProperty('bintrayUsername') : System.getenv('BINTRAY_USER') ?: ''
-    key = project.hasProperty('bintrayApiKey') ? project.getProperty('bintrayApiKey') : System.getenv('BINTRAY_KEY') ?: ''
-    publications = ['jars']
-    pkg {
-        repo = 'openweathermap-java-api'
-        name = "${project.name}"
-        desc = "openweathermap.org Java API ${project.name} module."
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
-        websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
-        issueTrackerUrl = 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
-        githubRepo = 'xSAVIKx/openweathermap-java-api'
-        githubReleaseNotesFile = 'README.md'
-        version {
-            name = project.version
-            desc = "openweathermap.org Java API module ${project.name} v.${project.version}"
-            released = new Date()
-            vcsTag = project.version
-        }
-    }
-}
+//
+//bintray {
+//    user = project.hasProperty('bintrayUsername') ? project.getProperty('bintrayUsername') : System.getenv('BINTRAY_USER') ?: ''
+//    key = project.hasProperty('bintrayApiKey') ? project.getProperty('bintrayApiKey') : System.getenv('BINTRAY_KEY') ?: ''
+//    publications = ['jars']
+//    pkg {
+//        repo = 'openweathermap-java-api'
+//        name = "${project.name}"
+//        desc = "openweathermap.org Java API ${project.name} module."
+//        licenses = ['Apache-2.0']
+//        vcsUrl = 'https://github.com/xSAVIKx/openweathermap-java-api.git'
+//        websiteUrl = 'https://github.com/xSAVIKx/openweathermap-java-api'
+//        issueTrackerUrl = 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
+//        githubRepo = 'xSAVIKx/openweathermap-java-api'
+//        githubReleaseNotesFile = 'README.md'
+//        version {
+//            name = project.version
+//            desc = "openweathermap.org Java API module ${project.name} v.${project.version}"
+//            released = new Date()
+//            vcsTag = project.version
+//        }
+//    }
+//}
 
 /**
  * Appends given {@code description} text to the POM {@code description} node.
