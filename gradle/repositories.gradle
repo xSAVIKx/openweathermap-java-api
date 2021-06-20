@@ -21,4 +21,12 @@ repositories {
     maven {
         url "https://plugins.gradle.org/m2/"
     }
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/xSAVIKx/openweathermap-java-api")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
