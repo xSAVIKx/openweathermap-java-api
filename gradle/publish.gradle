@@ -57,11 +57,11 @@ artifacts {
 }
 
 // defining which tasks should be called
-if (project.ext.pomFile.exists()) {
-    task preparePublication(dependsOn: [signJars, signPom])
-} else {
-    task preparePublication(dependsOn: signJars)
-}
+//if (project.ext.pomFile.exists()) {
+//    task preparePublication(dependsOn: [signJars, signPom])
+//} else {
+//    task preparePublication(dependsOn: signJars)
+//}
 
 // extract signatures and add classifier and extension to them
 final def getSignatureFiles = {
@@ -93,22 +93,22 @@ publishing {
         }
     }
     publications {
-        gpgJars(MavenPublication) {
-            getSignatureFiles().each { final signature ->
-                artifact(signature.archive) {
-                    classifier = signature.classifier
-                    extension = signature.extension
-                }
-            }
-        }
-        if (project.ext.pomFile.exists()) {
-            gpgPom(MavenPublication) {
-                artifact(getPomSignature()) {
-                    classifier = null
-                    extension = 'pom.asc'
-                }
-            }
-        }
+//        gpgJars(MavenPublication) {
+//            getSignatureFiles().each { final signature ->
+//                artifact(signature.archive) {
+//                    classifier = signature.classifier
+//                    extension = signature.extension
+//                }
+//            }
+//        }
+//        if (project.ext.pomFile.exists()) {
+//            gpgPom(MavenPublication) {
+//                artifact(getPomSignature()) {
+//                    classifier = null
+//                    extension = 'pom.asc'
+//                }
+//            }
+//        }
 
         jars(MavenPublication) {
             from components.java
