@@ -11,6 +11,7 @@ import software.betamax.junit.RecorderRule
 import spock.lang.Specification
 
 class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
+    private static final String HTTP_BASE_URL = "http://api.openweathermap.org/data/2.5"
     private static final String API_KEY = "API_KEY"
 
     private static final String TAPES_STORAGE = "src/test/resources/org/openweathermap/api/tapes"
@@ -32,6 +33,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.ENGLISH)
                 .unitFormat(UnitFormat.IMPERIAL)
                 .responseFormat(ResponseFormat.JSON)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getWeatherData(query)
@@ -51,6 +53,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .byCityId(String.valueOf(kharkivCityId))
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.STANDARD)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -69,6 +72,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .oneLocation()
                 .byCityId(String.valueOf(kharkivCityId))
                 .responseFormat(ResponseFormat.HTML)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -90,6 +94,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .byGeographicCoordinates(kharkivCoordinate)
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -112,6 +117,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .type(Type.ACCURATE)
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -130,6 +136,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .currentWeather()
                 .oneLocation()
                 .byZipCode(zipCode, countryCode)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -150,6 +157,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .byRectangleZone(leftBottom, rightTop)
                 .cluster(Cluster.YES)
                 .unitFormat(UnitFormat.METRIC)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -170,6 +178,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .multipleLocations()
                 .inCycle(centerPoint, expectedCitiesAmount)
                 .cluster(Cluster.YES)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -190,6 +199,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .addCityId(String.valueOf(kharkivCityId))
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentWeather(query)
@@ -214,6 +224,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
                 .count(10)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getForecastInformation(query)
@@ -237,6 +248,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
                 .count(10)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getForecastInformation(query)
@@ -262,6 +274,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
                 .count(10)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getForecastInformation(query)
@@ -288,6 +301,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
                 .count(5)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getForecastInformation(query)
@@ -310,6 +324,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
                 .count(5)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getForecastInformation(query)
@@ -335,6 +350,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.UKRAINIAN)
                 .unitFormat(UnitFormat.METRIC)
                 .count(5)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getForecastInformation(query)
@@ -357,6 +373,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .daily()
                 .byGeographicCoordinates(kharkivCoordinate)
                 .responseFormat(ResponseFormat.XML)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         expect:
         client.getForecastInformation(query) == null
@@ -372,6 +389,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
         final def query = UviQuery.Current.byGeographicCoordinates(kharkivCoordinate)
                 .language(Language.ENGLISH)
                 .unitFormat(UnitFormat.METRIC)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getCurrentUvi(query)
@@ -394,6 +412,7 @@ class UrlConnectionWeatherClientSpockBetamaxTest extends Specification {
                 .language(Language.ENGLISH)
                 .unitFormat(UnitFormat.METRIC)
                 .count(1)
+                .baseUrl(HTTP_BASE_URL)
                 .build()
         when:
         final def result = client.getUviForecast(query)
