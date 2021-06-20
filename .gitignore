@@ -129,3 +129,5 @@ $RECYCLE.BIN/
 # betamax ignores
 littleproxy_cert
 *.jks
+
+gradle.properties
