@@ -41,6 +41,7 @@ jobs:
         run: ./gradlew build --stacktrace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
       - uses: codecov/codecov-action@v1
   deploy:
     name: Deploy packages
@@ -73,3 +74,4 @@ jobs:
         run: ./gradlew publish --stacktrace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
