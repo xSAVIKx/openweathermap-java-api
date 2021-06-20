@@ -1,6 +1,6 @@
 openweathermap-java-api
-[![Build Status][ci-shield]][ci-link]
-[![codecov][codecov-shield]][codecov-link]
+[![Build Status][ci-badge]][ci-link]
+[![codecov][codecov-badge]][codecov-link]
 =====
 
 To use the OpenweatherMap API, you need to obtain an API key. Sign up [here][openweathermap-signup].
@@ -80,10 +80,10 @@ found [here](http://openweathermap.org/weather-data).
 
 Take a look at [examples module](./api-examples)
 
-[ci-shield]: https://travis-ci.org/xSAVIKx/openweathermap-java-api.svg?branch=development
+[ci-badge]: https://github.com/xSAVIKx/openweathermap-java-api/workflows/CI/badge.svg?branch=development
 
-[ci-link]: https://travis-ci.org/xSAVIKx/openweathermap-java-api
+[ci-link]: https://github.com/xSAVIKx/openweathermap-java-api/actions
 
-[codecov-shield]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
+[codecov-badge]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api/branch/development/graph/badge.svg
 
 [codecov-link]: https://codecov.io/gh/xSAVIKx/openweathermap-java-api
