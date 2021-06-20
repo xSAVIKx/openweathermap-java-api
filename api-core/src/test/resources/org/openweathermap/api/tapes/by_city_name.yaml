@@ -1,17 +1,17 @@
 !tape
 name: by city name
 interactions:
-- recorded: 2016-04-22T08:16:58.492Z
+- recorded: 2021-06-20T12:11:49.167Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/weather?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=API_KEY_VALUE
+    uri: http://api.openweathermap.org/data/2.5/weather?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=API_KEY
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
       Content-Length: '0'
       Host: api.openweathermap.org
       Proxy-Connection: keep-alive
-      User-Agent: Java/1.8.0_72
+      User-Agent: Java/1.8.0_262
   response:
     status: 200
     headers:
@@ -19,24 +19,23 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
+      Content-Length: '480'
       Content-Type: application/json; charset=utf-8
-      Date: Fri, 22 Apr 2016 08:16:58 GMT
-      Server: nginx
-      Transfer-Encoding: chunked
-      X-Source: redis
-    body: |
-      {"coord":{"lon":36.25,"lat":50},"weather":[{"id":802,"main":"Clouds","description":"розірвані хмари","icon":"03d"}],"base":"cmc stations","main":{"temp":8.44,"pressure":1002.53,"humidity":71,"temp_min":8.44,"temp_max":8.44,"sea_level":1024.92,"grnd_level":1002.53},"wind":{"speed":9.51,"deg":227.005},"clouds":{"all":32},"dt":1461311338,"sys":{"message":0.003,"country":"UA","sunrise":1461292024,"sunset":1461343243},"id":706483,"name":"Kharkiv","cod":200}
-- recorded: 2016-04-22T08:17:10.649Z
+      Date: Sun, 20 Jun 2021 12:11:48 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/weather?lang=ua&q=kharkiv,ua&type=accurate&units=metric
+    body: '{"coord":{"lon":36.25,"lat":50},"weather":[{"id":500,"main":"Rain","description":"легкий дощ","icon":"10d"}],"base":"stations","main":{"temp":25.99,"feels_like":25.99,"temp_min":25.99,"temp_max":26.6,"pressure":1017,"humidity":44},"visibility":10000,"wind":{"speed":7,"deg":80},"rain":{"1h":0.75},"clouds":{"all":0},"dt":1624191011,"sys":{"type":1,"id":8905,"country":"UA","sunrise":1624152330,"sunset":1624211256},"timezone":10800,"id":706483,"name":"Kharkiv","cod":200}'
+- recorded: 2021-06-20T12:12:01.205Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/forecast?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=API_KEY_VALUE&cnt=10
+    uri: http://api.openweathermap.org/data/2.5/forecast?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=API_KEY&cnt=10
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
       Content-Length: '0'
       Host: api.openweathermap.org
       Proxy-Connection: keep-alive
-      User-Agent: Java/1.8.0_72
+      User-Agent: Java/1.8.0_262
   response:
     status: 200
     headers:
@@ -44,24 +43,33 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
+      Content-Length: '4183'
       Content-Type: application/json; charset=utf-8
-      Date: Fri, 22 Apr 2016 08:17:10 GMT
-      Server: nginx
-      Transfer-Encoding: chunked
-      X-Source: back
-    body: |
-      {"city":{"id":706483,"name":"Kharkiv","coord":{"lon":36.25,"lat":50},"country":"UA","population":0,"sys":{"population":0}},"cod":"200","message":0.004,"cnt":10,"list":[{"dt":1461315600,"main":{"temp":9.72,"temp_min":8.44,"temp_max":9.72,"pressure":1002.53,"sea_level":1024.92,"grnd_level":1002.53,"humidity":71,"temp_kf":1.28},"weather":[{"id":500,"main":"Rain","description":"легка злива","icon":"10d"}],"clouds":{"all":32},"wind":{"speed":9.51,"deg":227.005},"rain":{"3h":0.05},"sys":{"pod":"d"},"dt_txt":"2016-04-22 09:00:00"},{"dt":1461326400,"main":{"temp":11.07,"temp_min":9.85,"temp_max":11.07,"pressure":999.37,"sea_level":1021.59,"grnd_level":999.37,"humidity":72,"temp_kf":1.21},"weather":[{"id":500,"main":"Rain","description":"легка злива","icon":"10d"}],"clouds":{"all":92},"wind":{"speed":11.52,"deg":234.501},"rain":{"3h":0.38},"sys":{"pod":"d"},"dt_txt":"2016-04-22 12:00:00"},{"dt":1461337200,"main":{"temp":11.4,"temp_min":10.25,"temp_max":11.4,"pressure":996.64,"sea_level":1018.84,"grnd_level":996.64,"humidity":75,"temp_kf":1.15},"weather":[{"id":500,"main":"Rain","description":"легка злива","icon":"10d"}],"clouds":{"all":92},"wind":{"speed":11.22,"deg":236.001},"rain":{"3h":0.64},"sys":{"pod":"d"},"dt_txt":"2016-04-22 15:00:00"},{"dt":1461348000,"main":{"temp":8.34,"temp_min":7.26,"temp_max":8.34,"pressure":997.6,"sea_level":1019.87,"grnd_level":997.6,"humidity":98,"temp_kf":1.08},"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10n"}],"clouds":{"all":92},"wind":{"speed":7.9,"deg":287.504},"rain":{"3h":4.54},"sys":{"pod":"n"},"dt_txt":"2016-04-22 18:00:00"},{"dt":1461358800,"main":{"temp":6.16,"temp_min":5.15,"temp_max":6.16,"pressure":999.03,"sea_level":1021.57,"grnd_level":999.03,"humidity":90,"temp_kf":1.01},"weather":[{"id":500,"main":"Rain","description":"легка злива","icon":"10n"}],"clouds":{"all":0},"wind":{"speed":6.77,"deg":280.002},"rain":{"3h":0.47},"sys":{"pod":"n"},"dt_txt":"2016-04-22 21:00:00"},{"dt":1461369600,"main":{"temp":4.25,"temp_min":3.31,"temp_max":4.25,"pressure":1000.36,"sea_level":1023.06,"grnd_level":1000.36,"humidity":89,"temp_kf":0.94},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01n"}],"clouds":{"all":0},"wind":{"speed":5.76,"deg":269.004},"rain":{},"sys":{"pod":"n"},"dt_txt":"2016-04-23 00:00:00"},{"dt":1461380400,"main":{"temp":3.35,"temp_min":2.47,"temp_max":3.35,"pressure":1001.67,"sea_level":1024.44,"grnd_level":1001.67,"humidity":90,"temp_kf":0.88},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01d"}],"clouds":{"all":0},"wind":{"speed":4.97,"deg":263},"rain":{},"sys":{"pod":"d"},"dt_txt":"2016-04-23 03:00:00"},{"dt":1461391200,"main":{"temp":7.67,"temp_min":6.86,"temp_max":7.67,"pressure":1002.97,"sea_level":1025.61,"grnd_level":1002.97,"humidity":100,"temp_kf":0.81},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01d"}],"clouds":{"all":0},"wind":{"speed":4.82,"deg":266.006},"rain":{},"sys":{"pod":"d"},"dt_txt":"2016-04-23 06:00:00"},{"dt":1461402000,"main":{"temp":10.09,"temp_min":9.35,"temp_max":10.09,"pressure":1003.98,"sea_level":1026.35,"grnd_level":1003.98,"humidity":92,"temp_kf":0.74},"weather":[{"id":801,"main":"Clouds","description":"трохи хмарно","icon":"02d"}],"clouds":{"all":20},"wind":{"speed":5.02,"deg":259.001},"rain":{},"sys":{"pod":"d"},"dt_txt":"2016-04-23 09:00:00"},{"dt":1461412800,"main":{"temp":11.7,"temp_min":11.03,"temp_max":11.7,"pressure":1004.6,"sea_level":1026.87,"grnd_level":1004.6,"humidity":74,"temp_kf":0.67},"weather":[{"id":802,"main":"Clouds","description":"розірвані хмари","icon":"03d"}],"clouds":{"all":32},"wind":{"speed":4.86,"deg":269},"rain":{},"sys":{"pod":"d"},"dt_txt":"2016-04-23 12:00:00"}]}
-- recorded: 2016-04-22T08:17:17.867Z
+      Date: Sun, 20 Jun 2021 12:12:00 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/forecast?cnt=10&lang=ua&q=kharkiv,ua&type=accurate&units=metric
+    body: '{"cod":"200","message":0,"cnt":10,"list":[{"dt":1624201200,"main":{"temp":25.04,"feels_like":24.96,"temp_min":23.14,"temp_max":25.04,"pressure":1017,"sea_level":1017,"grnd_level":999,"humidity":52,"temp_kf":1.9},"weather":[{"id":802,"main":"Clouds","description":"уривчасті
+      хмари","icon":"03d"}],"clouds":{"all":33},"wind":{"speed":5.1,"deg":69,"gust":11.52},"visibility":10000,"pop":0,"sys":{"pod":"d"},"dt_txt":"2021-06-20 15:00:00"},{"dt":1624212000,"main":{"temp":23.4,"feels_like":23.44,"temp_min":22.11,"temp_max":23.4,"pressure":1016,"sea_level":1016,"grnd_level":999,"humidity":63,"temp_kf":1.29},"weather":[{"id":803,"main":"Clouds","description":"рвані
+      хмари","icon":"04n"}],"clouds":{"all":67},"wind":{"speed":4.7,"deg":70,"gust":12.33},"visibility":10000,"pop":0,"sys":{"pod":"n"},"dt_txt":"2021-06-20 18:00:00"},{"dt":1624222800,"main":{"temp":20.63,"feels_like":20.63,"temp_min":20.63,"temp_max":20.63,"pressure":1016,"sea_level":1016,"grnd_level":998,"humidity":72,"temp_kf":0},"weather":[{"id":804,"main":"Clouds","description":"хмарно","icon":"04n"}],"clouds":{"all":92},"wind":{"speed":4.73,"deg":68,"gust":13.02},"visibility":10000,"pop":0,"sys":{"pod":"n"},"dt_txt":"2021-06-20
+      21:00:00"},{"dt":1624233600,"main":{"temp":19.86,"feels_like":19.65,"temp_min":19.86,"temp_max":19.86,"pressure":1015,"sea_level":1015,"grnd_level":997,"humidity":67,"temp_kf":0},"weather":[{"id":803,"main":"Clouds","description":"рвані хмари","icon":"04n"}],"clouds":{"all":70},"wind":{"speed":4.73,"deg":81,"gust":12.21},"visibility":10000,"pop":0,"sys":{"pod":"n"},"dt_txt":"2021-06-21
+      00:00:00"},{"dt":1624244400,"main":{"temp":19.75,"feels_like":19.53,"temp_min":19.75,"temp_max":19.75,"pressure":1015,"sea_level":1015,"grnd_level":997,"humidity":67,"temp_kf":0},"weather":[{"id":803,"main":"Clouds","description":"рвані хмари","icon":"04d"}],"clouds":{"all":78},"wind":{"speed":4.07,"deg":82,"gust":11.91},"visibility":10000,"pop":0.04,"sys":{"pod":"d"},"dt_txt":"2021-06-21
+      03:00:00"},{"dt":1624255200,"main":{"temp":25.52,"feels_like":25.33,"temp_min":25.52,"temp_max":25.52,"pressure":1015,"sea_level":1015,"grnd_level":998,"humidity":46,"temp_kf":0},"weather":[{"id":803,"main":"Clouds","description":"рвані хмари","icon":"04d"}],"clouds":{"all":54},"wind":{"speed":5.4,"deg":104,"gust":12.02},"visibility":10000,"pop":0,"sys":{"pod":"d"},"dt_txt":"2021-06-21
+      06:00:00"},{"dt":1624266000,"main":{"temp":29.06,"feels_like":28.49,"temp_min":29.06,"temp_max":29.06,"pressure":1015,"sea_level":1015,"grnd_level":998,"humidity":38,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01d"}],"clouds":{"all":3},"wind":{"speed":6.55,"deg":107,"gust":10.51},"visibility":10000,"pop":0,"sys":{"pod":"d"},"dt_txt":"2021-06-21
+      09:00:00"},{"dt":1624276800,"main":{"temp":29.88,"feels_like":29.44,"temp_min":29.88,"temp_max":29.88,"pressure":1015,"sea_level":1015,"grnd_level":998,"humidity":39,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01d"}],"clouds":{"all":2},"wind":{"speed":6.52,"deg":104,"gust":9.81},"visibility":10000,"pop":0,"sys":{"pod":"d"},"dt_txt":"2021-06-21
+      12:00:00"},{"dt":1624287600,"main":{"temp":28.54,"feels_like":28.87,"temp_min":28.54,"temp_max":28.54,"pressure":1015,"sea_level":1015,"grnd_level":997,"humidity":48,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01d"}],"clouds":{"all":4},"wind":{"speed":5.7,"deg":101,"gust":9.82},"visibility":10000,"pop":0,"sys":{"pod":"d"},"dt_txt":"2021-06-21
+      15:00:00"},{"dt":1624298400,"main":{"temp":24.14,"feels_like":24.33,"temp_min":24.14,"temp_max":24.14,"pressure":1015,"sea_level":1015,"grnd_level":998,"humidity":66,"temp_kf":0},"weather":[{"id":800,"main":"Clear","description":"чисте небо","icon":"01n"}],"clouds":{"all":4},"wind":{"speed":3.88,"deg":83,"gust":11.12},"visibility":10000,"pop":0,"sys":{"pod":"n"},"dt_txt":"2021-06-21
+      18:00:00"}],"city":{"id":706483,"name":"Kharkiv","coord":{"lat":50,"lon":36.25},"country":"UA","population":1430885,"timezone":10800,"sunrise":1624152330,"sunset":1624211256}}'
+- recorded: 2021-06-20T12:12:08.444Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/forecast/daily?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=API_KEY_VALUE&cnt=5
+    uri: http://api.openweathermap.org/data/2.5/forecast/daily?lang=ua&units=metric&q=Kharkiv,ua&type=accurate&appid=API_KEY&cnt=5
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
       Content-Length: '0'
       Host: api.openweathermap.org
       Proxy-Connection: keep-alive
-      User-Agent: Java/1.8.0_72
+      User-Agent: Java/1.8.0_262
   response:
     status: 200
     headers:
@@ -69,10 +77,13 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
+      Content-Length: '2089'
       Content-Type: application/json; charset=utf-8
-      Date: Fri, 22 Apr 2016 08:17:17 GMT
-      Server: nginx
-      Transfer-Encoding: chunked
-      X-Source: back
-    body: |
-      {"city":{"id":706483,"name":"Kharkiv","coord":{"lon":36.25,"lat":50},"country":"UA","population":0},"cod":"200","message":0.0094,"cnt":5,"list":[{"dt":1461315600,"temp":{"day":8.44,"min":5.15,"max":10.25,"night":5.15,"eve":10.25,"morn":7.09},"pressure":1002.53,"humidity":71,"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10d"}],"speed":9.51,"deg":227,"clouds":32,"rain":6.08},{"dt":1461402000,"temp":{"day":9.35,"min":2.47,"max":11.18,"night":4.8,"eve":11.18,"morn":2.47},"pressure":1003.98,"humidity":92,"weather":[{"id":801,"main":"Clouds","description":"трохи хмарно","icon":"02d"}],"speed":5.02,"deg":259,"clouds":20},{"dt":1461488400,"temp":{"day":13.7,"min":4.91,"max":15.95,"night":12.11,"eve":15.81,"morn":4.91},"pressure":1002.72,"humidity":75,"weather":[{"id":500,"main":"Rain","description":"легка злива","icon":"10d"}],"speed":6.61,"deg":112,"clouds":56,"rain":0.44},{"dt":1461574800,"temp":{"day":14.78,"min":9.6,"max":15.98,"night":12.23,"eve":14.78,"morn":9.6},"pressure":992.59,"humidity":71,"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10d"}],"speed":7.12,"deg":112,"clouds":88,"rain":5.95},{"dt":1461661200,"temp":{"day":16.65,"min":10.78,"max":16.65,"night":10.78,"eve":14.45,"morn":12.9},"pressure":996.4,"humidity":0,"weather":[{"id":501,"main":"Rain","description":"помірний дощ","icon":"10d"}],"speed":6.13,"deg":177,"clouds":31,"rain":4.18}]}
+      Date: Sun, 20 Jun 2021 12:12:08 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/forecast/daily?cnt=5&lang=ua&q=kharkiv,ua&type=accurate&units=metric
+    body: '{"city":{"id":706483,"name":"Kharkiv","coord":{"lon":36.25,"lat":50},"country":"UA","population":1430885,"timezone":10800},"cod":"200","message":0.1970042,"cnt":5,"list":[{"dt":1624179600,"sunrise":1624152330,"sunset":1624211256,"temp":{"day":25.89,"min":18.3,"max":26.15,"night":21.08,"eve":24.28,"morn":18.47},"feels_like":{"day":25.71,"night":21.15,"eve":24.28,"morn":18.17},"pressure":1018,"humidity":45,"weather":[{"id":802,"main":"Clouds","description":"уривчасті
+      хмари","icon":"03d"}],"speed":6.84,"deg":85,"gust":13.25,"clouds":48,"pop":0},{"dt":1624266000,"sunrise":1624238740,"sunset":1624297670,"temp":{"day":29.06,"min":18.95,"max":29.96,"night":22.58,"eve":28.54,"morn":19.75},"feels_like":{"day":28.49,"night":22.64,"eve":28.87,"morn":19.53},"pressure":1015,"humidity":38,"weather":[{"id":800,"main":"Clear","description":"чисте
+      небо","icon":"01d"}],"speed":6.6,"deg":104,"gust":13.42,"clouds":3,"pop":0.12},{"dt":1624352400,"sunrise":1624325154,"sunset":1624384081,"temp":{"day":30.25,"min":20.72,"max":31.13,"night":25.77,"eve":30.59,"morn":20.72},"feels_like":{"day":29.33,"night":26.15,"eve":31.11,"morn":20.39},"pressure":1016,"humidity":34,"weather":[{"id":803,"main":"Clouds","description":"рвані
+      хмари","icon":"04d"}],"speed":6.11,"deg":99,"gust":13.6,"clouds":79,"pop":0},{"dt":1624438800,"sunrise":1624411570,"sunset":1624470489,"temp":{"day":30.61,"min":22.31,"max":30.65,"night":26.01,"eve":30.01,"morn":22.31},"feels_like":{"day":29.82,"night":26.01,"eve":30.61,"morn":22.35},"pressure":1016,"humidity":35,"weather":[{"id":804,"main":"Clouds","description":"хмарно","icon":"04d"}],"speed":5.21,"deg":101,"gust":14.61,"clouds":98,"pop":0},{"dt":1624525200,"sunrise":1624497989,"sunset":1624556894,"temp":{"day":31.83,"min":22.32,"max":32.44,"night":25.84,"eve":30.64,"morn":22.55},"feels_like":{"day":31.12,"night":26.07,"eve":30.46,"morn":22.45},"pressure":1017,"humidity":34,"weather":[{"id":803,"main":"Clouds","description":"рвані
+      хмари","icon":"04d"}],"speed":5.08,"deg":111,"gust":8.02,"clouds":73,"pop":0}]}'

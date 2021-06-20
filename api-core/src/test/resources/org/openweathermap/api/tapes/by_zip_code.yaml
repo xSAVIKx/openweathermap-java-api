@@ -1,17 +1,17 @@
 !tape
 name: by zip code
 interactions:
-- recorded: 2016-04-22T08:17:00.878Z
+- recorded: 2021-06-20T12:11:51.576Z
   request:
     method: GET
-    uri: http://api.openweathermap.org/data/2.5/weather?zip=94045,us&appid=API_KEY_VALUE
+    uri: http://api.openweathermap.org/data/2.5/weather?zip=94401,us&appid=API_KEY
     headers:
       Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       Accept-Charset: UTF-8
       Content-Length: '0'
       Host: api.openweathermap.org
       Proxy-Connection: keep-alive
-      User-Agent: Java/1.8.0_72
+      User-Agent: Java/1.8.0_262
   response:
     status: 200
     headers:
@@ -19,10 +19,10 @@ interactions:
       Access-Control-Allow-Methods: GET, POST
       Access-Control-Allow-Origin: '*'
       Connection: keep-alive
+      Content-Length: '477'
       Content-Type: application/json; charset=utf-8
-      Date: Fri, 22 Apr 2016 08:17:00 GMT
-      Server: nginx
-      Transfer-Encoding: chunked
-      X-Source: redis
-    body: |
-      {"coord":{"lon":-122.35,"lat":37.45},"weather":[{"id":500,"main":"Rain","description":"light rain","icon":"10n"}],"base":"cmc stations","main":{"temp":288.12,"pressure":1011.5,"humidity":82,"temp_min":287.95,"temp_max":288.25},"wind":{"speed":4.11,"deg":190.505},"rain":{"3h":0.57},"clouds":{"all":88},"dt":1461312530,"sys":{"type":3,"id":1442728390,"message":0.0057,"country":"US","sunrise":1461331442,"sunset":1461379917},"id":5392427,"name":"San Mateo County","cod":200}
+      Date: Sun, 20 Jun 2021 12:11:51 GMT
+      Server: openresty
+      X-Cache-Key: /data/2.5/weather?zip=94401,us
+    body: '{"coord":{"lon":-122.3225,"lat":37.5735},"weather":[{"id":701,"main":"Mist","description":"mist","icon":"50n"}],"base":"stations","main":{"temp":286.6,"feels_like":286.35,"temp_min":283.88,"temp_max":289.49,"pressure":1007,"humidity":90},"visibility":10000,"wind":{"speed":0.89,"deg":218,"gust":2.24},"clouds":{"all":75},"dt":1624191111,"sys":{"type":2,"id":2002590,"country":"US","sunrise":1624193288,"sunset":1624246424},"timezone":-25200,"id":0,"name":"San
+      Mateo","cod":200}'
