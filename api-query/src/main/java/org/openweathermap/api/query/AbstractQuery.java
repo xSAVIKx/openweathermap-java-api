@@ -21,9 +21,11 @@ import lombok.Data;
 
 @Data
 public abstract class AbstractQuery implements Query {
+
+    @SuppressWarnings({"FieldCanBeLocal", "FieldMayBeFinal"}) /* We'd like to be able to override the base URL. */
+    private String baseUrl = BASE_URL;
     private UnitFormat unitFormat;
     private Language language;
-    private final String baseUrl = BASE_URL;
 
     @Override
     public String toStringRepresentation(String apiKey) {
