@@ -128,8 +128,8 @@ publishing {
                         url 'https://github.com/xSAVIKx/openweathermap-java-api/issues'
                     }
                     ciManagement {
-                        system 'Travis-CI'
-                        url 'https://travis-ci.org/xSAVIKx/openweathermap-java-api'
+                        system 'GitHub Actions'
+                        url 'https://github.com/xSAVIKx/openweathermap-java-api/actions/workflows/ci.yaml'
                     }
                     licenses {
                         license {
