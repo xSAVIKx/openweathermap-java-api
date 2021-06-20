@@ -21,6 +21,6 @@ class ByGeographicCoordinatesBuilderSpockTest extends Specification {
         result.unitFormat == null
         builder == builder.self()
         result.getRequestPart() == "lat=${latitude}&lon=${longitude}"
-        result.toStringRepresentation(apiKey) == "http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}"
+        result.toStringRepresentation(apiKey) == "https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}"
     }
 }

@@ -24,6 +24,6 @@ class ByCityNameBuilderSpockTest extends Specification {
         result.unitFormat == null
         builder == builder.self()
         result.getRequestPart() == "q=${cityName},${countryCode}&type=${type.stringRepresentation}"
-        result.toStringRepresentation(apiKey) == "http://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName},${countryCode}&type=${type.stringRepresentation}&appid=${apiKey}"
+        result.toStringRepresentation(apiKey) == "https://api.openweathermap.org/data/2.5/forecast/daily?q=${cityName},${countryCode}&type=${type.stringRepresentation}&appid=${apiKey}"
     }
 }

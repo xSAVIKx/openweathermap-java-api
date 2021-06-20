@@ -23,6 +23,6 @@ class ByCityIdBuilderSpockTest extends Specification {
         result.unitFormat == UnitFormat.IMPERIAL
         result.getRequestPart() == "id=cityId"
         builder == builder.self()
-        result.toStringRepresentation('apiKey') == 'http://api.openweathermap.org/data/2.5/weather?lang=en&units=imperial&id=cityId&appid=apiKey&mode=html'
+        result.toStringRepresentation('apiKey') == 'https://api.openweathermap.org/data/2.5/weather?lang=en&units=imperial&id=cityId&appid=apiKey&mode=html'
     }
 }

@@ -6,10 +6,11 @@ import lombok.Data;
 public abstract class AbstractQuery implements Query {
     private UnitFormat unitFormat;
     private Language language;
+    private String baseUrl = BASE_URL;
 
     @Override
     public String toStringRepresentation(String apiKey) {
-        StringBuilder stringBuilder = new StringBuilder(BASE_URL);
+        StringBuilder stringBuilder = new StringBuilder(baseUrl);
         stringBuilder.append(getSearchPath());
         stringBuilder.append(QUESTION_MARK);
         if (getLanguage() != null) {

@@ -17,6 +17,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class HourlyForecast extends AbstractWeatherInformation implements Forecast {
+
     public static final Type TYPE = new TypeToken<ForecastInformation<HourlyForecast>>() {
     }.getType();
     public static final Type TYPE_LIST = TypeToken.getParameterized(List.class, TYPE).getType();

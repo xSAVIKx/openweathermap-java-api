@@ -17,6 +17,6 @@ class ByCityIdBuilderSpocTest extends Specification {
         result.unitFormat == null
         builder == builder.self()
         result.getRequestPart() == "id=${cityId}"
-        result.toStringRepresentation(apiKey) == "http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}"
+        result.toStringRepresentation(apiKey) == "https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}"
     }
 }
