@@ -27,7 +27,7 @@ import org.openweathermap.api.query.UnitFormat;
 import org.openweathermap.api.query.forecast.daily.ByCityName;
 
 public class DailyForecastExample {
-    private static final String API_KEY = "API_KEY_VALUE";
+    private static final String API_KEY = System.getenv("OPENWEATHERMAP_API_KEY");
 
     public static void main(String[] args) {
         DataWeatherClient client = new UrlConnectionDataWeatherClient(API_KEY);

@@ -29,7 +29,7 @@ import org.openweathermap.api.query.currentweather.InCycle;
 import java.util.List;
 
 public class CurrentWeatherMultipleLocationsExample {
-    private static final String API_KEY = "API_KEY_VALUE";
+    private static final String API_KEY = System.getenv("OPENWEATHERMAP_API_KEY");
 
     public static void main(String[] args) {
         DataWeatherClient client = new UrlConnectionDataWeatherClient(API_KEY);

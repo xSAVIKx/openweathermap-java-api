@@ -29,7 +29,7 @@ import org.openweathermap.api.query.uvi.forecast.ByGeographicCoordinates;
 import java.util.List;
 
 public class UviForecastExample {
-    private static final String API_KEY = "e727e62532fa3bedf05392e295969719";
+    private static final String API_KEY = System.getenv("OPENWEATHERMAP_API_KEY");
 
     public static void main(String[] args) {
         DataWeatherClient client = new UrlConnectionDataWeatherClient(API_KEY);
