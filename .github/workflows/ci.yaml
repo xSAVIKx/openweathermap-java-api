@@ -69,3 +69,5 @@ jobs:
         run: chmod +x gradlew
       - name: Publish to GitHub Packages
         run: ./gradlew publish --stacktrace
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
